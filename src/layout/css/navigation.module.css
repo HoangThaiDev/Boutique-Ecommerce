@@ -1,0 +1,169 @@
+.navigate {
+    width: 100%;
+    font-family: "Roboto", sans-serif;
+}
+
+/* CSS: Navigate Container */
+.navigate-container {
+    padding: 10px 40px;
+}
+
+/* CSS: Navigate Row */
+.row {
+    height: 60px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+/* CSS: Navigate List Items */
+.list-items {
+    font-size: 1rem;
+    display: flex;
+    gap: 0 20px;
+}
+
+.col-right .list-items li {
+    position: relative;
+    display: flex;
+    align-items: center;
+    gap: 0 5px;
+}
+
+.col-right .cart-quantity {
+    position: absolute;
+    font: 500 .9rem/1.2rem "Roboto", sans-serif;
+    min-width: 13px;
+    min-height: 14px;
+    height: auto;
+    z-index: 2;
+    top: -5px;
+    left: -8px;
+    border-radius: 100%;
+    background-color: #294155;
+    color: #fff;
+    display: grid;
+    place-items: center;
+    padding: 0 1px;
+}
+
+/* CSS: Navigate Link Item */
+.list-items .link-item {
+    font: italic 500 1.6rem/1.8rem "Roboto", sans-serif;
+    text-decoration: none;
+    color: rgb(40, 40, 40);
+    transition: .3s all ease;
+}
+
+/* CSS: Navigate Logo */
+.box-logo>a {
+    cursor: pointer;
+    text-decoration: none;
+    font: italic 500 2.6rem/2.6rem "Lora", serif;
+    color: rgb(40, 40, 40);
+    letter-spacing: 1px;
+    transition: .3s all ease;
+}
+
+/* CSS: Icons */
+.icon {
+    position: relative;
+    top: -1px;
+    cursor: pointer;
+    font: 500 1.6rem/1.8rem "Roboto", sans-serif;
+}
+
+/* CSS: Effects */
+.list-items .link-item:hover,
+.box-logo>a:hover {
+    color: #deb556;
+}
+
+/* CSS: Active */
+.icon-menu-nav {
+    display: none;
+}
+
+.list-items .link-item-active {
+    color: #deb556;
+}
+
+
+/* CSS: Responsives */
+@media screen and (max-width:575px) {
+    .navigate-container {
+        padding: 0 20px;
+    }
+
+    .col-left .list-items,
+    .col-right .list-items li:nth-child(1) {
+        display: none;
+    }
+
+    .icon-menu-nav {
+        display: block;
+        font-size: 2rem;
+    }
+
+    .box-logo>a {
+        font-size: 2.2rem;
+    }
+
+    .list-items .link-item {
+        font-size: 1.4rem;
+    }
+}
+
+@media screen and (min-width:576px) and (max-width:765px) {
+    .navigate-container {
+        padding: 0 20px;
+    }
+
+    .box-logo>a {
+        font-size: 2.2rem;
+    }
+
+    .list-items .link-item {
+        font-size: 1.4rem;
+    }
+
+    .col-right .cart-quantity {
+        font-size: .8rem;
+    }
+}
+
+@media screen and (min-width:766px) and (max-width:991px) {
+    .navigate-container {
+        padding: 0 20px;
+    }
+
+    .box-logo>a {
+        font-size: 2.2rem;
+    }
+
+    .list-items .link-item {
+        font-size: 1.4rem;
+    }
+
+    .col-right .cart-quantity {
+        font-size: .8rem;
+    }
+}
+
+@media screen and (min-width:992px) and (max-width:1199px) {
+    .navigate-container {
+        padding: 0 20px;
+    }
+
+    .box-logo>a {
+        font-size: 2.2rem;
+    }
+
+    .list-items .link-item {
+        font-size: 1.4rem;
+    }
+
+    .col-right .cart-quantity {
+        font-size: .8rem;
+    }
+}

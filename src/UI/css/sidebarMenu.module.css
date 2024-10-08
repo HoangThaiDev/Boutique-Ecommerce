@@ -1,0 +1,72 @@
+:root {
+    --bg-color: #fff
+}
+
+/* CSS: Sidebar Menu */
+.sidebar-menu {
+    position: absolute;
+    top: 0;
+    left: -700px;
+    z-index: 2;
+    width: 300px;
+    height: 100vh;
+    background-color: var(--bg-color);
+    transition: 1s all ease-in-out;
+}
+
+/* CSS: Sidebar Menu Container*/
+.sidebar-menu-container {
+    padding: 20px 0;
+    height: inherit;
+}
+
+
+/* CSS: Sidebar Menu Header*/
+.sidebar-header {
+    padding: 0 20px 15px 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 2px solid rgba(172, 172, 172, .4);
+}
+
+.sidebar-header>h2 {
+    font: 500 2rem/2.2rem "Bodoni Moda", serif;
+    letter-spacing: .6px;
+}
+
+.sidebar-header .icon-close {
+    font: 500 2.2rem/2.2rem "Bodoni Moda", serif;
+}
+
+/* CSS: Sidebar Menu Header*/
+.sidebar-main {
+    padding: 20px;
+}
+
+.list-items {
+    display: flex;
+    flex-direction: column;
+    gap: 15px 0;
+}
+
+.list-items>li {
+    display: flex;
+    gap: 0 10px;
+}
+
+.list-items>li .link-item {
+    text-decoration: none;
+    font: 500 1.6rem/1.8rem "Roboto", sans-serif;
+    color: rgb(50, 79, 90);
+}
+
+.list-items>li .icon {
+    font-size: 1.6rem;
+    color: rgb(50, 79, 90);
+}
+
+/* CSS: Active */
+.sidebar-menu-active {
+    left: 0;
+}

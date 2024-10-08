@@ -1,0 +1,189 @@
+.subscribe {
+    width: 100%;
+}
+
+/* CSS: Subscribe Container */
+.subscribe-container {
+    width: 1140px;
+    margin: 50px auto;
+}
+
+/* CSS: Subscribe Row */
+.subscribe-row {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: center;
+}
+
+/* CSS: Subscribe Title */
+.subscribe-title {
+    display: flex;
+    flex-direction: column;
+    gap: 8px 0;
+}
+
+.subscribe-title>h3 {
+    font: italic 600 2.0rem/2.4rem "Playfair Display", serif;
+    letter-spacing: 1px;
+    color: rgb(50, 50, 50);
+}
+
+.subscribe-title>p {
+    font: italic 500 1.6rem/2.0rem "Roboto", sans-serif;
+    color: rgb(175, 175, 175);
+    letter-spacing: .4px;
+}
+
+/* CSS: Subscribe Form */
+
+.subscribe-form .form-input {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+}
+
+.form-input .input-email {
+    width: 300px;
+    box-sizing: border-box;
+    height: 60px;
+    border: 2px solid rgba(74, 74, 74, .4);
+    border-right: none;
+    border-radius: 0;
+    padding: 0 15px;
+    font: 500 1.4rem/1.8rem "Roboto", sans-serif;
+    transition: .5s all ease;
+}
+
+.form-input .input-email::placeholder {
+    font: 500 1.4rem/1.8rem "Roboto", sans-serif;
+    color: rgb(175, 175, 175);
+}
+
+.form-input .btn-subscribe {
+    font: 500 1.4rem/1.8rem "Roboto", sans-serif;
+    cursor: pointer;
+    height: 60px;
+    background-color: rgb(74, 74, 74);
+    border: 2px solid transparent;
+    color: #fff;
+    padding: 0 20px;
+    transition: .5s all ease;
+}
+
+/* CSS: Effect */
+.form-input .input-email:focus {
+    outline: 0;
+    border-color: rgb(45, 74, 92);
+}
+
+.form-input .btn-subscribe:hover {
+    background-color: rgb(45, 74, 92);
+}
+
+/* CSS: Responsives */
+@media screen and (max-width:575px) {
+    .subscribe-container {
+        width: 90%;
+    }
+
+    .subscribe-row {
+        justify-content: center;
+        text-align: center;
+        gap: 20px 0;
+    }
+
+    .subscribe-title>h3 {
+        font: italic 600 1.8rem/2.4rem "Playfair Display", serif;
+    }
+
+    .subscribe-title>p {
+        font: italic 500 1.4rem/2.0rem "Roboto", sans-serif;
+    }
+
+    .subscribe-form {
+        width: 100%;
+    }
+
+    .subscribe-form .form-input {
+        justify-content: center;
+    }
+
+    .form-input .input-email {
+        flex: 2;
+        border: 2px solid rgba(74, 74, 74, .4);
+    }
+
+    .form-input .btn-subscribe {
+        flex: 1;
+        padding: 20px;
+    }
+}
+
+@media screen and (min-width:576px) and (max-width:765px) {
+    .subscribe-container {
+        width: 90%;
+    }
+
+    .subscribe-row {
+        justify-content: center;
+        text-align: center;
+        gap: 20px 0;
+    }
+
+    .subscribe-title>h3 {
+        font: italic 600 1.8rem/2.4rem "Playfair Display", serif;
+    }
+
+    .subscribe-title>p {
+        font: italic 500 1.4rem/2.0rem "Roboto", sans-serif;
+    }
+
+    .subscribe-form {
+        width: 100%;
+    }
+
+    .subscribe-form .form-input {
+        justify-content: center;
+    }
+
+    .form-input .input-email {
+        border: 2px solid rgba(74, 74, 74, .4);
+    }
+
+    .form-input .btn-subscribe {
+        padding: 20px;
+    }
+}
+
+@media screen and (min-width:766px) and (max-width:991px) {
+    .subscribe-container {
+        width: 90%;
+    }
+
+    .subscribe-title>h3 {
+        font: italic 600 1.8rem/2.4rem "Playfair Display", serif;
+    }
+
+    .subscribe-title>p {
+        font: italic 500 1.4rem/2.0rem "Roboto", sans-serif;
+    }
+
+    .form-input .input-email {
+        width: 250px;
+    }
+}
+
+@media screen and (min-width:992px) and (max-width:1199px) {
+    .subscribe-container {
+        width: 90%;
+    }
+
+    .subscribe-title>h3 {
+        font: italic 600 1.8rem/2.4rem "Playfair Display", serif;
+    }
+
+    .subscribe-title>p {
+        font: italic 500 1.4rem/2.0rem "Roboto", sans-serif;
+    }
+}

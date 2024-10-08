@@ -1,10 +1,20 @@
-import { StrictMode } from 'react'
-import { createRoot } from 'react-dom/client'
-import App from './App.jsx'
-import './index.css'
+// Import Modules
+import { StrictMode } from "react";
+import { createRoot } from "react-dom/client";
+import "./index.css";
+import store from "./redux/store.js";
+import { Provider as ProviderRedux } from "react-redux";
+import ContextProvider from "./context/StoreContext.jsx";
 
-createRoot(document.getElementById('root')).render(
+// Import Components
+import App from "./App.jsx";
+
+createRoot(document.getElementById("root")).render(
   <StrictMode>
-    <App />
-  </StrictMode>,
-)
+    <ContextProvider>
+      <ProviderRedux store={store}>
+        <App />
+      </ProviderRedux>
+    </ContextProvider>
+  </StrictMode>
+);

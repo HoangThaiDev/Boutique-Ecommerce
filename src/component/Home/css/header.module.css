@@ -1,0 +1,145 @@
+.header {
+    width: 100%;
+}
+
+.header-container {
+    position: relative;
+}
+
+.header-container .banner-image {
+    width: 100%;
+    height: 500px;
+    object-fit: cover;
+}
+
+.header-main {
+    width: 400px;
+    max-width: 400px;
+    position: absolute;
+    top: 30%;
+    left: 10%;
+}
+
+.header-main>p {
+    color: gray;
+    font: 500 1.6rem/1.6rem "Roboto", sans-serif;
+    letter-spacing: .4px;
+}
+
+.header-main>h2 {
+    color: rgba(39, 38, 38, .8);
+    font: italic 600 4rem/5rem "Roboto", sans-serif;
+    margin: 10px 0;
+    letter-spacing: .6px;
+}
+
+.header-main>a {
+    display: inline-block;
+    text-decoration: none;
+    color: #fff;
+    background-color: rgb(75, 74, 74);
+    font: 500 italic 1.6rem/1.6rem "Roboto", sans-serif;
+    padding: 14px 28px;
+    letter-spacing: .6px;
+    border-radius: 3px;
+    transition: .5s all ease;
+}
+
+/* CSS: Effects */
+.header-main>a:hover {
+    background-color: rgb(45, 45, 45);
+}
+
+/* CSS: Responsives */
+@media screen and (max-width:575px) {
+    .header-container .banner-image {
+        height: 400px;
+    }
+
+    .header-main {
+        width: 300px;
+        left: 5%;
+    }
+
+    .header-main>p {
+        font: 500 1.4rem/1.6rem "Roboto", sans-serif;
+    }
+
+    .header-main>h2 {
+        font: italic 600 2.6rem/3.2rem "Roboto", sans-serif;
+        margin: 15px 0;
+    }
+
+    .header-main>a {
+        font: 500 italic 1.4rem/1.6rem "Roboto", sans-serif;
+    }
+}
+
+@media screen and (min-width:576px) and (max-width:765px) {
+    .header-container .banner-image {
+        height: 400px;
+    }
+
+    .header-main {
+        width: 300px;
+    }
+
+    .header-main>p {
+        font: 500 1.4rem/1.6rem "Roboto", sans-serif;
+    }
+
+    .header-main>h2 {
+        font: italic 600 2.6rem/3.2rem "Roboto", sans-serif;
+        margin: 15px 0;
+    }
+
+    .header-main>a {
+        font: 500 italic 1.4rem/1.6rem "Roboto", sans-serif;
+    }
+}
+
+@media screen and (min-width:766px) and (max-width:991px) {
+    .header-container .banner-image {
+        height: 400px;
+    }
+
+    .header-main {
+        width: 300px;
+    }
+
+    .header-main>p {
+        font: 500 1.4rem/1.6rem "Roboto", sans-serif;
+    }
+
+    .header-main>h2 {
+        font: italic 600 2.8rem/3.2rem "Roboto", sans-serif;
+        margin: 15px 0;
+    }
+
+    .header-main>a {
+        font: 500 italic 1.4rem/1.6rem "Roboto", sans-serif;
+    }
+}
+
+@media screen and (min-width:992px) and (max-width:1199px) {
+    .header-container .banner-image {
+        height: 400px;
+    }
+
+    .header-main {
+        width: 300px;
+    }
+
+    .header-main>p {
+        font: 500 1.4rem/1.6rem "Roboto", sans-serif;
+    }
+
+    .header-main>h2 {
+        font: italic 600 2.8rem/3.4rem "Roboto", sans-serif;
+        margin: 15px 0;
+    }
+
+    .header-main>a {
+        font: 500 italic 1.4rem/1.6rem "Roboto", sans-serif;
+    }
+}
