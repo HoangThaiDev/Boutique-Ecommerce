@@ -112,11 +112,14 @@
     .form-input .input-email {
         flex: 2;
         border: 2px solid rgba(74, 74, 74, .4);
+        height: 50px;
     }
 
     .form-input .btn-subscribe {
         flex: 1;
         padding: 20px;
+        font: 500 1.4rem / 1.0rem "Roboto", sans-serif;
+        height: 50px;
     }
 }
 
@@ -149,10 +152,13 @@
 
     .form-input .input-email {
         border: 2px solid rgba(74, 74, 74, .4);
+        height: 50px;
     }
 
     .form-input .btn-subscribe {
+        font: 500 1.4rem / 1.0rem "Roboto", sans-serif;
         padding: 20px;
+        height: 50px;
     }
 }
 

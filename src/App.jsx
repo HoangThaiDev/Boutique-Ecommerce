@@ -7,6 +7,8 @@ import RootLayout from "./layout/RootLayout";
 
 // ------------ Pages --------------
 import Home from "./page/Home";
+import Login from "./page/Login";
+import Register from "./page/Register";
 
 // ------------ Component --------------
 import PopupProduct from "./UI/PopupProduct";
@@ -22,6 +24,10 @@ function App() {
           <Route path="/" element={<RootLayout />}>
             <Route index element={<Home />} />
           </Route>
+
+          {/* Route: User */}
+          <Route path="/login" element={<Login />} />
+          <Route path="/signup" element={<Register />} />
         </Routes>
       </BrowserRouter>
     </div>
