@@ -13,6 +13,7 @@ import Input from "./Input";
 
 // Import Icons
 import { IoHome } from "react-icons/io5";
+import APIServer from "../../API/customAPI";
 
 export default function FormRegister() {
   // Create + use Schema Yup
@@ -20,15 +21,18 @@ export default function FormRegister() {
     fullname: Yup.string().required("Fullname is required"),
     email: Yup.string()
       .required("Email is required !")
-      .matches(/^[A-Z0-9]+@[A-Z0-9.-]+\.[A-Z]{2,}$/i, "Email is invalid !"),
+      .matches(
+        /^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.(com|net|org)$/i,
+        "Email is invalid !"
+      ),
     password: Yup.string()
       .required("Password is required !")
       .min(8, "Password must be 8 characters or more !"),
     phone: Yup.string()
       .required("Phone is required !")
       .matches(/[0-9]/i, "Phone numbers must be numeric characters !")
-      .min(10, "Password must be 10 characters !")
-      .max(10, "Password must be 10 characters !"),
+      .min(10, "Phone must be 10 characters !")
+      .max(10, "Phone must be 10 characters !"),
   });
 
   // Create + use validate Formik
@@ -41,7 +45,18 @@ export default function FormRegister() {
     },
     validationSchema: schemaFormRegister,
     onSubmit: async (values) => {
-      console.log(values);
+      try {
+        const res = await APIServer.user.postSignUpUser(values);
+
+        if (res.status === 201) {
+          const { message } = res.data;
+          alert(message);
+          navigate("../login");
+        }
+      } catch (error) {
+        const { data } = error.response;
+        console.log(">>> Error from Server:", data.message);
+      }
     },
   });
 

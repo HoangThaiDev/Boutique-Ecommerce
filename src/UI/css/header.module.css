@@ -1,0 +1,100 @@
+.header {
+    position: relative;
+    width: 100%;
+    background-color: rgb(248, 249, 250);
+    height: 350px;
+}
+
+.header-container {
+    width: 80%;
+    height: inherit;
+    position: absolute;
+    inset: 50%;
+    transform: translate(-50%, -40%);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.header-container .title {
+    font: 600 italic 4.0rem/4.4rem "Bodoni Moda", serif;
+    color: rgb(73, 73, 73);
+    letter-spacing: .6px;
+}
+
+.header-container .content {
+    font: 500 italic 2.0rem/2.4rem "Bodoni Moda", serif;
+    color: rgb(61, 61, 61);
+    letter-spacing: .4px;
+}
+
+/* CSS: Responsives */
+@media screen and (max-width:575px) {
+    .header {
+        height: 300px;
+    }
+
+    .header-container {
+        flex-direction: column;
+        justify-content: center;
+        gap: 20px 0;
+        transform: translate(-50%, -45%);
+    }
+
+    .header-container .title {
+        font: 600 italic 3.4rem/3.4rem "Bodoni Moda", serif;
+    }
+
+    .header-container .content {
+        font: 500 italic 1.8rem/2.0rem "Bodoni Moda", serif;
+    }
+
+}
+
+@media screen and (min-width:576px) and (max-width:765px) {
+    .header {
+        height: 300px;
+    }
+
+    .header-container {
+        transform: translate(-50%, -45%);
+    }
+
+    .header-container .title {
+        font: 600 italic 3.4rem/3.4rem "Bodoni Moda", serif;
+    }
+
+    .header-container .content {
+        font: 500 italic 1.8rem/2.0rem "Bodoni Moda", serif;
+    }
+}
+
+@media screen and (min-width:766px) and (max-width:991px) {
+    .header {
+        height: 300px;
+    }
+
+    .header-container {
+        transform: translate(-50%, -45%);
+
+    }
+
+    .header-container .title {
+        font: 600 italic 3.4rem/3.4rem "Bodoni Moda", serif;
+    }
+
+    .header-container .content {
+        font: 500 italic 1.8rem/2.0rem "Bodoni Moda", serif;
+    }
+}
+
+@media screen and (min-width:992px) and (max-width:1199px) {
+    .header {
+        height: 300px;
+    }
+
+    .header-container {
+        transform: translate(-50%, -45%);
+
+    }
+}

@@ -2,6 +2,15 @@
     width: 100%;
     font-family: "Roboto", sans-serif;
     background-color: #fff;
+    position: fixed;
+    top: 0;
+    z-index: 3;
+    transition: 1s all ease;
+}
+
+.navigate.scroll {
+    box-shadow: 2px 0 10px 1px rgba(159, 159, 159, .7);
+    transition: 1s all ease;
 }
 
 /* CSS: Navigate Container */
@@ -17,11 +26,19 @@
     align-items: center;
 }
 
+.col {
+    flex: 1;
+}
+
 /* CSS: Navigate List Items */
 .list-items {
     font-size: 1rem;
     display: flex;
     gap: 0 20px;
+}
+
+.col-right .list-items {
+    justify-content: flex-end;
 }
 
 .col-right .list-items li {
@@ -57,6 +74,10 @@
 }
 
 /* CSS: Navigate Logo */
+.box-logo {
+    text-align: center;
+}
+
 .box-logo>a {
     cursor: pointer;
     text-decoration: none;

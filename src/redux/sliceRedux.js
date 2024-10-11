@@ -4,8 +4,25 @@ import { createSlice } from "@reduxjs/toolkit";
 // Create initialState
 const initialSideBarMenu = { isShow: false };
 const initialPopupProduct = { isShow: false, product: null };
+const initialUser = { isLoggedIn: false, accessToken: "", cart: [] };
 
 // Create Slice
+const userSlice = createSlice({
+  name: "user",
+  initialState: initialUser,
+  reducers: {
+    save(state, action) {
+      const { payload } = action;
+
+      return {
+        ...state,
+        isLoggedIn: payload.isLoggedIn,
+        accessToken: payload.accessToken,
+      };
+    },
+  },
+});
+
 const sidebarMenuSlice = createSlice({
   name: "sidebar",
   initialState: initialSideBarMenu,
@@ -34,4 +51,4 @@ const popupProductSlice = createSlice({
   },
 });
 
-export { sidebarMenuSlice, popupProductSlice };
+export { sidebarMenuSlice, popupProductSlice, userSlice };

@@ -18,7 +18,7 @@ import { BiLogOut } from "react-icons/bi";
 import { NavLink } from "react-router-dom";
 import Overlay from "./Overlay";
 
-function Sidebar({ isShowSidebarMenu, onCloseSidebarMenu }) {
+function Sidebar({ isShowSidebarMenu, onCloseSidebarMenu, isLoggin }) {
   return (
     <div
       className={
@@ -82,20 +82,22 @@ function Sidebar({ isShowSidebarMenu, onCloseSidebarMenu }) {
                 Cart
               </NavLink>
             </li>
-            <li>
-              <BiLogOut
-                className={`${classes["icon"]} ${classes["icon-logout"]}`}
-              />
-              <NavLink
-                className={({ isActive }) =>
-                  isActive
-                    ? `${classes["link-item"]} ${classes["link-item-active"]}`
-                    : classes["link-item"]
-                }
-              >
-                Logout
-              </NavLink>
-            </li>
+            {isLoggin && (
+              <li>
+                <BiLogOut
+                  className={`${classes["icon"]} ${classes["icon-logout"]}`}
+                />
+                <NavLink
+                  className={({ isActive }) =>
+                    isActive
+                      ? `${classes["link-item"]} ${classes["link-item-active"]}`
+                      : classes["link-item"]
+                  }
+                >
+                  Logout
+                </NavLink>
+              </li>
+            )}
           </ul>
         </div>
       </div>
@@ -109,6 +111,7 @@ export default function SidebarMenu() {
   const { isShow: isShowSidebarMenu } = useSelector(
     (state) => state.sidebarMenu
   );
+  const { isLoggin } = useSelector((state) => state.user);
 
   // Create + use event handles
   const closeSidebarMenuHandle = () => {
@@ -122,6 +125,7 @@ export default function SidebarMenu() {
         document.getElementById("overlay")
       )}
       <Sidebar
+        isLoggin={isLoggin}
         isShowSidebarMenu={isShowSidebarMenu}
         onCloseSidebarMenu={closeSidebarMenuHandle}
       />

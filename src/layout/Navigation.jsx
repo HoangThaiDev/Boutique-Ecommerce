@@ -1,6 +1,6 @@
 // Import Module
-import React, { useState } from "react";
-import { useDispatch } from "react-redux";
+import React, { useEffect, useRef } from "react";
+import { useDispatch, useSelector } from "react-redux";
 import { actionSidebarMenu } from "../redux/actionRedux";
 
 // Import File CSS
@@ -16,7 +16,24 @@ import { HiOutlineMenu } from "react-icons/hi";
 
 export default function Navigation() {
   // Create + use Hooks
+  const navRef = useRef();
   const dispatch = useDispatch();
+  const { isLoggedIn, cart } = useSelector((state) => state.user);
+
+  // Side Effect
+  useEffect(() => {
+    const scrollNav = () => {
+      window.scrollY > 100
+        ? navRef.current.classList.add(classes["scroll"])
+        : navRef.current.classList.remove(classes["scroll"]);
+    };
+
+    window.addEventListener("scroll", scrollNav);
+
+    return () => {
+      window.removeEventListener("scroll", scrollNav);
+    };
+  }, []);
 
   // Create + use event handles
   const showSidebarMenuHandle = () => {
@@ -24,9 +41,10 @@ export default function Navigation() {
   };
 
   return (
-    <div className={classes["navigate"]}>
+    <div className={classes["navigate"]} ref={navRef}>
       <div className={classes["navigate-container"]}>
         <div className={classes["row"]}>
+          {/* JSX:----------------- Col Left -------------------*/}
           <div className={`${classes["col"]} ${classes["col-left"]}`}>
             <HiOutlineMenu
               className={`${classes["icon"]} ${classes["icon-menu-nav"]} `}
@@ -59,15 +77,23 @@ export default function Navigation() {
               </li>
             </ul>
           </div>
+
+          {/* JSX:----------------- Col Center -------------------*/}
           <div className={`${classes["col"]} ${classes["col-center"]}`}>
             <div className={classes["box-logo"]}>
               <Link to="/">BOUTIQUE</Link>
             </div>
           </div>
+
+          {/* JSX:----------------- Col Right -------------------*/}
           <div className={`${classes["col"]} ${classes["col-right"]}`}>
             <ul className={classes["list-items"]}>
               <li>
-                <span className={classes["cart-quantity"]}>0</span>
+                {isLoggedIn && (
+                  <span className={classes["cart-quantity"]}>
+                    {cart.length}
+                  </span>
+                )}
                 <FaOpencart
                   className={`${classes["icon"]} ${classes["icon-cart"]}`}
                 />
@@ -86,16 +112,29 @@ export default function Navigation() {
                 <LuUser2
                   className={`${classes["icon"]} ${classes["icon-user"]}`}
                 />
-                <NavLink
-                  to="/login"
-                  className={({ isActive }) =>
-                    isActive
-                      ? `${classes["link-item"]} ${classes["link-item-active"]}`
-                      : classes["link-item"]
-                  }
-                >
-                  Login
-                </NavLink>
+                {isLoggedIn ? (
+                  <NavLink
+                    to="/setting-user"
+                    className={({ isActive }) =>
+                      isActive
+                        ? `${classes["link-item"]} ${classes["link-item-active"]}`
+                        : classes["link-item"]
+                    }
+                  >
+                    User
+                  </NavLink>
+                ) : (
+                  <NavLink
+                    to="/login"
+                    className={({ isActive }) =>
+                      isActive
+                        ? `${classes["link-item"]} ${classes["link-item-active"]}`
+                        : classes["link-item"]
+                    }
+                  >
+                    Login
+                  </NavLink>
+                )}
               </li>
             </ul>
           </div>

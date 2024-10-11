@@ -4,6 +4,7 @@ import { APIContext } from "../../context/StoreContext";
 import { useNavigate } from "react-router-dom";
 import { useDispatch } from "react-redux";
 import { actionPopupProduct } from "../../redux/actionRedux";
+import APIServer from "../../API/customAPI";
 
 // Import File CSS
 import classes from "./css/productTrending.module.css";
@@ -59,6 +60,25 @@ export default function ProductTrending() {
     }
   };
 
+  const showProductDetailHandle = async (productId) => {
+    try {
+      const res = await APIServer.shop.getProductDetail(productId);
+
+      const productDetail = res.data;
+
+      // Update product: name
+      productDetail.name = productDetail.name
+        .replace(/\s*-\s*/g, "-")
+        .replace(/\s+/g, "-");
+      navigate(`/product/${productDetail.name}`, {
+        state: { productDetail },
+      });
+    } catch (error) {
+      const { data } = error.response;
+      alert(data.message);
+    }
+  };
+
   return (
     <div className={classes["products-trending"]}>
       <div className={classes["products-trending-container"]}>
@@ -73,6 +93,7 @@ export default function ProductTrending() {
               <div className={classes["item-product-actions"]}>
                 <IoSearch
                   className={`${classes["icon"]} ${classes["icon-search"]}`}
+                  onClick={() => showProductDetailHandle(product._id)}
                 />
                 <BsBagCheck
                   className={`${classes["icon"]} ${classes["icon-bag"]}`}

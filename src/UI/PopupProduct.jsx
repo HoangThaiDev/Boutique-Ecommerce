@@ -2,6 +2,9 @@
 import { useSelector, useDispatch } from "react-redux";
 import { actionPopupProduct } from "../redux/actionRedux";
 import { createPortal } from "react-dom";
+import APIServer from "../API/customAPI";
+import { useLocation, useNavigate } from "react-router-dom";
+import { useEffect } from "react";
 
 // Import File CSS
 import classes from "./css/popupProduct.module.css";
@@ -14,6 +17,38 @@ import { CgClose } from "react-icons/cg";
 import { FaShoppingCart } from "react-icons/fa";
 
 const Product = ({ isShowPopupProduct, onClosePopupProduct, product }) => {
+  // Create + use Hooks
+  const location = useLocation();
+  const dispatch = useDispatch();
+  const navigate = useNavigate();
+
+  // Side Effect
+  useEffect(() => {
+    if (location.pathname !== "") {
+      dispatch(actionPopupProduct.hide());
+    }
+  }, [location]);
+
+  // Create + use event handles
+  const showProductDetailHandle = async (productId) => {
+    try {
+      const res = await APIServer.shop.getProductDetail(productId);
+
+      const productDetail = res.data;
+
+      // Update product: name
+      productDetail.name = productDetail.name
+        .replace(/\s*-\s*/g, "-")
+        .replace(/\s+/g, "-");
+      navigate(`/product/${productDetail.name}`, {
+        state: { productDetail },
+      });
+    } catch (error) {
+      const { data } = error.response;
+      alert(data.message);
+    }
+  };
+
   return (
     <>
       {isShowPopupProduct && (
@@ -40,7 +75,11 @@ const Product = ({ isShowPopupProduct, onClosePopupProduct, product }) => {
                 <p className={classes["info-detail-short-desc"]}>
                   {product.short_desc}
                 </p>
-                <button type="button" className={classes["btn-view-detail"]}>
+                <button
+                  type="button"
+                  className={classes["btn-view-detail"]}
+                  onClick={() => showProductDetailHandle(product._id)}
+                >
                   <FaShoppingCart className={classes["icon-cart"]} />
                   View Detail
                 </button>

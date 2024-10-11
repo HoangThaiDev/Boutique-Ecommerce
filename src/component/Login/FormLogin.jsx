@@ -3,6 +3,8 @@ import React from "react";
 import * as Yup from "yup";
 import { useFormik } from "formik";
 import { Link, useNavigate } from "react-router-dom";
+import { useDispatch } from "react-redux";
+import { actionUser } from "../../redux/actionRedux";
 
 // Import File CSS
 import classes from "./css/formLogin.module.css";
@@ -13,13 +15,17 @@ import Input from "./Input";
 
 // Import Icons
 import { IoHome } from "react-icons/io5";
+import APIServer from "../../API/customAPI";
 
 export default function FormLogin() {
   // Create + use Schema Yup
   const schemaFormLogin = Yup.object().shape({
     email: Yup.string()
       .required("Email is required !")
-      .matches(/^[A-Z0-9]+@[A-Z0-9.-]+\.[A-Z]{2,}$/i, "Invalid Email !"),
+      .matches(
+        /^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.(com|net|org)$/i,
+        "Invalid Email !"
+      ),
     password: Yup.string()
       .required("Password is required !")
       .min(8, "Password must be 8 characters or more !"),
@@ -33,13 +39,27 @@ export default function FormLogin() {
     },
     validationSchema: schemaFormLogin,
     onSubmit: async (values) => {
-      console.log(values);
+      try {
+        const res = await APIServer.user.postLoginUser(values);
+
+        if (res.status === 200) {
+          const { message, accessToken, isLoggedIn } = res.data;
+          alert(message);
+          navigate("..");
+
+          //  Update state: User
+          dispatch(actionUser.save({ accessToken, isLoggedIn }));
+        }
+      } catch (error) {
+        const { data } = error.response;
+        alert(data.message);
+      }
     },
   });
 
   // Create + use Hooks
   const navigate = useNavigate();
-
+  const dispatch = useDispatch();
   // Create + use event handles
   const backHomeHandle = () => {
     navigate("..");
