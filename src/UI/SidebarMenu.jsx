@@ -1,5 +1,5 @@
 // Import Modules
-import React from "react";
+import React, { useEffect } from "react";
 import { createPortal } from "react-dom";
 import { useSelector, useDispatch } from "react-redux";
 import { actionSidebarMenu } from "../redux/actionRedux";
@@ -15,7 +15,7 @@ import { AiOutlineHome } from "react-icons/ai";
 import { BiLogOut } from "react-icons/bi";
 
 // Import Components
-import { NavLink } from "react-router-dom";
+import { NavLink, useLocation } from "react-router-dom";
 import Overlay from "./Overlay";
 
 function Sidebar({ isShowSidebarMenu, onCloseSidebarMenu, isLoggin }) {
@@ -108,10 +108,16 @@ function Sidebar({ isShowSidebarMenu, onCloseSidebarMenu, isLoggin }) {
 export default function SidebarMenu() {
   // Create + use Hooks
   const dispatch = useDispatch();
+  const location = useLocation();
   const { isShow: isShowSidebarMenu } = useSelector(
     (state) => state.sidebarMenu
   );
   const { isLoggin } = useSelector((state) => state.user);
+
+  // Side Effect
+  useEffect(() => {
+    dispatch(actionSidebarMenu.hide());
+  }, [location]);
 
   // Create + use event handles
   const closeSidebarMenuHandle = () => {

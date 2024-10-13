@@ -1,0 +1,116 @@
+.related-product {
+    width: 100%;
+}
+
+/* CSS: Related Product Container */
+.related-product-container {
+    margin: 80px 0 0;
+}
+
+.related-product-container>h3 {
+    margin: 0 0 40px;
+    font: italic 600 1.8rem/1.6rem "Roboto", sans-serif;
+    letter-spacing: 1px;
+    color: rgb(43, 43, 43);
+}
+
+/* CSS: Related Product Row */
+.products-flex {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px 30px;
+}
+
+/* CSS: Related Product Col */
+.item-product {
+    width: 20%;
+}
+
+.item-product-image {
+    cursor: pointer;
+    background-color: #fff;
+    overflow: hidden;
+    border-radius: 5px;
+    border: 0.5px solid rgba(193, 191, 191, 0.3);
+}
+
+.item-product-image>img {
+    width: 100%;
+    height: 250px;
+    object-fit: cover;
+    transition: .5s all ease;
+}
+
+.item-product-info {
+    position: relative;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    gap: 10px 0;
+    padding: 10px 5px;
+    overflow: hidden;
+}
+
+.item-product-info .info-name {
+    font: 700 1.4rem/2.0rem "Roboto", sans-serif;
+    color: rgb(68, 67, 67);
+    letter-spacing: .6px;
+}
+
+.item-product-info .info-price {
+    font: 500 italic 1.4rem/1.8rem "Roboto", sans-serif;
+    color: rgb(120, 119, 119);
+    letter-spacing: .6px;
+}
+
+/* CSS: Responsives */
+@media screen and (max-width:575px) {
+    .products-flex {
+        justify-content: center;
+    }
+
+    .item-product {
+        width: 250px;
+    }
+
+    .item-product-image>img {
+        width: inherit;
+        height: 250px;
+    }
+}
+
+@media screen and (min-width:576px) and (max-width:765px) {
+    .item-product {
+        width: 250px;
+    }
+
+    .item-product-image>img {
+        width: inherit;
+        height: 250px;
+    }
+}
+
+@media screen and (min-width:766px) and (max-width:991px) {
+    .item-product {
+        width: 250px;
+    }
+
+    .item-product-image>img {
+        width: inherit;
+        height: 250px;
+    }
+}
+
+@media screen and (min-width:992px) and (max-width:1199px) {
+    .item-product {
+        width: 250px;
+    }
+
+    .item-product-image>img {
+        width: inherit;
+        height: 250px;
+    }
+}

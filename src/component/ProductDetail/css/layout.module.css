@@ -1,0 +1,102 @@
+.product-detail {
+    width: 100%;
+    background-color: #fff;
+}
+
+/* CSS: Product Detail Container */
+.product-detail-container {
+    width: 1140px;
+    margin: 0 auto;
+    padding: 100px 0;
+}
+
+/* CSS: Product Detail Row */
+.row {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+}
+
+/* CSS: Product Detail Col */
+.col-images {
+    width: 45%;
+}
+
+.col-info {
+    width: 50%;
+}
+
+.col-desc {
+    width: 100%;
+}
+
+.col-related-product {
+    width: 100%;
+}
+
+/* CSS: Responsives */
+@media screen and (max-width:575px) {
+    .product-detail-container {
+        width: 90%;
+        padding: 50px 0;
+    }
+
+    .col-images,
+    .col-info,
+    .col-desc,
+    .col-related-product {
+        width: 100%;
+    }
+
+}
+
+@media screen and (min-width:576px) and (max-width:765px) {
+    .product-detail-container {
+        width: 90%;
+        padding: 50px 0;
+    }
+
+    .col-images,
+    .col-info,
+    .col-desc,
+    .col-related-product {
+        width: 100%;
+    }
+}
+
+@media screen and (min-width:766px) and (max-width:991px) {
+    .product-detail-container {
+        width: 90%;
+        padding: 50px 0;
+    }
+
+    .col-images,
+    .col-info,
+    .col-desc,
+    .col-related-product {
+        width: 100%;
+    }
+}
+
+@media screen and (min-width:992px) and (max-width:1199px) {
+    .product-detail-container {
+        width: 90%;
+        padding: 50px 0;
+    }
+
+    .col-images {
+        width: 47%;
+    }
+
+    .col-info {
+        width: 50%;
+    }
+
+    .col-desc {
+        width: 100%;
+    }
+
+    .col-related-product {
+        width: 100%;
+    }
+}

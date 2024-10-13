@@ -1,0 +1,75 @@
+.description {
+    width: 100%;
+    margin-top: 50px;
+}
+
+.description .title {
+    display: inline-block;
+    font: italic 500 1.4rem/1.6rem "Roboto", sans-serif;
+    background-color: rgb(43, 43, 43);
+    color: #d4d2d2;
+    padding: 14px 24px;
+    letter-spacing: .6px;
+}
+
+.description>h3 {
+    margin: 20px 0 30px;
+    font: italic 500 1.8rem/1.6rem "Roboto", sans-serif;
+    letter-spacing: 1px;
+    color: rgb(43, 43, 43);
+}
+
+.content-flex {
+    display: flex;
+    flex-direction: column;
+    gap: 10px 0;
+}
+
+.content {
+    font: 500 1.6rem/2.6rem "Roboto", sans-serif;
+    color: #a4a3a3;
+}
+
+.content:first-child {
+    font-size: 1.8rem;
+    font-style: italic;
+    margin-bottom: 5px;
+}
+
+.content:nth-child(n+2) {
+    position: relative;
+    margin-left: 15px;
+}
+
+.content:nth-child(n+2)::after {
+    font: 500 2.0rem/1.6rem "Roboto", sans-serif;
+    content: '-';
+    position: absolute;
+    top: 3px;
+    left: -13px;
+}
+
+/* CSS: Responsives */
+@media screen and (max-width:575px) {
+    .description {
+        margin-top: 0;
+    }
+}
+
+@media screen and (min-width:576px) and (max-width:765px) {
+    .description {
+        margin-top: 0;
+    }
+}
+
+@media screen and (min-width:766px) and (max-width:991px) {
+    .description {
+        margin-top: 0;
+    }
+}
+
+@media screen and (min-width:992px) and (max-width:1199px) {
+    .description {
+        margin-top: 0;
+    }
+}

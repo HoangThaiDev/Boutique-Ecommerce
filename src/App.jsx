@@ -18,6 +18,7 @@ import ProductDetail from "./page/ProductDetail";
 // ------------ Component --------------
 import PopupProduct from "./UI/PopupProduct";
 import SidebarMenu from "./UI/sidebarMenu";
+import ScrollTop from "./UI/ScrollTop";
 
 function App() {
   // Create + use Hooks
@@ -73,6 +74,7 @@ function App() {
 
   return (
     <div className="App">
+      <ScrollTop />
       <SidebarMenu />
       <PopupProduct />
       <Routes>

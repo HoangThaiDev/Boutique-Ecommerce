@@ -117,6 +117,7 @@
         padding: 0 20px;
     }
 
+    .icon-user,
     .col-left .list-items,
     .col-right .list-items li:nth-child(1) {
         display: none;

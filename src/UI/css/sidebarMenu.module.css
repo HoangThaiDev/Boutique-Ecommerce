@@ -4,10 +4,10 @@
 
 /* CSS: Sidebar Menu */
 .sidebar-menu {
-    position: absolute;
+    position: fixed;
     top: 0;
     left: -700px;
-    z-index: 2;
+    z-index: 4;
     width: 300px;
     height: 100vh;
     background-color: var(--bg-color);
@@ -19,7 +19,6 @@
     padding: 20px 0;
     height: inherit;
 }
-
 
 /* CSS: Sidebar Menu Header*/
 .sidebar-header {

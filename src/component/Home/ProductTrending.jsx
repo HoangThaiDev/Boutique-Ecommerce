@@ -20,23 +20,7 @@ export default function ProductTrending() {
   const navigate = useNavigate();
   const dispatch = useDispatch();
 
-  const modifiedProducts = products
-    .map((product) => {
-      let VNMoney = new Intl.NumberFormat("vn-VN", {
-        style: "currency",
-        currency: "VND",
-      });
-
-      let formattedPrice = VNMoney.format(product.price)
-        .replace(/,/g, ".")
-        .replace("₫", "");
-
-      return {
-        ...product,
-        price: formattedPrice,
-      };
-    })
-    .slice(0, 8);
+  const sliceProducts = products.slice(0, 8);
 
   // Side Effect
   useEffect(() => {
@@ -66,11 +50,11 @@ export default function ProductTrending() {
 
       const productDetail = res.data;
 
-      // Update product: name
-      productDetail.name = productDetail.name
+      const pathProductName = productDetail.name
         .replace(/\s*-\s*/g, "-")
         .replace(/\s+/g, "-");
-      navigate(`/product/${productDetail.name}`, {
+
+      navigate(`/product/${pathProductName}`, {
         state: { productDetail },
       });
     } catch (error) {
@@ -88,7 +72,7 @@ export default function ProductTrending() {
         </div>
 
         <div className={classes["products-flex"]}>
-          {modifiedProducts.map((product) => (
+          {sliceProducts.map((product) => (
             <div key={product._id} className={classes["item-product"]}>
               <div className={classes["item-product-actions"]}>
                 <IoSearch

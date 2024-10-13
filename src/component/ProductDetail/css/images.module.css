@@ -1,0 +1,75 @@
+.image-flex {
+    width: 100%;
+    height: 450px;
+    display: flex;
+    justify-content: space-between;
+}
+
+.image-list {
+    width: auto;
+    display: flex;
+    flex-direction: column;
+    gap: 20px 0;
+}
+
+.image-item {
+    cursor: pointer;
+    width: 80px;
+    height: 80px;
+    object-fit: cover;
+    transition: .5s all ease;
+}
+
+.image-active {
+    width: 80%;
+}
+
+.image-active>img {
+    width: 100%;
+    height: 400px;
+    object-fit: cover;
+}
+
+/* CSS: Effects  */
+
+.image-item:hover {
+    opacity: 1;
+}
+
+.image-list:hover .image-item:not(:hover) {
+    opacity: 0.7;
+}
+
+@media screen and (min-width:766px) and (max-width:991px) {
+    .image-flex {
+        height: 400px;
+        justify-content: center;
+        gap: 0 50px;
+    }
+
+    .image-item {
+        width: 100px;
+        height: 80px;
+    }
+
+    .image-active {
+        width: 500px;
+        height: 400px;
+    }
+
+    .image-active>img {
+        width: inherit;
+        height: inherit;
+    }
+}
+
+@media screen and (min-width:992px) and (max-width:1199px) {
+    .image-flex {
+        gap: 0 25px;
+    }
+
+    .image-active {
+        width: 80%;
+        height: 400px;
+    }
+}

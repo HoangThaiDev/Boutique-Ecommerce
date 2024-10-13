@@ -36,11 +36,11 @@ const Product = ({ isShowPopupProduct, onClosePopupProduct, product }) => {
 
       const productDetail = res.data;
 
-      // Update product: name
-      productDetail.name = productDetail.name
+      const pathProductName = productDetail.name
         .replace(/\s*-\s*/g, "-")
         .replace(/\s+/g, "-");
-      navigate(`/product/${productDetail.name}`, {
+
+      navigate(`/product/${pathProductName}`, {
         state: { productDetail },
       });
     } catch (error) {

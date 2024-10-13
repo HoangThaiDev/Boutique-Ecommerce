@@ -1,0 +1,249 @@
+.info {
+    width: 100%;
+}
+
+/* CSS: Info Container */
+.info-container {
+    padding: 0 0 20px 0;
+}
+
+/* CSS: Info Flex */
+.info-flex {
+    display: flex;
+    flex-direction: column;
+}
+
+.info-name {
+    font: italic 600 3.4rem/4.0rem "Roboto", sans-serif;
+    letter-spacing: .6px;
+    color: rgba(40, 52, 65, .9);
+}
+
+.info-price {
+    font: italic 500 2.4rem/4.0rem "Roboto", sans-serif;
+    letter-spacing: .4px;
+    color: rgba(51, 51, 51, 0.7);
+    margin: 15px 0;
+}
+
+.info-desc {
+    font: 500 1.4rem/3.0rem "Roboto", sans-serif;
+    letter-spacing: .6px;
+    color: rgb(132, 131, 131);
+}
+
+/* CSS: Info Type */
+.info-type {
+    margin-top: 10px;
+    display: flex;
+    gap: 0 15px;
+}
+
+.info-type .category,
+.info-type .quantity {
+    font: italic 600 1.4rem/2.4rem "Roboto", sans-serif;
+    letter-spacing: .4px;
+    color: rgb(43, 43, 43);
+}
+
+.info-type .category>span,
+.info-type .quantity>span {
+    font: italic 500 1.4rem/2.4rem "Roboto", sans-serif;
+    letter-spacing: .4px;
+    color: rgb(132, 131, 131);
+    margin-left: 5px;
+}
+
+.info-type .border {
+    font: italic 600 1.6rem/2.4rem "Roboto", sans-serif;
+}
+
+/* CSS: Info Form */
+.info-footer {
+    margin-top: 15px;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+}
+
+.form-quantity {
+    box-sizing: border-box;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border: 2px solid rgba(176, 176, 176, .7);
+    border-right: none;
+    width: 250px;
+    height: 40px;
+    padding: 0 0 0 15px;
+}
+
+.form-quantity>p {
+    flex: 1;
+    font: italic 500 1.4rem/2.0rem "Roboto", sans-serif;
+    letter-spacing: 1px;
+    color: rgb(176, 176, 176);
+}
+
+.quantity-item {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    margin-right: 10px;
+}
+
+.quantity-item>input {
+    font: 500 1.4rem/2.0rem "Roboto", sans-serif;
+    width: 25px;
+    border: 0;
+    text-align: center;
+}
+
+.btn-actions {
+    display: flex;
+    align-items: center;
+    height: 40px;
+}
+
+.btn-actions button {
+    cursor: pointer;
+    font: italic 500 1.4rem/2.0rem "Roboto", sans-serif;
+    border: 2px solid #353535;
+    height: inherit;
+    padding: 0 20px;
+    transition: .5s all ease;
+}
+
+.btn-actions .btn-buy-product {
+    background-color: #353535;
+    color: #d4d2d2;
+}
+
+.btn-actions .btn-add-cart {
+    border: 2px solid #353535;
+    background-color: #fff;
+    color: #353535;
+}
+
+/* CSS: Icons */
+.icon-decrease,
+.icon-increase {
+    position: relative;
+    top: 0;
+    cursor: pointer;
+    font-size: 2.8rem;
+    color: #353535;
+}
+
+/* CSS: Active */
+.quantity-item>input[type="number"]::-webkit-inner-spin-button,
+.quantity-item>input[type="number"]::-webkit-outer-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
+
+
+/* CSS: Effects */
+.quantity-item>input:focus {
+    outline: 0;
+}
+
+.btn-actions .btn-buy-product:hover {
+    background-color: rgb(58, 95, 110);
+    color: #fff;
+    border: 2px solid rgb(58, 95, 110);
+}
+
+.btn-actions .btn-add-cart:hover {
+    border: 2px solid rgb(58, 95, 110);
+    background-color: rgb(58, 95, 110);
+    color: #fff;
+    border-left: 2px solid #fff;
+}
+
+.icon:hover {
+    color: rgb(58, 95, 110);
+}
+
+/* CSS: Responsives */
+@media screen and (max-width:575px) {
+    .info-container {
+        margin: 30px 0;
+    }
+
+    .info-name {
+        font-size: 2.8rem;
+        line-height: 3.4rem;
+    }
+
+    .info-price {
+        font-size: 2.0rem;
+        line-height: 2.4rem;
+    }
+
+    .info-footer {
+        gap: 10px 0;
+    }
+
+    .form-quantity {
+        width: 300px;
+        border-right: 2px solid rgba(176, 176, 176, .7);
+    }
+
+    .btn-actions {
+        width: 100%;
+        gap: 0 10px;
+    }
+
+    .btn-actions button {
+        padding: 0 30px;
+    }
+}
+
+@media screen and (min-width:576px) and (max-width:765px) {
+    .info-container {
+        margin: 30px 0;
+    }
+
+    .info-name {
+        font-size: 2.8rem;
+        line-height: 3.4rem;
+    }
+
+    .info-price {
+        font-size: 2.0rem;
+        line-height: 2.4rem;
+    }
+}
+
+@media screen and (min-width:766px) and (max-width:991px) {
+    .info-container {
+        margin: 50px 0;
+    }
+
+    .info-name {
+        font-size: 2.8rem;
+        line-height: 3.4rem;
+    }
+
+    .info-price {
+        font-size: 2.0rem;
+        line-height: 2.4rem;
+    }
+}
+
+@media screen and (min-width:992px) and (max-width:1199px) {
+    .info-name {
+        font-size: 2.8rem;
+        line-height: 3.4rem;
+    }
+
+    .info-price {
+        font-size: 2.0rem;
+        line-height: 2.4rem;
+    }
+
+    .form-quantity {
+        width: 200px;
+    }
+}
