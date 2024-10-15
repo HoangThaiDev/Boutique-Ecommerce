@@ -1,0 +1,99 @@
+.navbar-title {
+    font: italic 700 2.0rem /2.4rem "Playfair Display", serif;
+    margin-bottom: 20px;
+    letter-spacing: 1px;
+    color: #1A1A1A;
+}
+
+.menu {
+    width: 100%;
+}
+
+/* CSS: Ant Menu */
+
+.ant-menu-submenu,
+.ant-menu-root {
+    box-sizing: border-box;
+    border: none !important;
+}
+
+.ant-menu-sub {
+    border: none !important;
+}
+
+/* CSS: Submenu title */
+.ant-menu-submenu .ant-menu-submenu-title {
+    margin: 0 !important;
+    border-radius: 0;
+    width: 100%;
+    background-color: rgba(224, 225, 224, .7);
+    padding-left: 22px !important;
+}
+
+.ant-menu-root>.ant-menu-submenu>.ant-menu-submenu-title {
+    background-color: #1A1A1A;
+}
+
+/* CSS: Submenu title content */
+.ant-menu-submenu-title .ant-menu-title-content {
+    display: block !important;
+    font: italic 600 1.4rem /2.0rem "Playfair Display", serif;
+    color: rgba(41, 40, 40, 0.8);
+}
+
+.ant-menu-root>.ant-menu-submenu>.ant-menu-submenu-title>.ant-menu-title-content {
+    color: #fff;
+}
+
+/* CSS: Menu sub */
+.ant-menu-sub .ant-menu-item .ant-menu-title-content {
+    font: italic 500 1.4rem /2.0rem "Playfair Display", serif;
+    color: gray;
+}
+
+/* CSS: Submenu title icon */
+.ant-menu-submenu-title .ant-menu-submenu-arrow {
+    color: white !important;
+}
+
+/* CSS: Active */
+.ant-menu-sub .ant-menu-item {
+    width: 100%;
+    margin: 0 !important;
+    padding-left: 22px !important;
+    border-radius: 0;
+    background-color: #FAFAFF;
+}
+
+.ant-menu-item-selected .ant-menu-title-content {
+    color: #deb556 !important;
+}
+
+
+/* Style: effect  */
+.ant-menu-root>.ant-menu-submenu>.ant-menu-submenu-title:hover,
+.ant-menu-submenu .ant-menu-submenu-title:hover {
+    background-color: #2a434d !important;
+}
+
+.ant-menu-submenu .ant-menu-submenu-title:hover .ant-menu-title-content {
+    color: #fff;
+}
+
+.ant-menu-sub .ant-menu-item:hover {
+    background-color: #FAFAFF !important;
+}
+
+.ant-menu-sub .ant-menu-item:hover .ant-menu-title-content {
+    color: #deb556;
+}
+
+
+/* CSS: Responsives */
+@media screen and (max-width:575px) {}
+
+@media screen and (min-width:576px) and (max-width:765px) {}
+
+@media screen and (min-width:766px) and (max-width:991px) {}
+
+@media screen and (min-width:992px) and (max-width:1199px) {}

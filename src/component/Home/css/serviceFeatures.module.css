@@ -2,6 +2,7 @@
     width: 100%;
 }
 
+/* CSS: Service Container */
 .service-features-container {
     width: 1140px;
     background-color: rgba(238, 238, 239, .4);
@@ -9,12 +10,14 @@
     padding: 60px 0;
 }
 
+/* CSS: Service Row */
 .service-features-row {
     display: flex;
     justify-content: space-around;
     flex-wrap: wrap;
 }
 
+/* CSS: Service Col */
 .service-features-col {
     font: italic 500 1.6rem/1.8rem "EB Garamond", serif;
     display: flex;

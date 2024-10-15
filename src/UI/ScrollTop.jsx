@@ -8,7 +8,7 @@ export default function ScrollTop() {
 
   // Side Effects
   useEffect(() => {
-    const pathsNotScroll = ["/login", "/sign-up", "/"];
+    const pathsNotScroll = ["/login", "/sign-up", "/shop"];
 
     if (!pathsNotScroll.includes(location.pathname)) {
       window.scrollTo({ top: 0, behavior: "smooth" });

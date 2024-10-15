@@ -1,0 +1,44 @@
+.shop {
+    width: 100%;
+}
+
+/* CSS: Shop Container */
+.shop-container {
+    width: 1140px;
+    margin: 30px auto;
+}
+
+/* CSS: Shop Row */
+.shop-row {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+}
+
+/* CSS: Shop Col */
+.col-navbar {
+    width: 20%;
+}
+
+.col-products {
+    width: 75%;
+}
+
+/* CSS: Responsives */
+@media screen and (max-width:575px) {
+    .shop-container {
+        width: 90%;
+        margin: 50px auto;
+    }
+
+    .col-navbar,
+    .col-products {
+        width: 100%;
+    }
+}
+
+@media screen and (min-width:576px) and (max-width:765px) {}
+
+@media screen and (min-width:766px) and (max-width:991px) {}
+
+@media screen and (min-width:992px) and (max-width:1199px) {}

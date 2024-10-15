@@ -2,6 +2,7 @@
     width: 100%;
 }
 
+/* CSS: Header Container */
 .header-container {
     position: relative;
 }
@@ -12,12 +13,13 @@
     object-fit: cover;
 }
 
+/* CSS: Header Main */
 .header-main {
     width: 400px;
     max-width: 400px;
     position: absolute;
     top: 35%;
-    left: 10%;
+    left: 13%;
 }
 
 .header-main>p {

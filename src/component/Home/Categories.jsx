@@ -35,7 +35,7 @@ export default function Categories() {
     },
     {
       id: "category_4",
-      category: "watch",
+      category: "watchs",
       banner: bannerWatch,
       className: "banner-watch",
     },

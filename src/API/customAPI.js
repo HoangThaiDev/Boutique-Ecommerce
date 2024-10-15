@@ -3,8 +3,15 @@ import axiosIntance from "../axios/customAxios";
 
 const APIServer = {
   shop: {
-    getProduct: () => {
-      return axiosIntance.get("shop/products");
+    getProducts: () => {
+      return axiosIntance.get(`shop/products`);
+    },
+    getProductsByQuery: (query) => {
+      if (!query) {
+        query = "?category=all";
+      }
+
+      return axiosIntance.get(`shop/products/query${query}`);
     },
     getProductDetail: (productId) => {
       return axiosIntance.get(`shop/product/${productId}`);

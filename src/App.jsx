@@ -14,6 +14,7 @@ import Home from "./page/Home";
 import Login from "./page/Login";
 import Register from "./page/Register";
 import ProductDetail from "./page/ProductDetail";
+import Shop from "./page/Shop";
 
 // ------------ Component --------------
 import PopupProduct from "./UI/PopupProduct";
@@ -80,6 +81,7 @@ function App() {
       <Routes>
         <Route path="/" element={<RootLayout />}>
           <Route index element={<Home />} />
+          <Route path="/shop" element={<Shop />} />
           <Route path="/product/:name" element={<ProductDetail />} />
         </Route>
 

@@ -36,6 +36,7 @@ const Product = ({ isShowPopupProduct, onClosePopupProduct, product }) => {
 
       const productDetail = res.data;
 
+      // Modify Product
       const pathProductName = productDetail.name
         .replace(/\s*-\s*/g, "-")
         .replace(/\s+/g, "-");

@@ -50,6 +50,7 @@ export default function ProductTrending() {
 
       const productDetail = res.data;
 
+      // Modify Product
       const pathProductName = productDetail.name
         .replace(/\s*-\s*/g, "-")
         .replace(/\s+/g, "-");

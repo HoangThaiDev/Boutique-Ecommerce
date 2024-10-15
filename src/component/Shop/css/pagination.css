@@ -1,0 +1,53 @@
+.pagination {
+    width: 100%;
+    margin: 30px 30px 0 0;
+    display: flex;
+    justify-content: center;
+}
+
+.pagination .ant-pagination-prev {
+    border-radius: 0;
+    border: 2px solid rgba(209, 207, 207, .4);
+}
+
+.pagination .ant-pagination-next {
+    border-radius: 0;
+    border: 2px solid rgba(209, 207, 207, .4);
+}
+
+.pagination .ant-pagination-item {
+    font: 500 2.0rem/3.2rem "Roboto", sans-serif;
+    border: 2px solid rgba(209, 207, 207, .4);
+    border-radius: 0;
+}
+
+.pagination .ant-pagination-item-active {
+    background-color: rgb(61, 61, 61);
+    border: 1px solid rgb(61, 61, 61);
+    border-radius: 0;
+}
+
+.pagination .ant-pagination-item-active>a {
+    color: rgb(208, 205, 205);
+}
+
+/* CSS: Effects */
+.pagination .ant-pagination-next:hover .ant-pagination-item-link,
+.pagination .ant-pagination-prev:hover .ant-pagination-item-link {
+    background-color: rgb(61, 61, 61);
+    border-radius: 0;
+}
+
+.pagination .ant-pagination-next:hover .ant-pagination-item-link .anticon,
+.pagination .ant-pagination-prev:hover .ant-pagination-item-link .anticon {
+    color: #fff;
+}
+
+.pagination .ant-pagination-prev.ant-pagination-disabled:hover .ant-pagination-item-link {
+    background-color: #fff;
+    border-radius: 0;
+}
+
+.pagination .ant-pagination-prev.ant-pagination-disabled:hover .ant-pagination-item-link .anticon {
+    color: rgba(209, 207, 207, 1);
+}

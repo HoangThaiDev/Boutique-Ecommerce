@@ -1,5 +1,5 @@
 // Import Modules
-import React, { useMemo, useState } from "react";
+import React, { useState } from "react";
 
 // Import File CSS
 import classes from "./css/info.module.css";
@@ -11,19 +11,6 @@ import { MdOutlineArrowRight } from "react-icons/md";
 export default function Info({ product }) {
   // Create + use states
   const [quantityProduct, setQuantityProduct] = useState(0);
-
-  // Create + use Hooks
-  const modifiedPrice = useMemo(() => {
-    let VNMoney = new Intl.NumberFormat("vn-VN", {
-      style: "currency",
-      currency: "VND",
-    });
-
-    let formattedPrice = VNMoney.format(product.price)
-      .replace(/,/g, ".")
-      .replace("₫", "");
-    return formattedPrice;
-  }, []);
 
   // Create + use event handles
   const changeCountQuantityHandler = (e, option) => {
@@ -55,7 +42,7 @@ export default function Info({ product }) {
       <div className={classes["info-container"]}>
         <div className={classes["info-flex"]}>
           <h2 className={classes["info-name"]}>{product.name}</h2>
-          <p className={classes["info-price"]}>{modifiedPrice} VND</p>
+          <p className={classes["info-price"]}>{product.price} VND</p>
           <p className={classes["info-desc"]}>{product.short_desc}</p>
           <div className={classes["info-type"]}>
             <p className={classes["category"]}>

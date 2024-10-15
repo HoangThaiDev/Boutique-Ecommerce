@@ -1,0 +1,167 @@
+.products,
+.products-container {
+    width: 100%;
+}
+
+/* CSS: Products Header */
+.products-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+
+/* CSS: Products Header: Form Input Name */
+.form-input-name {
+    width: auto;
+    position: relative;
+}
+
+.form-input-name>input {
+    font: 500 1.4rem/ 2.0rem "Roboto", sans-serif;
+    display: block;
+    width: 250px;
+    border: 2px solid rgba(148, 148, 148, .4);
+    border-radius: 0;
+    padding: 8px 30px 8px 10px;
+}
+
+.form-input-name>input::placeholder {
+    font: 500 1.4rem/ 2.0rem "Roboto", sans-serif;
+    color: rgba(148, 148, 148, .7);
+}
+
+.icon-close {
+    cursor: pointer;
+    font: 500 2.0rem/ 2.0rem "Roboto", sans-serif;
+    color: rgba(148, 148, 148, .7);
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    transition: .5s all ease;
+}
+
+/* CSS: Products Header: Form Select Options */
+.select-container {
+    display: inline-block;
+    position: relative;
+    width: 150px;
+}
+
+.form-select {
+    width: 100%;
+    padding: 8px 10px;
+    font: 500 1.4rem/ 2.0rem "Roboto", sans-serif;
+    border: 2px solid rgba(148, 148, 148, .4);
+    background-color: #fff;
+    color: #333;
+    appearance: none;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    cursor: pointer;
+}
+
+.select-container::after {
+    content: "\2039";
+    position: absolute;
+    top: 50%;
+    right: 15px;
+    transform: translateY(-50%) rotate(-90deg);
+    pointer-events: none;
+    font-size: 2.4rem;
+    color: #333;
+}
+
+.form-select:focus {
+    outline: none;
+}
+
+.form-select option {
+    font: 500 1.4rem/ 2.0rem "Roboto", sans-serif;
+    background-color: #f9f9f9;
+    color: #333;
+    padding: 10px;
+    border-radius: 0;
+}
+
+
+/* CSS: Related Product Row */
+.products-flex {
+    margin-top: 20px;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px 34px;
+}
+
+/* CSS: Related Product Col */
+.item-product {
+    width: 22%;
+    animation: showProduct 1s ease 1 forwards
+}
+
+.item-product-image {
+    cursor: pointer;
+    background-color: #fff;
+    overflow: hidden;
+    border-radius: 5px;
+    border: 0.5px solid rgba(193, 191, 191, 0.3);
+}
+
+.item-product-image>img {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+    transition: .5s all ease;
+}
+
+.item-product-info {
+    position: relative;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    gap: 10px 0;
+    padding: 10px 5px;
+    overflow: hidden;
+}
+
+.item-product-info .info-name {
+    font: 700 1.4rem/2.0rem "Roboto", sans-serif;
+    color: rgb(68, 67, 67);
+    letter-spacing: .6px;
+}
+
+.item-product-info .info-price {
+    font: 500 italic 1.4rem/1.8rem "Roboto", sans-serif;
+    color: rgb(120, 119, 119);
+    letter-spacing: .6px;
+}
+
+/* CSS: Effect */
+.form-input-name>input:focus {
+    outline: 0;
+}
+
+.icon-close:hover {
+    color: rgb(163, 25, 62);
+}
+
+.item-product-image>img:hover {
+    opacity: .9;
+    transform: scale(1.1);
+}
+
+/* CSS: Animations */
+@keyframes showProduct {
+    0% {
+        opacity: 0;
+        transform: scale(0);
+    }
+
+    100% {
+        opacity: 1;
+        transform: scale(1);
+    }
+}

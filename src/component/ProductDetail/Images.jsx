@@ -11,7 +11,6 @@ export default function Images({ images }) {
   // Create + use Hooks
   const [imageActive, setImageActive] = useState("");
   const [showSliderImages, setShowSliderImages] = useState(false);
-  console.log(showSliderImages);
 
   // Side Effects
   useEffect(() => {

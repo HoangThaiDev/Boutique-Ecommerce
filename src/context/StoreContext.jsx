@@ -14,29 +14,12 @@ export default function ContextProvider({ children }) {
   useEffect(() => {
     const fetchProduct = async () => {
       try {
-        const res = await APIServer.shop.getProduct();
+        const res = await APIServer.shop.getProducts();
 
         if (res.statusText === "OK") {
           const products = res.data;
 
-          // Update Product: Convert Price => Money
-          const modifiedProducts = products.map((product) => {
-            let VNMoney = new Intl.NumberFormat("vn-VN", {
-              style: "currency",
-              currency: "VND",
-            });
-
-            let formattedPrice = VNMoney.format(product.price)
-              .replace(/,/g, ".")
-              .replace("₫", "");
-
-            return {
-              ...product,
-              price: formattedPrice,
-            };
-          });
-
-          setProducts(modifiedProducts);
+          setProducts(products);
           setIsLoading(true);
         }
       } catch (error) {
