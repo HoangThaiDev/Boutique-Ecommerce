@@ -2,7 +2,7 @@
 import React from "react";
 
 // Import File CSS
-import classes from "./css/overlay..module.css";
+import classes from "./css/overlay.module.css";
 
 function Overlay({ isShow, onClose }) {
   return (

@@ -67,7 +67,7 @@ export default function Navbar() {
     <>
       <h3 className="navbar-title">CATEGORIES</h3>
       <Menu
-        className="menu"
+        className="menu-shop"
         onClick={chooseTypeHander}
         defaultSelectedKeys={["apple"]}
         defaultOpenKeys={["apple", "iphone_mac", "wireless", "others"]}

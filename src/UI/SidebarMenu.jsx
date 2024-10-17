@@ -2,7 +2,9 @@
 import React, { useEffect } from "react";
 import { createPortal } from "react-dom";
 import { useSelector, useDispatch } from "react-redux";
-import { actionSidebarMenu } from "../redux/actionRedux";
+import { actionSidebarMenu, actionUser } from "../redux/actionRedux";
+import APIServer from "../API/customAPI";
+import { NavLink, useLocation } from "react-router-dom";
 
 // Import File CSS
 import classes from "./css/sidebarMenu.module.css";
@@ -15,10 +17,29 @@ import { AiOutlineHome } from "react-icons/ai";
 import { BiLogOut } from "react-icons/bi";
 
 // Import Components
-import { NavLink, useLocation } from "react-router-dom";
 import Overlay from "./Overlay";
 
-function Sidebar({ isShowSidebarMenu, onCloseSidebarMenu, isLoggin }) {
+function Sidebar({
+  isShowSidebarMenu,
+  onCloseSidebarMenu,
+  isLoggin,
+  dispatch,
+}) {
+  // Create + use event handles
+  const logoutHandle = async () => {
+    try {
+      const res = await APIServer.user.getLogout();
+      const { message } = res.data;
+
+      if (res.status === 200) {
+        alert(message);
+        dispatch(actionUser.logout());
+        return false;
+      }
+    } catch (error) {
+      console.log(error);
+    }
+  };
   return (
     <div
       className={
@@ -93,6 +114,7 @@ function Sidebar({ isShowSidebarMenu, onCloseSidebarMenu, isLoggin }) {
                       ? `${classes["link-item"]} ${classes["link-item-active"]}`
                       : classes["link-item"]
                   }
+                  onClick={logoutHandle}
                 >
                   Logout
                 </NavLink>
@@ -131,6 +153,7 @@ export default function SidebarMenu() {
         document.getElementById("overlay")
       )}
       <Sidebar
+        dispatch={dispatch}
         isLoggin={isLoggin}
         isShowSidebarMenu={isShowSidebarMenu}
         onCloseSidebarMenu={closeSidebarMenuHandle}

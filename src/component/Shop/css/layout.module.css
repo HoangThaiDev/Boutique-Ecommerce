@@ -1,4 +1,5 @@
 .shop {
+    position: relative;
     width: 100%;
 }
 
@@ -24,6 +25,24 @@
     width: 75%;
 }
 
+/* CSS: Icons */
+.icon-menu-shop {
+    cursor: pointer;
+    font-size: 2.0rem;
+    background-color: #1A1919;
+    color: #fff;
+    padding: 8px;
+    position: fixed;
+    top: 30%;
+    right: 0;
+    z-index: 2;
+}
+
+/* CSS: Active */
+.icon-menu-shop {
+    display: none;
+}
+
 /* CSS: Responsives */
 @media screen and (max-width:575px) {
     .shop-container {
@@ -31,14 +50,61 @@
         margin: 50px auto;
     }
 
-    .col-navbar,
+    .col-navbar {
+        display: none;
+    }
+
     .col-products {
         width: 100%;
     }
+
+    .icon-menu-shop {
+        display: block;
+    }
+
 }
 
-@media screen and (min-width:576px) and (max-width:765px) {}
+@media screen and (min-width:576px) and (max-width:765px) {
+    .shop-container {
+        width: 90%;
+        margin: 50px auto;
+    }
 
-@media screen and (min-width:766px) and (max-width:991px) {}
+    .col-navbar {
+        display: none;
+    }
 
-@media screen and (min-width:992px) and (max-width:1199px) {}
+    .col-products {
+        width: 100%;
+    }
+
+    .icon-menu-shop {
+        display: block;
+    }
+}
+
+@media screen and (min-width:766px) and (max-width:991px) {
+    .shop-container {
+        width: 90%;
+        margin: 50px auto;
+    }
+
+    .col-navbar {
+        display: none;
+    }
+
+    .col-products {
+        width: 100%;
+    }
+
+    .icon-menu-shop {
+        display: block;
+    }
+}
+
+@media screen and (min-width:992px) and (max-width:1199px) {
+    .shop-container {
+        width: 90%;
+        margin: 50px auto;
+    }
+}

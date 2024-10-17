@@ -35,17 +35,18 @@ function App() {
     const fetchUser = async () => {
       try {
         const res = await APIServer.user.getUser();
-        const user = res.data;
+        const { isLoggedIn, accessToken, cart } = res.data;
 
         // If client not logged in => keep going
-        if (res.status === 200 && !user.isLoggedIn) return;
+        if (res.status === 200 && !isLoggedIn) return;
 
         // If client was logged in and lost accessToken => update new accessToken
-        if (res.status === 201 && user.isLoggedIn) {
+        if (res.status === 201 && isLoggedIn) {
           return dispatch(
             actionUser.save({
-              accessToken: res.data.accessToken,
-              isLoggedIn: res.data.isLoggedIn,
+              accessToken: accessToken,
+              isLoggedIn: isLoggedIn,
+              cart: cart,
             })
           );
         }
@@ -78,6 +79,8 @@ function App() {
       <ScrollTop />
       <SidebarMenu />
       <PopupProduct />
+
+      {/* Route: All Pages */}
       <Routes>
         <Route path="/" element={<RootLayout />}>
           <Route index element={<Home />} />

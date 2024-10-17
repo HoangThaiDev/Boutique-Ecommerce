@@ -11,6 +11,7 @@ import { IoIosCloseCircle } from "react-icons/io";
 
 // Import Components
 import { Pagination } from "antd";
+import SidebarShop from "../../UI/SidebarShop";
 
 export default function Products({ products }) {
   // Create + use options
@@ -126,6 +127,10 @@ export default function Products({ products }) {
   return (
     <div className={classes["products"]}>
       <div className={classes["products-container"]}>
+        <SidebarShop
+          onSearchProduct={searchProductHandle}
+          onFilterProductByOption={filterProductByOptionHandle}
+        />
         <div className={classes["products-header"]}>
           <div className={classes["form-input-name"]}>
             <input
@@ -180,7 +185,7 @@ export default function Products({ products }) {
         <Pagination
           className="pagination"
           defaultCurrent={pageCurrent ? pageCurrent : 1}
-          pageSize={2}
+          pageSize={8}
           total={products.totalProducts}
           onChange={showProductByPageHandle}
         />

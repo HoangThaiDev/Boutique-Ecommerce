@@ -55,7 +55,7 @@
     min-height: 14px;
     height: auto;
     z-index: 2;
-    top: -5px;
+    top: 0px;
     left: -8px;
     border-radius: 100%;
     background-color: #294155;
@@ -87,6 +87,17 @@
     transition: .3s all ease;
 }
 
+.btn-logout {
+    cursor: pointer;
+    font: 500 1.6rem/1.8rem "Roboto", sans-serif;
+    color: #fff;
+    background-color: rgb(75, 74, 74);
+    border: none;
+    margin-left: 10px;
+    padding: 6px 14px;
+    transition: .5s all ease;
+}
+
 /* CSS: Icons */
 .icon {
     position: relative;
@@ -110,6 +121,29 @@
     color: #deb556;
 }
 
+.btn-logout:hover {
+    background-color: #cfa442;
+}
+
+.col-right .cart-quantity.update {
+    animation: moveNumberQuantity 1s ease 1 normal;
+    will-change: transform;
+}
+
+/* CSS: Animations */
+@keyframes moveNumberQuantity {
+    0% {
+        top: 0;
+    }
+
+    50% {
+        top: -10px;
+    }
+
+    100% {
+        top: 0;
+    }
+}
 
 /* CSS: Responsives */
 @media screen and (max-width:575px) {
@@ -117,6 +151,7 @@
         padding: 0 20px;
     }
 
+    .btn-logout,
     .icon-user,
     .col-left .list-items,
     .col-right .list-items li:nth-child(1) {
@@ -138,6 +173,10 @@
 }
 
 @media screen and (min-width:576px) and (max-width:765px) {
+    .btn-logout {
+        display: none;
+    }
+
     .navigate-container {
         padding: 0 20px;
     }
@@ -152,10 +191,15 @@
 
     .col-right .cart-quantity {
         font-size: .8rem;
+        top: -8px;
     }
 }
 
 @media screen and (min-width:766px) and (max-width:991px) {
+    .btn-logout {
+        display: none;
+    }
+
     .navigate-container {
         padding: 0 20px;
     }
@@ -170,6 +214,7 @@
 
     .col-right .cart-quantity {
         font-size: .8rem;
+        top: -8px;
     }
 }
 
@@ -183,6 +228,10 @@
     }
 
     .list-items .link-item {
+        font-size: 1.4rem;
+    }
+
+    .btn-logout {
         font-size: 1.4rem;
     }
 

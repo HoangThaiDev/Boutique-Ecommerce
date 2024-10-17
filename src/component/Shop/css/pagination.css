@@ -2,7 +2,7 @@
     width: 100%;
     margin: 30px 30px 0 0;
     display: flex;
-    justify-content: center;
+    justify-content: flex-end;
 }
 
 .pagination .ant-pagination-prev {
@@ -50,4 +50,24 @@
 
 .pagination .ant-pagination-prev.ant-pagination-disabled:hover .ant-pagination-item-link .anticon {
     color: rgba(209, 207, 207, 1);
+}
+
+/* CSS: Responsives */
+@media screen and (max-width:575px) {
+    .pagination {
+        justify-content: center;
+    }
+
+}
+
+@media screen and (min-width:576px) and (max-width:765px) {
+    .pagination {
+        justify-content: center;
+    }
+}
+
+@media screen and (min-width:766px) and (max-width:991px) {
+    .pagination {
+        justify-content: center;
+    }
 }

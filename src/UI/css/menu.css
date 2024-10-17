@@ -1,0 +1,83 @@
+.menu-sidebar-shop {
+    width: 100%;
+    margin-top: 20px;
+}
+
+/* CSS: Ant Menu */
+
+.menu-sidebar-shop .ant-menu-submenu,
+.menu-sidebar-shop .ant-menu-root {
+    box-sizing: border-box;
+    border: none !important;
+}
+
+.menu-sidebar-shop .ant-menu-sub {
+    border: none !important;
+}
+
+/* CSS: Submenu title */
+.menu-sidebar-shop .ant-menu-submenu .ant-menu-submenu-title {
+    margin: 0 !important;
+    border-radius: 0;
+    width: 100%;
+    background-color: rgba(224, 225, 224, .7);
+    padding-left: 22px !important;
+}
+
+.menu-sidebar-shop .ant-menu-root>.ant-menu-submenu>.ant-menu-submenu-title {
+    background-color: #1A1A1A;
+}
+
+/* CSS: Submenu title content */
+.menu-sidebar-shop .ant-menu-submenu-title .ant-menu-title-content {
+    display: block !important;
+    font: italic 600 1.4rem /2.0rem "Playfair Display", serif;
+    color: rgba(41, 40, 40, 0.8);
+}
+
+.menu-sidebar-shop .ant-menu-root>.ant-menu-submenu>.ant-menu-submenu-title>.ant-menu-title-content {
+    color: #fff;
+}
+
+/* CSS: Menu sub */
+.menu-sidebar-shop .ant-menu-sub .ant-menu-item .ant-menu-title-content {
+    font: italic 500 1.4rem /2.0rem "Playfair Display", serif;
+    color: gray;
+}
+
+/* CSS: Submenu title icon */
+.menu-sidebar-shop .ant-menu-submenu-title .ant-menu-submenu-arrow {
+    color: white !important;
+}
+
+/* CSS: Active */
+.menu-sidebar-shop .ant-menu-sub .ant-menu-item {
+    width: 100%;
+    margin: 0 !important;
+    padding-left: 22px !important;
+    border-radius: 0;
+    background-color: #ffffff;
+}
+
+.menu-sidebar-shop .ant-menu-item-selected .ant-menu-title-content {
+    color: #deb556 !important;
+}
+
+
+/* Style: effect  */
+.menu-sidebar-shop .ant-menu-root>.ant-menu-submenu>.ant-menu-submenu-title:hover,
+.menu-sidebar-shop .ant-menu-submenu .ant-menu-submenu-title:hover {
+    background-color: #2a434d !important;
+}
+
+.menu-sidebar-shop .ant-menu-submenu .ant-menu-submenu-title:hover .ant-menu-title-content {
+    color: #fff;
+}
+
+.menu-sidebar-shop .ant-menu-sub .ant-menu-item:hover {
+    background-color: #FAFAFF !important;
+}
+
+.menu-sidebar-shop .ant-menu-sub .ant-menu-item:hover .ant-menu-title-content {
+    color: #deb556;
+}

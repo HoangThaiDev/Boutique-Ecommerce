@@ -2,6 +2,8 @@
 import React, { useEffect, useState } from "react";
 import { useLocation } from "react-router-dom";
 import APIServer from "../../API/customAPI";
+import { useDispatch, useSelector } from "react-redux";
+import { actionSidebarShop } from "../../redux/actionRedux";
 
 // Import File CSS
 import classes from "./css/layout.module.css";
@@ -10,9 +12,13 @@ import classes from "./css/layout.module.css";
 import Navbar from "./Navbar";
 import Products from "./Products";
 
+// Import Icons
+import { CgMenuRight } from "react-icons/cg";
+
 export default function Layout() {
   // Create + use Hooks
   const location = useLocation();
+  const dispatch = useDispatch();
 
   // Create + use state
   const [products, setProducts] = useState({
@@ -20,6 +26,9 @@ export default function Layout() {
     totalProducts: 0,
   });
   const [isLoading, setIsLoading] = useState(false);
+  const { isShow: isShowSidebarShop } = useSelector(
+    (state) => state.sidebarShop
+  );
 
   // Side Effect
   useEffect(() => {
@@ -39,9 +48,20 @@ export default function Layout() {
     fetchProducts();
   }, [location.search]);
 
+  // Create + use event handles
+  const showSidebarShopHandle = () => {
+    dispatch(actionSidebarShop.show());
+  };
+
   return (
     <div className={classes["shop"]}>
       <div className={classes["shop-container"]}>
+        {!isShowSidebarShop && (
+          <CgMenuRight
+            className={classes["icon-menu-shop"]}
+            onClick={showSidebarShopHandle}
+          />
+        )}
         <div className={classes["shop-row"]}>
           <div className={`${classes["shop-col"]} ${classes["col-navbar"]}`}>
             <Navbar />

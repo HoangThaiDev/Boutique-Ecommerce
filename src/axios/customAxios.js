@@ -1,6 +1,7 @@
 // Import Modules
 import axios from "axios";
 import store from "../redux/store";
+import { actionUser } from "../redux/actionRedux";
 
 const axiosIntance = axios.create({
   proxy: 1,
@@ -33,8 +34,14 @@ axiosIntance.interceptors.request.use(
 // Add a response interceptor
 axiosIntance.interceptors.response.use(
   function (response) {
-    // Any status code that lie within the range of 2xx cause this function to trigger
-    // Do something with response data
+    // Check if a new access token is provided in the headers
+    const newAccessToken = response.headers["x-access-token"];
+
+    if (newAccessToken) {
+      store.dispatch(
+        actionUser.updateAccessToken({ accessToken: newAccessToken })
+      );
+    }
 
     return response;
   },

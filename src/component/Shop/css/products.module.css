@@ -54,7 +54,7 @@
     font: 500 1.4rem/ 2.0rem "Roboto", sans-serif;
     border: 2px solid rgba(148, 148, 148, .4);
     background-color: #fff;
-    color: #333;
+    color: rgba(148, 148, 148, .7);
     appearance: none;
     -webkit-appearance: none;
     -moz-appearance: none;
@@ -163,5 +163,81 @@
     100% {
         opacity: 1;
         transform: scale(1);
+    }
+}
+
+/* CSS: Responsives */
+@media screen and (max-width:575px) {
+    .products-header {
+        display: none;
+    }
+
+    .products-flex {
+        gap: 20px 0px;
+        justify-content: space-between;
+    }
+
+    .item-product {
+        width: 48%;
+    }
+
+    .item-product-image>img {
+        height: auto;
+    }
+
+}
+
+@media screen and (min-width:576px) and (max-width:765px) {
+    .products-header {
+        display: none;
+    }
+
+    .products-flex {
+        gap: 20px 25px;
+    }
+
+    .item-product {
+        width: 30%;
+    }
+
+    .item-product-image>img {
+        object-fit: cover;
+    }
+}
+
+@media screen and (min-width:766px) and (max-width:991px) {
+    .products-header {
+        display: none;
+    }
+
+    .products-flex {
+        gap: 20px 20px;
+    }
+
+    .item-product {
+        width: 22%;
+    }
+
+    .item-product-image>img {
+        object-fit: cover;
+    }
+}
+
+@media screen and (min-width:992px) and (max-width:1199px) {
+
+    .form-input-name>input,
+    .form-input-name>input::placeholder,
+    .form-select,
+    .form-select option {
+        font-size: 1.2rem;
+    }
+
+    .products-flex {
+        gap: 20px 25px;
+    }
+
+    .item-product-image>img {
+        object-fit: cover;
+        height: 150px;
     }
 }

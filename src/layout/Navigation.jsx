@@ -1,7 +1,8 @@
 // Import Module
 import React, { useEffect, useRef } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { actionSidebarMenu } from "../redux/actionRedux";
+import { actionSidebarMenu, actionUser } from "../redux/actionRedux";
+import APIServer from "../API/customAPI";
 
 // Import File CSS
 import classes from "./css/navigation.module.css";
@@ -18,9 +19,15 @@ export default function Navigation() {
   // Create + use Hooks
   const navRef = useRef();
   const dispatch = useDispatch();
+  const firstRenderFlag = useRef(true);
+  const numberQuantityRef = useRef();
+
+  // Create + use states
   const { isLoggedIn, cart } = useSelector((state) => state.user);
 
   // Side Effect
+
+  // ---- Side Effect: Scroll Nav
   useEffect(() => {
     const scrollNav = () => {
       window.scrollY > 100
@@ -35,9 +42,45 @@ export default function Navigation() {
     };
   }, []);
 
+  // ---- Side Effect: Animation when cart change by buy or add to cart
+  useEffect(() => {
+    // Check if first access in browser => return false
+
+    if (isLoggedIn && firstRenderFlag.current) {
+      firstRenderFlag.current = false;
+      return;
+    }
+
+    if (firstRenderFlag && numberQuantityRef.current) {
+      numberQuantityRef.current.classList.add(classes["update"]);
+
+      const timer = setTimeout(() => {
+        numberQuantityRef.current.classList.remove(classes["update"]);
+      }, 500);
+
+      return () => {
+        clearTimeout(timer);
+      };
+    }
+  }, [cart.items.length]);
+
   // Create + use event handles
   const showSidebarMenuHandle = () => {
     dispatch(actionSidebarMenu.show());
+  };
+
+  const logoutHandle = async () => {
+    try {
+      const res = await APIServer.user.getLogout();
+      const { message } = res.data;
+
+      if (res.status === 200) {
+        alert(message);
+        return dispatch(actionUser.logout());
+      }
+    } catch (error) {
+      console.log(error);
+    }
   };
 
   return (
@@ -90,8 +133,11 @@ export default function Navigation() {
             <ul className={classes["list-items"]}>
               <li>
                 {isLoggedIn && (
-                  <span className={classes["cart-quantity"]}>
-                    {cart.length}
+                  <span
+                    className={classes["cart-quantity"]}
+                    ref={numberQuantityRef}
+                  >
+                    {cart.items.length}
                   </span>
                 )}
                 <FaOpencart
@@ -113,16 +159,25 @@ export default function Navigation() {
                   className={`${classes["icon"]} ${classes["icon-user"]}`}
                 />
                 {isLoggedIn ? (
-                  <NavLink
-                    to="/setting-user"
-                    className={({ isActive }) =>
-                      isActive
-                        ? `${classes["link-item"]} ${classes["link-item-active"]}`
-                        : classes["link-item"]
-                    }
-                  >
-                    User
-                  </NavLink>
+                  <>
+                    <NavLink
+                      to="/setting-user"
+                      className={({ isActive }) =>
+                        isActive
+                          ? `${classes["link-item"]} ${classes["link-item-active"]}`
+                          : classes["link-item"]
+                      }
+                    >
+                      User
+                    </NavLink>
+                    <button
+                      type="button"
+                      className={classes["btn-logout"]}
+                      onClick={logoutHandle}
+                    >
+                      Logout
+                    </button>
+                  </>
                 ) : (
                   <NavLink
                     to="/login"

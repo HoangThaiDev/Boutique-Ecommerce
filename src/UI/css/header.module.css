@@ -60,6 +60,7 @@
 
     .header-container {
         transform: translate(-50%, -45%);
+        width: 90%;
     }
 
     .header-container .title {
@@ -78,7 +79,7 @@
 
     .header-container {
         transform: translate(-50%, -45%);
-
+        width: 90%;
     }
 
     .header-container .title {
@@ -92,11 +93,12 @@
 
 @media screen and (min-width:992px) and (max-width:1199px) {
     .header {
+
         height: 300px;
     }
 
     .header-container {
         transform: translate(-50%, -45%);
-
+        width: 90%;
     }
 }

@@ -43,12 +43,14 @@ export default function FormLogin() {
         const res = await APIServer.user.postLoginUser(values);
 
         if (res.status === 200) {
-          const { message, accessToken, isLoggedIn } = res.data;
+          const { message, accessToken, isLoggedIn, cart } = res.data;
+
           alert(message);
           navigate("..");
 
           //  Update state: User
-          dispatch(actionUser.save({ accessToken, isLoggedIn }));
+          dispatch(actionUser.save({ accessToken, isLoggedIn, cart }));
+          return false;
         }
       } catch (error) {
         const { data } = error.response;
@@ -60,6 +62,7 @@ export default function FormLogin() {
   // Create + use Hooks
   const navigate = useNavigate();
   const dispatch = useDispatch();
+
   // Create + use event handles
   const backHomeHandle = () => {
     navigate("..");

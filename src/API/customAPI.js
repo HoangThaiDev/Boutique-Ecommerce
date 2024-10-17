@@ -16,6 +16,12 @@ const APIServer = {
     getProductDetail: (productId) => {
       return axiosIntance.get(`shop/product/${productId}`);
     },
+
+    postAddToCart: (valueProduct) => {
+      return axiosIntance.post("shop/products/add-to-cart", {
+        valueProduct,
+      });
+    },
   },
   user: {
     postSignUpUser: (formValues) => {
@@ -26,6 +32,9 @@ const APIServer = {
     },
     getUser: () => {
       return axiosIntance.get("user");
+    },
+    getLogout: () => {
+      return axiosIntance.get("user/logout");
     },
   },
 };
