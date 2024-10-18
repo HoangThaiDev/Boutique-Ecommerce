@@ -1,7 +1,7 @@
 .header {
     position: relative;
     width: 100%;
-    background-color: rgb(248, 249, 250);
+    background-color: #F4F5F9;
     height: 350px;
     overflow: hidden;
 }
@@ -15,7 +15,6 @@
     display: flex;
     align-items: center;
     justify-content: space-between;
-    background-color: rgb(248, 249, 250);
 }
 
 .header-container .title {

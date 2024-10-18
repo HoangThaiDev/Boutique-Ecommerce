@@ -1,0 +1,124 @@
+.cart-summary {
+    width: 100%;
+    background-color: #F4F5F9;
+}
+
+/* CSS: Cart Summary Container */
+.cart-summary-container {
+    padding: 40px;
+}
+
+.cart-summary-title {
+    font: italic 600 2.2rem/2.4rem "Playfair Display", serif;
+    letter-spacing: 2px;
+    color: rgba(40, 40, 40, .9);
+}
+
+/* CSS: Cart Summary Form */
+.form-summary {
+    margin: 30px 0 0 0;
+}
+
+/* CSS: Cart SubTotal */
+.cart-sub-total {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 1px solid #ceced0;
+    padding-bottom: 10px;
+}
+
+.cart-sub-total-label {
+    font: italic 600 1.6rem/2.0rem "Roboto", sans-serif;
+    letter-spacing: 1px;
+    color: rgba(31, 31, 31, .8);
+}
+
+.cart-sub-total-value {
+    font: italic 500 1.4rem/2.0rem "Roboto", sans-serif;
+    letter-spacing: .4px;
+    color: rgb(139, 139, 139);
+}
+
+/* CSS: Cart Total */
+
+.cart-total {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: center;
+    padding-top: 10px;
+}
+
+.cart-total-label {
+    font: italic 600 1.6rem/2.0rem "Roboto", sans-serif;
+    letter-spacing: 1px;
+    color: rgba(31, 31, 31, .8);
+}
+
+.cart-total-value {
+    font: italic 500 1.8rem/2.0rem "Roboto", sans-serif;
+    letter-spacing: .4px;
+    color: rgb(98, 97, 97);
+}
+
+/* CSS: Cart Total Coupon */
+.cart-total-coupon {
+    display: flex;
+    width: 100%;
+    flex-direction: column;
+    margin-top: 30px;
+}
+
+.cart-total-input {
+    box-sizing: border-box;
+    font: 500 1.4rem/1.4rem "Roboto", sans-serif;
+    border-radius: 0;
+    border: 1px solid rgb(180, 178, 178);
+    height: 40px;
+    padding: 0 15px;
+    color: rgba(40, 40, 40, 1)
+}
+
+.cart-total-input::placeholder {
+    font: 500 1.4rem/1.4rem "Roboto", sans-serif;
+    color: rgb(163, 163, 163);
+}
+
+.btn-add-coupon {
+    position: relative;
+    cursor: pointer;
+    font: 500 1.4rem/1.4rem "Roboto", sans-serif;
+    height: 40px;
+    background-color: #383838;
+    color: #fff;
+    border: 1px solid #383838;
+    transition: .5s all ease;
+}
+
+.btn-add-coupon .icon-gift {
+    position: relative;
+    left: -5px;
+    top: 2px;
+}
+
+/* CSS: Effects */
+.cart-total-input:focus {
+    outline: none;
+    border: 1px solid #383838
+}
+
+.btn-add-coupon:hover {
+    background-color: rgb(215, 132, 68);
+    border-color: rgb(215, 132, 68);
+}
+
+/* css: Responsives */
+@media screen and (max-width:575px) {}
+
+@media screen and (min-width:576px) and (max-width:765px) {}
+
+@media screen and (min-width:766px) and (max-width:991px) {}
+
+@media screen and (min-width:992px) and (max-width:1199px) {}

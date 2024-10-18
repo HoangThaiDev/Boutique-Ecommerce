@@ -1,0 +1,167 @@
+.cart {
+    width: 100%;
+}
+
+/* CSS: Cart Container */
+.cart-container {
+    width: 1140px;
+    margin: 50px auto;
+}
+
+.cart-title {
+    font: italic 600 2.2rem/2.4rem "Playfair Display", serif;
+    letter-spacing: 1px;
+    color: rgba(40, 40, 40, .9);
+    margin-bottom: 20px;
+}
+
+/* CSS: Cart Row */
+.cart-row {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+}
+
+/* CSS: Cart Col */
+.cart-col-items {
+    width: 67%;
+}
+
+.cart-col-summary {
+    width: 30%;
+}
+
+
+/* CSS: Cart Message Error Box */
+.message-error-box {
+    text-align: center;
+}
+
+.message-error-box>h2 {
+    font: 600 3.0rem/3.4rem "Playfair Display", serif;
+    letter-spacing: .6px;
+    color: rgb(49, 73, 92);
+}
+
+.message-error-box>a {
+    cursor: pointer;
+    display: inline-block;
+    margin-top: 20px;
+    font: 500 1.8rem/2.4rem "Roboto", sans-serif;
+    text-decoration: none;
+    color: #fff;
+    background-color: rgb(49, 73, 92);
+    padding: 10px 20px;
+}
+
+/* CSS: Effects */
+.message-error-box>a :hover {
+    background-color: #4B6070;
+}
+
+/* css: Responsives */
+@media screen and (max-width:575px) {
+    .cart-container {
+        width: 90%;
+    }
+
+    .cart-title {
+        text-align: center;
+    }
+
+    .cart-row {
+        gap: 50px 0;
+    }
+
+    .cart-col-items {
+        width: 100%;
+    }
+
+    .cart-col-summary {
+        width: 100%;
+    }
+
+    .message-error-box>h2 {
+        font: 600 2.0rem/2.4rem "Playfair Display", serif;
+    }
+
+    .message-error-box>a {
+        font: 500 1.4rem/2.0rem "Roboto", sans-serif;
+    }
+}
+
+@media screen and (min-width:576px) and (max-width:765px) {
+    .cart-container {
+        width: 90%;
+    }
+
+    .cart-title {
+        text-align: center;
+    }
+
+    .cart-row {
+        gap: 50px 0;
+    }
+
+    .cart-col-items {
+        width: 100%;
+    }
+
+    .cart-col-summary {
+        width: 100%;
+    }
+
+    .message-error-box>h2 {
+        font: 600 2.4rem/2.4rem "Playfair Display", serif;
+    }
+
+    .message-error-box>a {
+        font: 500 1.4rem/2.0rem "Roboto", sans-serif;
+    }
+}
+
+@media screen and (min-width:766px) and (max-width:991px) {
+    .cart-container {
+        width: 90%;
+    }
+
+    .cart-title {
+        text-align: center;
+    }
+
+    .cart-row {
+        gap: 50px 0;
+    }
+
+    .cart-col-items {
+        width: 100%;
+    }
+
+    .cart-col-summary {
+        margin: 0 auto;
+        width: 50%;
+    }
+}
+
+@media screen and (min-width:992px) and (max-width:1199px) {
+    .cart-container {
+        width: 90%;
+    }
+
+    .cart-title {
+        text-align: center;
+    }
+
+    .cart-row {
+        gap: 50px 0;
+    }
+
+    .cart-col-items {
+        width: 100%;
+    }
+
+    .cart-col-summary {
+        margin: 0 auto;
+        width: 50%;
+    }
+}

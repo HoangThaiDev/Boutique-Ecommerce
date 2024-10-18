@@ -1,0 +1,430 @@
+.cart-items {
+    width: 100%;
+}
+
+/* CSS: Cart Items Container */
+.cart-items-container {
+    box-sizing: border-box;
+}
+
+/* CSS: Cart Items Header */
+.cart-items-header {
+    width: 100%;
+    background-color: #F4F5F9;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    padding: 20px 0;
+    gap: 0 30px;
+}
+
+.bg-title {
+    text-align: center;
+}
+
+.bg-title.image,
+.bg-title.price,
+.bg-title.quantity,
+.bg-title.total,
+.bg-title.action {
+    flex: 1;
+}
+
+.bg-title.product {
+    flex: 1.5;
+}
+
+
+.bg-title>h4 {
+    font: italic 600 1.4rem/1.6rem "Roboto", sans-serif;
+    letter-spacing: 1px;
+    color: rgba(97, 97, 100, .9);
+}
+
+/* CSS: Cart Items Section */
+.cart-items-section {
+    width: 100%;
+    background-color: #FAFAFF;
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    padding: 20px 0;
+    gap: 0 30px;
+}
+
+
+.bg-content.image,
+.bg-content.price,
+.bg-content.quantity,
+.bg-content.total,
+.bg-content.action {
+    flex: 1;
+}
+
+.bg-content.product {
+    flex: 1.5;
+}
+
+.bg-content.image .image-item {
+    width: 100%;
+    object-fit: contain;
+}
+
+.bg-content.product>p {
+    font: 600 1.6rem/2.0rem "Roboto", sans-serif;
+    text-align: center;
+    color: rgba(40, 40, 40, .9);
+    letter-spacing: .6px;
+}
+
+.bg-content.price,
+.bg-content.total {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 5px 0;
+}
+
+.bg-content.price>span,
+.bg-content.total>span {
+    font: 500 1.4rem/1.4rem "Roboto", sans-serif;
+    color: rgba(98, 96, 96, 1)
+}
+
+.bg-content.quantity {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0 5px;
+}
+
+.bg-content.quantity .icon-quantity {
+    cursor: pointer;
+    color: rgb(30, 40, 54);
+    font-size: 1.8rem;
+    border-radius: 3px;
+    padding: 8px 0;
+    transition: .5s all ease;
+}
+
+.bg-content.quantity .icon-quantity:hover {
+    color: rgb(55, 100, 122);
+}
+
+.bg-content.quantity .input-quantity {
+    font: 500 1.4rem/1.4rem "Roboto", sans-serif;
+    text-align: center;
+    width: 30px;
+    border: 0;
+}
+
+.bg-content.action {
+    text-align: center;
+}
+
+.bg-content.action .icon-delete {
+    cursor: pointer;
+    font-size: 1.6rem;
+    color: rgb(188, 40, 62);
+}
+
+/* CSS: Cart Items Footer */
+.cart-items-footer {
+    width: 100%;
+    background-color: #F4F5F9;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    padding: 20px 0;
+    margin-top: 40px;
+}
+
+.footer-action-shop,
+.footer-action-checkout {
+    cursor: pointer;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 0 10px;
+    transition: .5s all ease;
+}
+
+.footer-action-shop {
+    margin-left: 25px;
+}
+
+.footer-action-checkout {
+    border: 2px solid rgba(40, 40, 40, .8);
+    padding: 8px 12px;
+    margin-right: 25px;
+}
+
+.footer-action-shop>p,
+.footer-action-checkout>p {
+    font: italic 600 1.4rem/1.6rem "Roboto", sans-serif;
+    letter-spacing: .6px;
+    color: rgb(111, 109, 109);
+}
+
+/* CSS: Icons */
+.icon-arrow {
+    font-size: 1.8rem;
+    color: rgb(91, 90, 90);
+}
+
+/* CSS: Actives */
+.bg-content.quantity .input-quantity:focus {
+    outline: none;
+}
+
+.bg-content.quantity .input-quantity[type="number"]::-webkit-inner-spin-button,
+.bg-content.quantity .input-quantity[type="number"]::-webkit-outer-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
+
+
+/* CSS: Effects */
+.footer-action-shop:hover>p {
+    color: rgb(153, 56, 39);
+}
+
+.footer-action-shop:hover>.icon-prev {
+    color: rgb(153, 56, 39);
+}
+
+.footer-action-checkout:hover {
+    background-color: rgb(46, 74, 106);
+    border-color: rgb(46, 74, 106);
+}
+
+.footer-action-checkout:hover>p,
+.footer-action-checkout:hover>.icon-next {
+    color: #fff;
+}
+
+/* css: Responsives */
+@media screen and (max-width:575px) {
+    .cart-items-header {
+        display: none;
+    }
+
+    .cart-items-section {
+        flex-direction: column;
+        align-items: flex-end;
+        gap: 15px 0;
+        border-top: 2px solid rgba(111, 109, 109, .4);
+    }
+
+    .bg-content {
+        position: relative;
+        width: 100%;
+    }
+
+    .bg-content.image {
+        display: none;
+    }
+
+    .bg-content.product {
+        order: 2;
+    }
+
+    .bg-content.price {
+        flex-direction: row;
+        justify-content: flex-end;
+        gap: 0 5px;
+        order: 3;
+    }
+
+    .bg-content.price>span {
+        font: 500 1.6rem/2.0rem "Roboto", sans-serif;
+    }
+
+    .bg-content.total {
+        flex-direction: row;
+        justify-content: flex-end;
+        gap: 0 5px;
+        order: 5;
+    }
+
+    .bg-content.total>span {
+        font: 600 1.6rem/2.0rem "Roboto", sans-serif;
+    }
+
+    .bg-content.quantity {
+        justify-content: flex-end;
+        gap: 0;
+        order: 4;
+    }
+
+    .bg-content.quantity .icon-quantity {
+        flex: none;
+        font-size: 2.0rem;
+        padding: 0;
+    }
+
+    .bg-content.action {
+        width: 100%;
+        order: 1;
+        margin-bottom: 10px;
+    }
+
+    /* CSS: Actives */
+    .bg-content.product>p {
+        text-align: right;
+    }
+
+    .bg-content.product::before,
+    .bg-content.total::before,
+    .bg-content.price::before,
+    .bg-content.quantity::before {
+        font: 600 1.6rem/2.0rem "Roboto", sans-serif;
+        position: absolute;
+        left: 0;
+        top: 0;
+        color: rgb(54, 54, 54);
+    }
+
+    .bg-content.product::before {
+        content: 'Product:';
+    }
+
+    .bg-content.price::before {
+        font-size: 1.8rem;
+        content: 'Price:';
+    }
+
+    .bg-content.quantity::before {
+        font-size: 1.8rem;
+        content: 'Quantity:';
+    }
+
+    .bg-content.total::before {
+        font-size: 1.8rem;
+        content: 'Total:';
+    }
+
+    .cart-items-footer {
+        gap: 0 15px;
+        justify-content: center;
+    }
+
+    .footer-action-shop {
+        margin-left: 0;
+    }
+
+    .footer-action-checkout {
+        margin-right: 0;
+        padding: 0;
+        border: 0;
+    }
+}
+
+@media screen and (min-width:576px) and (max-width:765px) {
+    .cart-items-header {
+        display: none;
+    }
+
+    .cart-items-section {
+        flex-direction: column;
+        align-items: flex-end;
+        gap: 15px 0;
+        border-top: 2px solid rgba(111, 109, 109, .4);
+    }
+
+    .bg-content {
+        position: relative;
+        width: 100%;
+    }
+
+    .bg-content.image {
+        display: none;
+    }
+
+    .bg-content.product {
+        order: 2;
+    }
+
+    .bg-content.price {
+        flex-direction: row;
+        justify-content: flex-end;
+        gap: 0 5px;
+        order: 3;
+    }
+
+    .bg-content.price>span {
+        font: 500 1.6rem/2.0rem "Roboto", sans-serif;
+    }
+
+    .bg-content.total {
+        flex-direction: row;
+        justify-content: flex-end;
+        gap: 0 5px;
+        order: 5;
+    }
+
+    .bg-content.total>span {
+        font: 600 1.6rem/2.0rem "Roboto", sans-serif;
+    }
+
+    .bg-content.quantity {
+        justify-content: flex-end;
+        gap: 0;
+        order: 4;
+    }
+
+    .bg-content.quantity .icon-quantity {
+        flex: none;
+        font-size: 2.0rem;
+        padding: 0;
+    }
+
+    .bg-content.action {
+        width: 100%;
+        order: 1;
+        margin-bottom: 10px;
+    }
+
+    /* CSS: Actives */
+    .bg-content.product>p {
+        text-align: right;
+    }
+
+    .bg-content.product::before,
+    .bg-content.total::before,
+    .bg-content.price::before,
+    .bg-content.quantity::before {
+        font: 600 1.6rem/2.0rem "Roboto", sans-serif;
+        position: absolute;
+        left: 0;
+        top: 0;
+        color: rgb(54, 54, 54);
+    }
+
+    .bg-content.product::before {
+        content: 'Product:';
+    }
+
+    .bg-content.price::before {
+        font-size: 1.8rem;
+        content: 'Price:';
+    }
+
+    .bg-content.quantity::before {
+        font-size: 1.8rem;
+        content: 'Quantity:';
+    }
+
+    .bg-content.total::before {
+        font-size: 1.8rem;
+        content: 'Total:';
+    }
+
+    .footer-action-checkout {
+        padding: 0;
+        border: 0;
+    }
+}

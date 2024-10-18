@@ -12,7 +12,7 @@ export default function ProductDetail() {
 
   return (
     <>
-      <Header title="Shop" path="Product Detail" />
+      <Header title="SHOP" path="PRODUCT DETAIL" />
       <Layout product={state.productDetail} />
     </>
   );

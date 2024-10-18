@@ -8,7 +8,7 @@ import Layout from "../component/Shop/Layout";
 export default function Shop() {
   return (
     <>
-      <Header title="Shop" path="Shop" />
+      <Header title="SHOP" path="SHOP" />
       <Layout />
     </>
   );
