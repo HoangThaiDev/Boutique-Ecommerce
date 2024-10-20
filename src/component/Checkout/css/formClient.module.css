@@ -1,0 +1,161 @@
+.form-client {
+    width: 100%;
+}
+
+/* CSS: Form client container */
+.form-client-container {
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+    gap: 10px 0;
+}
+
+/* CSS: Form Input */
+.form-input {
+    display: flex;
+    flex-direction: column;
+}
+
+.form-input>label {
+    font: italic 500 1.6rem/2.0rem "Roboto", sans-serif;
+    letter-spacing: 1px;
+    color: rgb(89, 88, 88);
+}
+
+.form-input>input {
+    font: 500 1.6rem/2.0rem "Roboto", sans-serif;
+    padding: 10px 15px;
+    border-radius: 0;
+    border: 2px solid rgba(89, 88, 88, .2);
+    box-sizing: border-box;
+    margin: 4px 0;
+}
+
+.form-input>input::placeholder {
+    font: 500 1.4rem/2.0rem "Roboto", sans-serif;
+    color: rgba(89, 88, 88, .6);
+    letter-spacing: .4px;
+}
+
+.message-error {
+    font: 500 1.4rem/2.0rem "Roboto", sans-serif;
+    color: rgb(215, 73, 37);
+    margin-bottom: 10px;
+    opacity: 1;
+    transition: .5s all ease;
+}
+
+.btn-submit {
+    margin-top: 20px;
+    cursor: pointer;
+    font: 500 1.6rem/2.0rem "Roboto", sans-serif;
+    display: inline-block;
+    width: 140px;
+    padding: 10px 0;
+    letter-spacing: .6px;
+    background-color: #383838;
+    color: #e7dfdf;
+    border: 0;
+    transition: .5s all ease;
+}
+
+
+/* CSS: Active */
+.form-input>input[type="number"]::-webkit-inner-spin-button,
+.form-input>input[type="number"]::-webkit-outer-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
+
+/* CSS: Effects */
+.form-input>input:focus {
+    outline: none;
+}
+
+.btn-submit:hover {
+    background-color: rgb(207, 132, 57);
+    color: #fff;
+}
+
+/* CSS: Responsives */
+@media screen and (max-width:575px) {
+    .form-input>label {
+        font: italic 500 1.4rem/2.0rem "Roboto", sans-serif;
+    }
+
+    .form-input>input {
+        font: 500 1.4rem/2.0rem "Roboto", sans-serif;
+    }
+
+    .form-input>input::placeholder {
+        font: 500 1.4rem/2.0rem "Roboto", sans-serif;
+    }
+
+    .btn-submit {
+        font-size: 1.4rem;
+    }
+}
+
+@media screen and (min-width:576px) and (max-width:765px) {
+    .form-client {
+        width: 70%;
+        margin: 0 auto;
+    }
+
+    .form-input>label {
+        font: italic 500 1.4rem/2.0rem "Roboto", sans-serif;
+    }
+
+    .form-input>input {
+        font: 500 1.4rem/2.0rem "Roboto", sans-serif;
+    }
+
+    .form-input>input::placeholder {
+        font: 500 1.4rem/2.0rem "Roboto", sans-serif;
+    }
+
+    .btn-submit {
+        font-size: 1.4rem;
+    }
+}
+
+@media screen and (min-width:766px) and (max-width:991px) {
+    .form-client {
+        width: 70%;
+        margin: 0 auto;
+    }
+
+    .form-input>label {
+        font: italic 500 1.4rem/2.0rem "Roboto", sans-serif;
+    }
+
+    .form-input>input {
+        font: 500 1.4rem/2.0rem "Roboto", sans-serif;
+    }
+
+    .form-input>input::placeholder {
+        font: 500 1.4rem/2.0rem "Roboto", sans-serif;
+    }
+
+    .btn-submit {
+        font-size: 1.4rem;
+    }
+}
+
+@media screen and (min-width:992px) and (max-width:1199px) {
+    .form-input>label {
+        font: italic 500 1.4rem/2.0rem "Roboto", sans-serif;
+    }
+
+    .form-input>input {
+        font: 500 1.4rem/2.0rem "Roboto", sans-serif;
+    }
+
+    .form-input>input::placeholder {
+        font: 500 1.4rem/2.0rem "Roboto", sans-serif;
+    }
+
+    .btn-submit {
+        font-size: 1.4rem;
+    }
+}

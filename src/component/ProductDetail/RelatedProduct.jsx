@@ -30,27 +30,31 @@ export default function RelatedProduct({ product }) {
   };
 
   return (
-    <div className={classes["related-product"]}>
-      <div className={classes["related-product-container"]}>
-        <h3>RELATED PRODUCTS</h3>
+    <>
+      {filteredProducts.length > 0 && (
+        <div className={classes["related-product"]}>
+          <div className={classes["related-product-container"]}>
+            <h3>RELATED PRODUCTS</h3>
 
-        <div className={classes["products-flex"]}>
-          {filteredProducts.map((p) => (
-            <div key={p._id} className={classes["item-product"]}>
-              <div
-                className={classes["item-product-image"]}
-                onClick={() => viewProductHandle(p)}
-              >
-                <img src={p.images[0]} alt={p.images[0]} loading="lazy" />
-              </div>
-              <div className={classes["item-product-info"]}>
-                <p className={classes["info-name"]}>{p.name}</p>
-                <p className={classes["info-price"]}>{p.price} VND</p>
-              </div>
+            <div className={classes["products-flex"]}>
+              {filteredProducts.map((p) => (
+                <div key={p._id} className={classes["item-product"]}>
+                  <div
+                    className={classes["item-product-image"]}
+                    onClick={() => viewProductHandle(p)}
+                  >
+                    <img src={p.images[0]} alt={p.images[0]} loading="lazy" />
+                  </div>
+                  <div className={classes["item-product-info"]}>
+                    <p className={classes["info-name"]}>{p.name}</p>
+                    <p className={classes["info-price"]}>{p.price} VND</p>
+                  </div>
+                </div>
+              ))}
             </div>
-          ))}
+          </div>
         </div>
-      </div>
-    </div>
+      )}
+    </>
   );
 }

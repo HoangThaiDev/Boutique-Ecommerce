@@ -2,6 +2,17 @@
 import axiosIntance from "../axios/customAxios";
 
 const APIServer = {
+  cart: {
+    getCart: () => {
+      return axiosIntance.get("cart/");
+    },
+    deleteItem: (itemId) => {
+      return axiosIntance.post("cart/delete-item", { itemId });
+    },
+    updateCart: (data) => {
+      return axiosIntance.post("cart/update", { data });
+    },
+  },
   shop: {
     getProducts: () => {
       return axiosIntance.get(`shop/products`);

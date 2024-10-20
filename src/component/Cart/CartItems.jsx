@@ -1,5 +1,6 @@
 // Import Modules
 import React, { useState } from "react";
+import { actionUser } from "../../redux/actionRedux";
 
 // Import File CSS
 import classes from "./css/cartItems.module.css";
@@ -12,7 +13,9 @@ import { FaLongArrowAltLeft } from "react-icons/fa";
 import { FaLongArrowAltRight } from "react-icons/fa";
 
 // Import Components
-import { Link, useNavigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
+import { useDispatch, useSelector } from "react-redux";
+import APIServer from "../../API/customAPI";
 
 export default function CartItems() {
   // Create + use array DUMMY
@@ -27,39 +30,84 @@ export default function CartItems() {
 
   // Create + use Hooks
   const navigate = useNavigate();
+  const dispatch = useDispatch();
 
   // Create + use States
-  const [quantityItem, setQuantityItem] = useState(1);
+  const { cart, totalPrice } = useSelector((state) => state.user);
 
   // Create + use event handles
-  const changeQuantityHandle = (e, option) => {
+  const deleteItemHandle = async (itemId) => {
+    try {
+      const res = await APIServer.cart.deleteItem(itemId);
+      const { cart, totalPrice } = res.data;
+
+      if (res.status === 200) {
+        dispatch(actionUser.deleteItemCart({ cart, totalPrice }));
+        alert("Delete Item Success!");
+      }
+    } catch (error) {
+      const { data } = error.response;
+      alert(data.message);
+    }
+  };
+
+  const changeQuantityHandle = (e, option, itemId) => {
+    // Find item in items
+    const findIndexItem = cart.items.findIndex((item) => item._id === itemId);
+
     switch (option) {
       case "input":
         const valueInput = e.target.value;
-        setQuantityItem(valueInput);
+        dispatch(
+          actionUser.updateCart({
+            qty: valueInput,
+            option: "input",
+            itemIndex: findIndexItem,
+          })
+        );
         break;
       case "increase":
-        if (quantityItem < 20) {
-          setQuantityItem((prev) => Number(prev) + 1);
+        if (cart.items[findIndexItem].quantity < 20) {
+          dispatch(
+            actionUser.updateCart({
+              qty: 1,
+              option: "increase",
+              itemIndex: findIndexItem,
+            })
+          );
         }
         break;
       case "decrease":
-        if (quantityItem > 1) {
-          setQuantityItem((prev) => Number(prev) - 1);
+        if (cart.items[findIndexItem].quantity > 1) {
+          dispatch(
+            actionUser.updateCart({
+              qty: 1,
+              option: "decrease",
+              itemIndex: findIndexItem,
+            })
+          );
         }
         break;
       default:
-        setQuantityItem(1);
+        alert("Error with action!");
         break;
     }
   };
 
-  const backToShopHandle = () => {
+  const goShopHandle = () => {
     navigate("/shop");
   };
 
-  const goToCheckoutHandle = () => {
-    navigate("/checkout");
+  const goCheckoutHandle = async () => {
+    try {
+      const res = await APIServer.cart.updateCart({ cart, totalPrice });
+      if (res.status === 200) {
+        navigate("/checkout");
+      }
+    } catch (error) {
+      const { data } = error.response;
+      alert(data.message);
+    }
   };
 
   return (
@@ -77,110 +125,96 @@ export default function CartItems() {
           ))}
         </div>
 
+        {cart.items.length === 0 && (
+          <h2 className={classes["message-cart-client"]}>
+            Your shopping cart is currently empty!
+          </h2>
+        )}
+
         {/* JSX: Cart Items Section */}
-        <div className={classes["cart-items-section"]}>
-          <div className={`${classes["bg-content"]} ${classes["image"]}`}>
-            <img
-              className={classes["image-item"]}
-              src="https://www.vietnamworks.com/hrinsider/wp-content/uploads/2023/12/hinh-thien-nhien-3d-002.jpg"
-              alt=""
-              loading="lazy"
-            />
-          </div>
+        {cart.items.length > 0 && (
+          <>
+            {cart.items.map((item) => (
+              <div className={classes["cart-items-section"]} key={item._id}>
+                <div className={`${classes["bg-content"]} ${classes["image"]}`}>
+                  <img
+                    className={classes["image-item"]}
+                    src={item.itemId.images[0]}
+                    alt={item.itemId.images[0]}
+                    loading="lazy"
+                  />
+                </div>
 
-          <div className={`${classes["bg-content"]} ${classes["product"]}`}>
-            <p>Apple iPhone 11 64GB</p>
-          </div>
-          <div className={`${classes["bg-content"]} ${classes["price"]}`}>
-            <span className={classes["value"]}>10.999.000</span>
-            <span className={classes["unit"]}>VND</span>
-          </div>
-          <div className={`${classes["bg-content"]} ${classes["quantity"]}`}>
-            <IoMdArrowDropleft
-              className={`${classes["icon-quantity"]} ${classes["icon-decrease"]}`}
-              onClick={() => changeQuantityHandle(null, "decrease")}
-            />
-            <input
-              className={classes["input-quantity"]}
-              type="number"
-              value={quantityItem}
-              onChange={(e) => changeQuantityHandle(e, "input")}
-            />
-            <IoMdArrowDropright
-              className={`${classes["icon-quantity"]} ${classes["icon-increase"]}`}
-              onClick={() => changeQuantityHandle(null, "increase")}
-            />
-          </div>
-          <div className={`${classes["bg-content"]} ${classes["total"]}`}>
-            <span className={classes["value"]}>10.999.000</span>
-            <span className={classes["unit"]}>VND</span>
-          </div>
-          <div className={`${classes["bg-content"]} ${classes["action"]}`}>
-            <RiDeleteBin6Line className={classes["icon-delete"]} />
-          </div>
-        </div>
-        <div className={classes["cart-items-section"]}>
-          <div className={`${classes["bg-content"]} ${classes["image"]}`}>
-            <img
-              className={classes["image-item"]}
-              src="https://www.vietnamworks.com/hrinsider/wp-content/uploads/2023/12/hinh-thien-nhien-3d-002.jpg"
-              alt=""
-              loading="lazy"
-            />
-          </div>
-
-          <div className={`${classes["bg-content"]} ${classes["product"]}`}>
-            <p>Apple iPhone 11 64GB</p>
-          </div>
-          <div className={`${classes["bg-content"]} ${classes["price"]}`}>
-            <span className={classes["value"]}>10.999.000</span>
-            <span className={classes["unit"]}>VND</span>
-          </div>
-          <div className={`${classes["bg-content"]} ${classes["quantity"]}`}>
-            <IoMdArrowDropleft
-              className={`${classes["icon-quantity"]} ${classes["icon-decrease"]}`}
-              onClick={() => changeQuantityHandle(null, "decrease")}
-            />
-            <input
-              className={classes["input-quantity"]}
-              type="number"
-              value={quantityItem}
-              onChange={(e) => changeQuantityHandle(e, "input")}
-            />
-            <IoMdArrowDropright
-              className={`${classes["icon-quantity"]} ${classes["icon-increase"]}`}
-              onClick={() => changeQuantityHandle(null, "increase")}
-            />
-          </div>
-          <div className={`${classes["bg-content"]} ${classes["total"]}`}>
-            <span className={classes["value"]}>10.999.000</span>
-            <span className={classes["unit"]}>VND</span>
-          </div>
-          <div className={`${classes["bg-content"]} ${classes["action"]}`}>
-            <RiDeleteBin6Line className={classes["icon-delete"]} />
-          </div>
-        </div>
-        {/* JSX: Cart Items Footer */}
-        <div className={classes["cart-items-footer"]}>
-          <div
-            className={classes["footer-action-shop"]}
-            onClick={backToShopHandle}
-          >
-            <FaLongArrowAltLeft
-              className={`${classes["icon-arrow"]} ${classes["icon-prev"]}`}
-            />
-            <p>Continue shopping</p>
-          </div>
-          <div
-            className={classes["footer-action-checkout"]}
-            onClick={goToCheckoutHandle}
-          >
-            <p>Proceed to checkout</p>
-            <FaLongArrowAltRight
-              className={`${classes["icon-arrow"]} ${classes["icon-next"]}`}
-            />
-          </div>
-        </div>
+                <div
+                  className={`${classes["bg-content"]} ${classes["product"]}`}
+                >
+                  <p>{item.itemId.name}</p>
+                </div>
+                <div className={`${classes["bg-content"]} ${classes["price"]}`}>
+                  <span className={classes["value"]}>{item.itemId.price}</span>
+                  <span className={classes["unit"]}>VND</span>
+                </div>
+                <div
+                  className={`${classes["bg-content"]} ${classes["quantity"]}`}
+                >
+                  <IoMdArrowDropleft
+                    className={`${classes["icon-quantity"]} ${classes["icon-decrease"]}`}
+                    onClick={() =>
+                      changeQuantityHandle(null, "decrease", item._id)
+                    }
+                  />
+                  <input
+                    className={classes["input-quantity"]}
+                    type="number"
+                    value={item.quantity}
+                    onChange={(e) => changeQuantityHandle(e, "input", item._id)}
+                  />
+                  <IoMdArrowDropright
+                    className={`${classes["icon-quantity"]} ${classes["icon-increase"]}`}
+                    onClick={() =>
+                      changeQuantityHandle(null, "increase", item._id)
+                    }
+                  />
+                </div>
+                <div className={`${classes["bg-content"]} ${classes["total"]}`}>
+                  <span className={classes["value"]}>
+                    {item.totalPriceItem}
+                  </span>
+                  <span className={classes["unit"]}>VND</span>
+                </div>
+                <div
+                  className={`${classes["bg-content"]} ${classes["action"]}`}
+                >
+                  <RiDeleteBin6Line
+                    className={classes["icon-delete"]}
+                    onClick={() => deleteItemHandle(item._id)}
+                  />
+                </div>
+              </div>
+            ))}
+            {/* JSX: Cart Items Footer */}
+            <div className={classes["cart-items-footer"]}>
+              <div
+                className={classes["footer-action-shop"]}
+                onClick={goShopHandle}
+              >
+                <FaLongArrowAltLeft
+                  className={`${classes["icon-arrow"]} ${classes["icon-prev"]}`}
+                />
+                <p>Continue shopping</p>
+              </div>
+              <div
+                className={classes["footer-action-checkout"]}
+                onClick={goCheckoutHandle}
+              >
+                <p>Proceed to checkout</p>
+                <FaLongArrowAltRight
+                  className={`${classes["icon-arrow"]} ${classes["icon-next"]}`}
+                />
+              </div>
+            </div>
+          </>
+        )}
       </div>
     </div>
   );

@@ -72,7 +72,7 @@
 }
 
 .bg-content.product>p {
-    font: 600 1.6rem/2.0rem "Roboto", sans-serif;
+    font: 600 1.4rem/2.0rem "Roboto", sans-serif;
     text-align: center;
     color: rgba(40, 40, 40, .9);
     letter-spacing: .6px;
@@ -97,7 +97,6 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    gap: 0 5px;
 }
 
 .bg-content.quantity .icon-quantity {
@@ -186,6 +185,13 @@
     margin: 0;
 }
 
+.message-cart-client {
+    margin-top: 50px;
+    font: 600 2.4rem/3.0rem "Roboto", sans-serif;
+    letter-spacing: .6px;
+    text-align: center;
+    color: rgba(46, 74, 106, .9);
+}
 
 /* CSS: Effects */
 .footer-action-shop:hover>p {

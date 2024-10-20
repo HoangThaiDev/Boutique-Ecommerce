@@ -16,6 +16,8 @@ import Register from "./page/Register";
 import ProductDetail from "./page/ProductDetail";
 import Shop from "./page/Shop";
 import Cart from "./page/Cart";
+import Checkout from "./page/Checkout";
+import History from "./page/History";
 
 // ------------ Component --------------
 import PopupProduct from "./UI/PopupProduct";
@@ -88,6 +90,8 @@ function App() {
           <Route path="/shop" element={<Shop />} />
           <Route path="/product/:name" element={<ProductDetail />} />
           <Route path="/cart" element={<Cart />} />
+          <Route path="/checkout" element={<Checkout />} />
+          <Route path="/history" element={<History />} />
         </Route>
 
         {/* Route: User */}

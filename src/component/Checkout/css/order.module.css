@@ -1,0 +1,136 @@
+.order {
+    width: 100%;
+    background-color: #F4F5F9;
+}
+
+/* CSS: Order Container */
+.order-container {
+    padding: 40px;
+}
+
+.order-title {
+    font: italic 600 2.2rem/2.4rem "Playfair Display", serif;
+    letter-spacing: 2px;
+    color: rgba(40, 40, 40, .9);
+}
+
+/* CSS: Order Item*/
+.order-flex {
+    display: flex;
+    flex-direction: column;
+    gap: 15px 0;
+    margin: 30px 0 15px;
+}
+
+.order-item {
+    display: flex;
+    align-items: center;
+    border-bottom: 2px solid rgba(164, 163, 163, .2);
+    padding-bottom: 10px;
+    justify-content: space-between;
+}
+
+.order-item-name {
+    font: italic 600 1.4rem/1.6rem "Roboto", sans-serif;
+    width: 40%;
+    letter-spacing: .6px;
+    color: rgb(40, 40, 40);
+}
+
+.order-item-price {
+    font: 500 1.4rem/1.6rem "Roboto", sans-serif;
+    width: 40%;
+    color: rgb(164, 163, 163);
+}
+
+.order-item-quantity {
+    font: 500 1.4rem/1.6rem "Roboto", sans-serif;
+    width: 10%;
+    color: rgb(164, 163, 163);
+}
+
+.order-total {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.order-total-label {
+    font: italic 600 1.6rem/1.6rem "Roboto", sans-serif;
+    color: rgba(59, 58, 58, .9);
+}
+
+.order-total-value {
+    font: italic 600 1.6rem/1.6rem "Roboto", sans-serif;
+    color: rgba(59, 58, 58, .9);
+}
+
+/* CSS: Responsives */
+@media screen and (max-width:575px) {
+    .order-item-name {
+        width: auto;
+        flex: 2;
+    }
+
+    .order-item-price {
+        width: auto;
+        flex: 2;
+        text-align: right;
+    }
+
+    .order-item-quantity {
+        width: auto;
+        flex: .4;
+        text-align: right;
+    }
+}
+
+@media screen and (min-width:576px) and (max-width:765px) {
+    .order {
+        width: 70%;
+        margin: 0 auto;
+    }
+
+    .order-item-name {
+        width: auto;
+        flex: 2;
+    }
+
+    .order-item-price {
+        width: auto;
+        flex: 2;
+        text-align: right;
+    }
+
+    .order-item-quantity {
+        width: auto;
+        flex: .4;
+        text-align: right;
+    }
+}
+
+@media screen and (min-width:766px) and (max-width:991px) {
+    .order {
+        width: 70%;
+        margin: 0 auto;
+    }
+
+    .order-item-name {
+        width: auto;
+        flex: 2;
+    }
+
+    .order-item-price {
+        width: auto;
+        flex: 2;
+        text-align: right;
+    }
+
+    .order-item-quantity {
+        width: auto;
+        flex: .4;
+        text-align: right;
+    }
+}
+
+@media screen and (min-width:992px) and (max-width:1199px) {}

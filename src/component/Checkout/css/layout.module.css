@@ -1,0 +1,122 @@
+.checkout {
+    width: 100%;
+}
+
+/* CSS: Checkout Container */
+.checkout-container {
+    width: 1140px;
+    margin: 50px auto;
+}
+
+.checkout-title {
+    font: italic 600 2.2rem/2.4rem "Playfair Display", serif;
+    letter-spacing: 1px;
+    color: rgba(40, 40, 40, .9);
+    margin-bottom: 30px;
+}
+
+/* CSS: Checkout Row */
+.checkout-row {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+}
+
+/* CSS: Checkout Col */
+.checkout-col-form {
+    width: 67%;
+}
+
+.checkout-col-order {
+    width: 30%;
+}
+
+/* CSS: Responsives */
+@media screen and (max-width:575px) {
+    .checkout-container {
+        width: 90%;
+    }
+
+    .checkout-title {
+        text-align: center;
+    }
+
+    .checkout-row {
+        gap: 50px 0;
+    }
+
+    .checkout-col-form {
+        width: 100%;
+    }
+
+    .checkout-col-order {
+        width: 100%;
+    }
+
+}
+
+@media screen and (min-width:576px) and (max-width:765px) {
+    .checkout-container {
+        width: 90%;
+    }
+
+    .checkout-title {
+        text-align: center;
+    }
+
+    .checkout-row {
+        gap: 50px 0;
+    }
+
+    .checkout-col-form {
+        width: 100%;
+    }
+
+    .checkout-col-order {
+        width: 100%;
+    }
+}
+
+@media screen and (min-width:766px) and (max-width:991px) {
+    .checkout-container {
+        width: 90%;
+    }
+
+    .checkout-title {
+        text-align: center;
+    }
+
+    .checkout-row {
+        gap: 50px 0;
+    }
+
+    .checkout-col-form {
+        width: 100%;
+    }
+
+    .checkout-col-order {
+        width: 100%;
+    }
+}
+
+@media screen and (min-width:992px) and (max-width:1199px) {
+    .checkout-container {
+        width: 90%;
+    }
+
+    .checkout-title {
+        text-align: center;
+    }
+
+    .checkout-row {
+        gap: 50px 0;
+    }
+
+    .checkout-col-form {
+        width: 60%;
+    }
+
+    .checkout-col-order {
+        width: 35%;
+    }
+}

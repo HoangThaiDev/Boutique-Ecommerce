@@ -1,5 +1,6 @@
 // Import Moduels
 import { createSlice, current } from "@reduxjs/toolkit";
+import convertMoney from "../helper/convertMoney";
 
 // Create initialState
 const initialSideBarMenu = { isShow: false };
@@ -29,6 +30,15 @@ const userSlice = createSlice({
   name: "user",
   initialState: initialUser,
   reducers: {
+    logout(state) {
+      return {
+        ...state,
+        isLoggedIn: false,
+        accessToken: "",
+        cart: { items: [], totalPrice: "0" },
+      };
+    },
+
     save(state, action) {
       const { payload } = action;
 
@@ -44,7 +54,7 @@ const userSlice = createSlice({
       let newCartItems = [];
       const valueProduct = action.payload;
 
-      // Lấy giá trị cart hiện tại
+      //  Get current value of cart
       const { items: cartItems } = current(state.cart);
 
       const totalPriceItem = valueProduct.price * valueProduct.quantity;
@@ -90,18 +100,69 @@ const userSlice = createSlice({
         .toString();
     },
 
-    logout(state) {
-      return {
-        ...state,
-        isLoggedIn: false,
-        accessToken: "",
-        cart: { items: [], totalPrice: "0" },
-      };
-    },
-
     updateAccessToken(state, action) {
       const { payload } = action;
       return { ...state, accessToken: payload.accessToken };
+    },
+
+    getCart(state, action) {
+      const { payload } = action;
+
+      return {
+        ...state,
+        cart: { items: payload.items, totalPrice: payload.totalPrice },
+      };
+    },
+
+    updateCart(state, action) {
+      const { qty, option, itemIndex } = action.payload;
+      const { items } = current(state.cart);
+
+      // Clone state to update
+      let newItems = [...items];
+      const cloneItem = { ...items[itemIndex] };
+
+      // Check options of client choose
+      if (option === "input") {
+        cloneItem.quantity = parseInt(qty);
+      }
+
+      if (option === "increase") {
+        cloneItem.quantity += parseInt(qty);
+      }
+
+      if (option === "decrease") {
+        cloneItem.quantity -= parseInt(qty);
+      }
+
+      // Re-assign to clone value
+      cloneItem.totalPriceItem =
+        parseInt(cloneItem.itemId.price.replace(/\./g, "")) *
+        cloneItem.quantity;
+      cloneItem.totalPriceItem = convertMoney(cloneItem.totalPriceItem);
+      newItems[itemIndex] = cloneItem;
+
+      // Update state
+      const totalPriceCart = newItems.reduce(
+        (acculator, currentValue) =>
+          acculator + parseInt(currentValue.totalPriceItem.replace(/\./g, "")),
+        0
+      );
+
+      state.cart.items = newItems;
+      state.cart.totalPrice = convertMoney(totalPriceCart);
+    },
+
+    deleteItemCart(state, action) {
+      const { cart, totalPrice } = action.payload;
+
+      return {
+        ...state,
+        cart: {
+          items: cart,
+          totalPrice: totalPrice,
+        },
+      };
     },
   },
 });
