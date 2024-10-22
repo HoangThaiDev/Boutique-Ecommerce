@@ -22,7 +22,7 @@ import HistoryDetail from "./page/HistoryDetail";
 
 // ------------ Component --------------
 import PopupProduct from "./UI/PopupProduct";
-import SidebarMenu from "./UI/sidebarMenu";
+import SidebarMenu from "./UI/SidebarMenu";
 import ScrollTop from "./UI/ScrollTop";
 
 function App() {

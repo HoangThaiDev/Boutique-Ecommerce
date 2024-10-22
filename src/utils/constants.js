@@ -2,7 +2,7 @@ import env from "./enviroment";
 
 let apiRootServer = "";
 
-if (env.BUILD_MODE === "dev") {
+if (env.BUILD_MODE === "development") {
   apiRootServer = env.URL_SERVER_DEV;
 }
 if (env.BUILD_MODE === "production") {
