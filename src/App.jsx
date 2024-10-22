@@ -33,6 +33,7 @@ function App() {
 
   // Create + use variables
   const pathsAuth = ["/login", "/signup"];
+  console.log("start project");
 
   // Sides Effect
   useEffect(() => {
