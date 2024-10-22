@@ -23,7 +23,6 @@ export default function ProductTrending() {
   const { products } = useContext(APIContext);
   const navigate = useNavigate();
   const dispatch = useDispatch();
-  console.log(products);
 
   const sliceProducts = products.slice(0, 8);
 

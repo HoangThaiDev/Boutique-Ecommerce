@@ -2,11 +2,12 @@
 import axios from "axios";
 import store from "../redux/store";
 import { actionUser } from "../redux/actionRedux";
+import { API_ROOT } from "../utils/constants";
 
 const axiosIntance = axios.create({
   proxy: 1,
   withCredentials: true,
-  baseURL: "http://localhost:5000",
+  baseURL: API_ROOT,
   headers: {
     "Content-Type": "application/json",
   },
