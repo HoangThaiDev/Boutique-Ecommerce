@@ -3,8 +3,9 @@ import React, { useContext, useEffect } from "react";
 import { APIContext } from "../../context/StoreContext";
 import { useNavigate } from "react-router-dom";
 import { useDispatch } from "react-redux";
-import { actionPopupProduct } from "../../redux/actionRedux";
+import { actionPopupProduct, actionUser } from "../../redux/actionRedux";
 import APIServer from "../../API/customAPI";
+import { toast } from "react-toastify";
 
 // Import File CSS
 import classes from "./css/productTrending.module.css";
@@ -14,11 +15,15 @@ import { IoSearch } from "react-icons/io5";
 import { BsBagCheck } from "react-icons/bs";
 import { BsCartPlus } from "react-icons/bs";
 
+// Import Components
+import Toastify from "../../UI/Toastify";
+
 export default function ProductTrending() {
   // Create + use Hooks
   const { products } = useContext(APIContext);
   const navigate = useNavigate();
   const dispatch = useDispatch();
+  console.log(products);
 
   const sliceProducts = products.slice(0, 8);
 
@@ -64,8 +69,59 @@ export default function ProductTrending() {
     }
   };
 
+  const changeCartHandle = async (action, product) => {
+    const valueProduct = {
+      productId: product._id,
+      price: product.price.replace(/\./g, ""),
+      quantity: 1,
+    };
+
+    try {
+      const res = await APIServer.shop.postAddToCart(valueProduct);
+
+      if (res.status === 200) {
+        dispatch(actionUser.addToCart(valueProduct));
+        if (action === "buy") {
+          return navigate("/cart");
+        }
+
+        if (action === "add") {
+          return toast.success("Add to cart success!", {
+            position: "top-right",
+            autoClose: 3000,
+            hideProgressBar: false,
+            closeOnClick: true,
+            pauseOnHover: false,
+            draggable: true,
+            progress: undefined,
+            theme: "light",
+            className: "toast-home-success",
+          });
+        }
+      }
+    } catch (error) {
+      const { data } = error.response;
+      toast.error(data.message, {
+        position: "top-right",
+        autoClose: 3000,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: false,
+        draggable: true,
+        progress: undefined,
+        theme: "light",
+        className: "toast-home-error",
+      });
+    }
+  };
+
   return (
     <div className={classes["products-trending"]}>
+      <Toastify
+        position="top-right"
+        bodyClassName="toast-body-home"
+        className="toast-home-container"
+      />
       <div className={classes["products-trending-container"]}>
         <div className={classes["products-trending-header"]}>
           <p>MADE THE HARD WAY</p>
@@ -75,17 +131,29 @@ export default function ProductTrending() {
         <div className={classes["products-flex"]}>
           {sliceProducts.map((product) => (
             <div key={product._id} className={classes["item-product"]}>
+              {product.quantity === 0 && (
+                <div className={classes["message-sold-out"]}>
+                  <p>SOLD OUT</p>
+                </div>
+              )}
+
               <div className={classes["item-product-actions"]}>
                 <IoSearch
                   className={`${classes["icon"]} ${classes["icon-search"]}`}
                   onClick={() => showProductDetailHandle(product._id)}
                 />
-                <BsBagCheck
-                  className={`${classes["icon"]} ${classes["icon-bag"]}`}
-                />
-                <BsCartPlus
-                  className={`${classes["icon"]} ${classes["icon-cart"]}`}
-                />
+                {product.quantity > 0 && (
+                  <>
+                    <BsBagCheck
+                      className={`${classes["icon"]} ${classes["icon-bag"]}`}
+                      onClick={() => changeCartHandle("buy", product)}
+                    />
+                    <BsCartPlus
+                      className={`${classes["icon"]} ${classes["icon-cart"]}`}
+                      onClick={() => changeCartHandle("add", product)}
+                    />
+                  </>
+                )}
               </div>
               <div
                 className={classes["item-product-image"]}

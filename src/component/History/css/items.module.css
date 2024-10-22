@@ -1,0 +1,304 @@
+.checkout-flex {
+    width: 100%;
+    background-color: #FAFAFF;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.item-checkout {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px 0 0;
+    gap: 0 20px;
+}
+
+.bg-content {
+    position: relative;
+    text-align: center;
+}
+
+.bg-content.order-id,
+.bg-content.user-id {
+    flex: 2;
+}
+
+.bg-content.name,
+.bg-content.phone,
+.bg-content.address,
+.bg-content.total,
+.bg-content.delivery,
+.bg-content.status,
+.bg-content.detail {
+    flex: 1;
+}
+
+.bg-content>p {
+    font: italic 500 1.4rem/2.0rem "Roboto", sans-serif;
+    color: rgb(126, 126, 129);
+    letter-spacing: 0.4px;
+    word-break: break-word;
+    white-space: normal;
+}
+
+.btn-view-checkout {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 8px 12px;
+    background-color: #fff;
+    color: rgb(76, 76, 77);
+    border: 2px solid rgb(76, 76, 77);
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.icon-arrow-view {
+    margin-left: 8px;
+    color: rgb(76, 76, 77);
+    transition: all .3s ease;
+}
+
+/* CSS: Effects */
+.btn-view-checkout:hover {
+    background-color: rgb(76, 76, 77);
+    color: #fff;
+}
+
+.btn-view-checkout:hover .icon-arrow-view {
+    color: #fff;
+}
+
+/* CSS: Responsives */
+@media screen and (max-width:575px) {
+    .checkout-flex {
+        gap: 30px 0;
+    }
+
+    .item-checkout {
+        flex-direction: column;
+        align-items: flex-end;
+        gap: 15px 0;
+        box-shadow: 0 5px 10px 1px rgba(128, 128, 128, .4);
+        padding: 20px;
+    }
+
+    .bg-content {
+        width: 100%;
+        text-align: right;
+    }
+
+    .bg-content.order-id,
+    .bg-content.user-id {
+        flex: 1;
+    }
+
+    .bg-content::before {
+        position: absolute;
+        font: 600 1.6rem/2.0rem "Roboto", sans-serif;
+        left: 0;
+    }
+
+    .bg-content.order-id::before {
+        content: 'OrderId:';
+    }
+
+    .bg-content.user-id::before {
+        content: 'UserId:';
+    }
+
+    .bg-content.name::before {
+        content: 'Name:';
+    }
+
+    .bg-content.phone::before {
+        content: 'Phone:';
+    }
+
+    .bg-content.address::before {
+        content: 'Address:';
+    }
+
+    .bg-content.total::before {
+        content: 'Total:';
+    }
+
+    .bg-content.delivery::before {
+        content: 'Delivery:';
+    }
+
+    .bg-content.status::before {
+        content: 'Status:';
+    }
+
+    .bg-content.detail::before {
+        content: 'Detail:';
+        top: 10px;
+    }
+
+    .bg-content>p {
+        font: italic 500 1.6rem/2.0rem "Roboto", sans-serif;
+        width: 60%;
+        margin-left: auto;
+    }
+
+    .btn-view-checkout {
+        padding: 8px 20px;
+        margin-left: auto;
+    }
+}
+
+@media screen and (min-width:576px) and (max-width:765px) {
+    .checkout-flex {
+        gap: 30px 0;
+    }
+
+    .item-checkout {
+        flex-direction: column;
+        align-items: flex-end;
+        gap: 15px 0;
+        box-shadow: 0 5px 10px 1px rgba(128, 128, 128, .4);
+        padding: 20px;
+    }
+
+    .bg-content {
+        width: 100%;
+        text-align: right;
+    }
+
+    .bg-content.order-id,
+    .bg-content.user-id {
+        flex: 1;
+    }
+
+    .bg-content::before {
+        position: absolute;
+        font: 600 1.6rem/2.0rem "Roboto", sans-serif;
+        left: 0;
+    }
+
+    .bg-content.order-id::before {
+        content: 'OrderId:';
+    }
+
+    .bg-content.user-id::before {
+        content: 'UserId:';
+    }
+
+    .bg-content.name::before {
+        content: 'Name:';
+    }
+
+    .bg-content.phone::before {
+        content: 'Phone:';
+    }
+
+    .bg-content.address::before {
+        content: 'Address:';
+    }
+
+    .bg-content.total::before {
+        content: 'Total:';
+    }
+
+    .bg-content.delivery::before {
+        content: 'Delivery:';
+    }
+
+    .bg-content.status::before {
+        content: 'Status:';
+    }
+
+    .bg-content.detail::before {
+        content: 'Detail:';
+        top: 10px;
+    }
+
+    .bg-content>p {
+        font: italic 500 1.6rem/2.0rem "Roboto", sans-serif;
+    }
+
+    .btn-view-checkout {
+        padding: 8px 20px;
+        margin-left: auto;
+    }
+}
+
+@media screen and (min-width:766px) and (max-width:991px) {
+    .checkout-flex {
+        gap: 30px 0;
+    }
+
+    .item-checkout {
+        flex-direction: column;
+        align-items: flex-end;
+        gap: 15px 0;
+        box-shadow: 0 5px 10px 1px rgba(128, 128, 128, .4);
+        padding: 20px;
+    }
+
+    .bg-content {
+        width: 100%;
+        text-align: right;
+    }
+
+    .bg-content.order-id,
+    .bg-content.user-id {
+        flex: 1;
+    }
+
+    .bg-content::before {
+        position: absolute;
+        font: 600 1.6rem/2.0rem "Roboto", sans-serif;
+        left: 0;
+    }
+
+    .bg-content.order-id::before {
+        content: 'OrderId:';
+    }
+
+    .bg-content.user-id::before {
+        content: 'UserId:';
+    }
+
+    .bg-content.name::before {
+        content: 'Name:';
+    }
+
+    .bg-content.phone::before {
+        content: 'Phone:';
+    }
+
+    .bg-content.address::before {
+        content: 'Address:';
+    }
+
+    .bg-content.total::before {
+        content: 'Total:';
+    }
+
+    .bg-content.delivery::before {
+        content: 'Delivery:';
+    }
+
+    .bg-content.status::before {
+        content: 'Status:';
+    }
+
+    .bg-content.detail::before {
+        content: 'Detail:';
+        top: 10px;
+    }
+
+    .bg-content>p {
+        font: italic 500 1.6rem/2.0rem "Roboto", sans-serif;
+    }
+
+    .btn-view-checkout {
+        padding: 8px 20px;
+        margin-left: auto;
+    }
+}
+
+@media screen and (min-width:992px) and (max-width:1199px) {}

@@ -1,0 +1,81 @@
+.title-flex {
+    position: relative;
+    width: 100%;
+    background-color: #F4F5F9;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    padding: 20px 0;
+    gap: 0 20px;
+}
+
+.bg-title {
+    text-align: center;
+}
+
+.bg-title.order-id,
+.bg-title.user-id {
+    flex: 2;
+}
+
+.bg-title.name,
+.bg-title.phone,
+.bg-title.address,
+.bg-title.total,
+.bg-title.delivery,
+.bg-title.status,
+.bg-title.detail {
+    flex: 1
+}
+
+.bg-title>h4 {
+    font: italic 600 1.4rem/1.6rem "Roboto", sans-serif;
+    letter-spacing: 1px;
+    color: rgba(97, 97, 100, .9);
+}
+
+/* CSS: Responsives */
+@media screen and (max-width:575px) {
+    .title-flex::before {
+        position: absolute;
+        content: 'Checkout Item';
+        font: italic 600 1.8rem/1.6rem "Roboto", sans-serif;
+        letter-spacing: 1px;
+        color: rgba(97, 97, 100, .9);
+    }
+
+    .bg-title {
+        display: none;
+    }
+}
+
+@media screen and (min-width:576px) and (max-width:765px) {
+    .title-flex::before {
+        position: absolute;
+        content: 'Checkout Item';
+        font: italic 600 1.8rem/1.6rem "Roboto", sans-serif;
+        letter-spacing: 1px;
+        color: rgba(97, 97, 100, .9);
+    }
+
+    .bg-title {
+        display: none;
+    }
+}
+
+@media screen and (min-width:766px) and (max-width:991px) {
+    .title-flex::before {
+        position: absolute;
+        content: 'Checkout Item';
+        font: italic 600 1.8rem/1.6rem "Roboto", sans-serif;
+        letter-spacing: 1px;
+        color: rgba(97, 97, 100, .9);
+    }
+
+    .bg-title {
+        display: none;
+    }
+}
+
+@media screen and (min-width:992px) and (max-width:1199px) {}

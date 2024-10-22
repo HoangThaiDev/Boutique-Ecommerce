@@ -1,6 +1,10 @@
 // Import Modules
-import React, { useState } from "react";
+import React from "react";
 import { actionUser } from "../../redux/actionRedux";
+import { toast } from "react-toastify";
+import { useNavigate } from "react-router-dom";
+import { useDispatch, useSelector } from "react-redux";
+import APIServer from "../../API/customAPI";
 
 // Import File CSS
 import classes from "./css/cartItems.module.css";
@@ -13,9 +17,7 @@ import { FaLongArrowAltLeft } from "react-icons/fa";
 import { FaLongArrowAltRight } from "react-icons/fa";
 
 // Import Components
-import { useNavigate } from "react-router-dom";
-import { useDispatch, useSelector } from "react-redux";
-import APIServer from "../../API/customAPI";
+import Toastify from "../../UI/Toastify";
 
 export default function CartItems() {
   // Create + use array DUMMY
@@ -43,11 +45,31 @@ export default function CartItems() {
 
       if (res.status === 200) {
         dispatch(actionUser.deleteItemCart({ cart, totalPrice }));
-        alert("Delete Item Success!");
+        toast.success("Delete Product Success!", {
+          position: "top-right",
+          autoClose: true,
+          hideProgressBar: true,
+          closeOnClick: true,
+          pauseOnHover: false,
+          draggable: true,
+          progress: undefined,
+          theme: "light",
+          className: "toast-cart-success",
+        });
       }
     } catch (error) {
       const { data } = error.response;
-      alert(data.message);
+      toast.error(data.message, {
+        position: "top-right",
+        autoClose: 3000,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: false,
+        draggable: true,
+        progress: undefined,
+        theme: "light",
+        className: "toast-cart-error",
+      });
     }
   };
 
@@ -112,6 +134,11 @@ export default function CartItems() {
 
   return (
     <div className={classes["cart-items"]}>
+      <Toastify
+        bodyClassName="toast-body-cart"
+        position="top-right"
+        className="toast-cart-container"
+      />
       <div className={classes["cart-items-container"]}>
         {/* JSX: Cart Items Header */}
         <div className={classes["cart-items-header"]}>

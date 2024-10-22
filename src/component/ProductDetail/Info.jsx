@@ -3,6 +3,8 @@ import React, { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
 import APIServer from "../../API/customAPI";
+import { toast } from "react-toastify";
+import { actionUser } from "../../redux/actionRedux";
 
 // Import File CSS
 import classes from "./css/info.module.css";
@@ -10,7 +12,9 @@ import classes from "./css/info.module.css";
 // Import Icons
 import { MdOutlineArrowLeft } from "react-icons/md";
 import { MdOutlineArrowRight } from "react-icons/md";
-import { actionUser } from "../../redux/actionRedux";
+
+// Import Components
+import Toastify from "../../UI/Toastify";
 
 export default function Info({ product }) {
   // Create + use Hooks
@@ -62,6 +66,16 @@ export default function Info({ product }) {
       return false;
     }
 
+    if (product.quantity === 0) {
+      alert("The product was sold out!");
+      return false;
+    }
+
+    if (product.quantity > 0 && quantityProduct > product.quantity) {
+      alert("You can't purchase more than the available stock quantity!");
+      return false;
+    }
+
     // Calculator price product
     const convertPrice = parseInt(product.price.replace(/\./g, ""));
 
@@ -84,23 +98,47 @@ export default function Info({ product }) {
         if (res.status === 200) {
           dispatch(actionUser.addToCart(valueProduct));
           if (action === "buy") {
-            alert("Buy product success!");
             return navigate("../cart");
           }
 
           if (action === "add") {
-            return alert("Add to cart success!");
+            return toast.success("Add To Cart Success!", {
+              position: "top-right",
+              autoClose: true,
+              hideProgressBar: false,
+              closeOnClick: true,
+              pauseOnHover: false,
+              draggable: true,
+              progress: undefined,
+              theme: "light",
+              className: "toast-product-detail-success",
+            });
           }
         }
       } catch (error) {
         const { data } = error.response;
-        alert(data.message);
+        toast.error(data.message, {
+          position: "top-right",
+          autoClose: 3000,
+          hideProgressBar: false,
+          closeOnClick: true,
+          pauseOnHover: false,
+          draggable: true,
+          progress: undefined,
+          theme: "light",
+          className: "toast-product-detail-error",
+        });
       }
     }
   };
 
   return (
     <div className={classes["info"]}>
+      <Toastify
+        bodyClassName="toast-body-product-detail"
+        position="top-right"
+        className="toast-product-detail-container"
+      />
       <div className={classes["info-container"]}>
         <div className={classes["info-flex"]}>
           <h2 className={classes["info-name"]}>{product.name}</h2>
@@ -112,7 +150,12 @@ export default function Info({ product }) {
             </p>
             <span className={classes["border"]}>/</span>
             <p className={classes["quantity"]}>
-              QUANTITY: <span>{product.quantity}</span>
+              QUANTITY:
+              {product.quantity > 0 ? (
+                <span>{product.quantity}</span>
+              ) : (
+                <span className={classes["message-sold-out"]}>SOLD OUT</span>
+              )}
             </p>
           </div>
           <div className={classes["info-footer"]}>

@@ -2,9 +2,17 @@
 import axiosIntance from "../axios/customAxios";
 
 const APIServer = {
+  checkout: {
+    createCheckout: (formValues) => {
+      return axiosIntance.post("checkout/create", formValues);
+    },
+    getCheckout: () => {
+      return axiosIntance.get("checkout");
+    },
+  },
   cart: {
     getCart: () => {
-      return axiosIntance.get("cart/");
+      return axiosIntance.get("cart");
     },
     deleteItem: (itemId) => {
       return axiosIntance.post("cart/delete-item", { itemId });

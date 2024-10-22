@@ -1,33 +1,43 @@
-.history {
+.checkout-detail {
     width: 100%;
 }
 
-.history-container {
+.checkout-detail-container {
     width: 1140px;
+    max-width: 90%;
     margin: 50px auto;
+}
+
+.checkout-detail-row {
+    display: flex;
+    flex-direction: column;
+}
+
+.checkout-detail-col {
+    width: 100%;
 }
 
 /* CSS: Responsives */
 @media screen and (max-width:575px) {
-    .history-container {
+    .checkout-detail-containerr {
         width: 90%;
     }
 }
 
 @media screen and (min-width:576px) and (max-width:765px) {
-    .history-container {
+    .checkout-detail-container {
         width: 70%;
     }
 }
 
 @media screen and (min-width:766px) and (max-width:991px) {
-    .history-container {
+    .checkout-detail-container {
         width: 70%;
     }
 }
 
 @media screen and (min-width:992px) and (max-width:1199px) {
-    .history-container {
+    .checkout-detail-container {
         width: 90%;
     }
 }

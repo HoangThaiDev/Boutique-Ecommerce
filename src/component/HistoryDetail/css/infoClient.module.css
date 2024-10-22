@@ -1,0 +1,61 @@
+.info-client {
+    width: 100%;
+}
+
+.info-client-container {
+    margin-bottom: 50px;
+}
+
+.info-client-container>h2 {
+    font: italic 600 3.0rem/3.4rem "Playfair Display", serif;
+    letter-spacing: 1px;
+    color: rgb(75, 75, 75);
+}
+
+.info-client-detail {
+    margin-top: 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 6px 0;
+}
+
+.info-client-detail>li>p {
+    font: italic 500 1.6rem/2.4rem "Roboto", sans-serif;
+    letter-spacing: .4px;
+    color: rgb(147, 146, 146);
+}
+
+/* CSS: Responsives */
+
+@media screen and (max-width:575px) {
+    .info-client-container>h2 {
+        font-size: 2.4rem;
+    }
+
+    .info-client-detail>li>p {
+        font-size: 1.4rem;
+    }
+}
+
+@media screen and (min-width:576px) and (max-width:765px) {
+    .info-client-container>h2 {
+        font-size: 2.4rem;
+    }
+
+    .info-client-detail>li>p {
+        font-size: 1.4rem;
+    }
+}
+
+@media screen and (min-width:766px) and (max-width:991px) {
+    .info-client-container>h2 {
+        font-size: 2.6rem;
+    }
+
+}
+
+@media screen and (min-width:992px) and (max-width:1199px) {
+    .info-client-container>h2 {
+        font-size: 2.8rem;
+    }
+}

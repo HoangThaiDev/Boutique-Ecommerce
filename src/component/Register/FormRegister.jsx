@@ -3,6 +3,8 @@ import React from "react";
 import * as Yup from "yup";
 import { useFormik } from "formik";
 import { Link, useNavigate } from "react-router-dom";
+import { toast } from "react-toastify";
+import APIServer from "../../API/customAPI";
 
 // Import File CSS
 import classes from "./css/formRegister.module.css";
@@ -10,10 +12,10 @@ import classes from "./css/formRegister.module.css";
 // Import Components
 import bannerForm from "../../assets/images/banner1.jpg";
 import Input from "./Input";
+import Toastify from "../../UI/Toastify";
 
 // Import Icons
 import { IoHome } from "react-icons/io5";
-import APIServer from "../../API/customAPI";
 
 export default function FormRegister() {
   // Create + use Schema Yup
@@ -50,12 +52,34 @@ export default function FormRegister() {
 
         if (res.status === 201) {
           const { message } = res.data;
-          alert(message);
-          navigate("../login");
+          toast.success(message, {
+            position: "top-right",
+            autoClose: true,
+            hideProgressBar: true,
+            closeOnClick: true,
+            pauseOnHover: false,
+            draggable: true,
+            progress: undefined,
+            theme: "light",
+            className: "toast-register-success",
+          });
+          setTimeout(() => {
+            navigate("..");
+          }, 1000);
         }
       } catch (error) {
         const { data } = error.response;
-        console.log(">>> Error from Server:", data.message);
+        toast.error(data.message, {
+          position: "top-right",
+          autoClose: 3000,
+          hideProgressBar: false,
+          closeOnClick: true,
+          pauseOnHover: false,
+          draggable: true,
+          progress: undefined,
+          theme: "light",
+          className: "toast-register-error",
+        });
       }
     },
   });
@@ -70,6 +94,7 @@ export default function FormRegister() {
 
   return (
     <div className={classes["register"]}>
+      <Toastify bodyClassName="toast-body-register" position="top-right" />
       <img src={bannerForm} alt={bannerForm} loading="lazy" />
 
       <div className={classes["register-container"]}>

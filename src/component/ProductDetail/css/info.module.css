@@ -142,6 +142,12 @@
     margin: 0;
 }
 
+.message-sold-out {
+    background-color: rgb(232, 75, 36);
+    color: #fff !important;
+    padding: 6px 12px;
+    border-radius: 5px;
+}
 
 /* CSS: Effects */
 .quantity-item>input:focus {

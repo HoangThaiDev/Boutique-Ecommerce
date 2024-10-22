@@ -105,6 +105,27 @@
     letter-spacing: .6px;
 }
 
+/* CSS: Active */
+.message-sold-out {
+    position: absolute;
+    top: 0;
+    z-index: 2;
+    width: 100%;
+    background-color: rgba(0, 0, 0, 0.6);
+    color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 300px;
+}
+
+.message-sold-out>p {
+    font: 700 italic 2.0rem/2.0rem "Roboto", sans-serif;
+    letter-spacing: 2px;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+
+}
+
 /* CSS: Effects */
 .item-product-actions .icon:hover {
     background-color: rgb(44, 62, 80);

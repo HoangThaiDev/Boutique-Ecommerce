@@ -35,7 +35,6 @@
     flex: 1.5;
 }
 
-
 .bg-title>h4 {
     font: italic 600 1.4rem/1.6rem "Roboto", sans-serif;
     letter-spacing: 1px;
@@ -52,7 +51,6 @@
     padding: 20px 0;
     gap: 0 30px;
 }
-
 
 .bg-content.image,
 .bg-content.price,
@@ -281,6 +279,8 @@
     /* CSS: Actives */
     .bg-content.product>p {
         text-align: right;
+        width: 60%;
+        margin-left: auto;
     }
 
     .bg-content.product::before,

@@ -164,6 +164,9 @@ const userSlice = createSlice({
         },
       };
     },
+    clearCart(state) {
+      return { ...state, cart: { items: [], totalPrice: "0" } };
+    },
   },
 });
 

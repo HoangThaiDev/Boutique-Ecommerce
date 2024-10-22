@@ -45,7 +45,7 @@ const Phone = ({ classes, formik }) => {
     <div className={classes["form-input"]}>
       <label htmlFor="phone">PHONE NUMBER:</label>
       <input
-        type="number"
+        type="text"
         id="phone"
         name="phone"
         onChange={formik.handleChange}

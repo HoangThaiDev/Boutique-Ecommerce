@@ -1,5 +1,5 @@
 // Import Module
-import React, { useEffect, useRef } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { actionSidebarMenu, actionUser } from "../redux/actionRedux";
 import APIServer from "../API/customAPI";
@@ -14,6 +14,7 @@ import { NavLink, Link } from "react-router-dom";
 import { FaOpencart } from "react-icons/fa";
 import { LuUser2 } from "react-icons/lu";
 import { HiOutlineMenu } from "react-icons/hi";
+import MenuUserDd from "./MenuUserDd";
 
 export default function Navigation() {
   // Create + use Hooks
@@ -24,9 +25,9 @@ export default function Navigation() {
 
   // Create + use states
   const { isLoggedIn, cart } = useSelector((state) => state.user);
+  const [isShowMenuDb, setIsShowMenuDb] = useState(false);
 
   // Side Effect
-
   // ---- Side Effect: Scroll Nav
   useEffect(() => {
     const scrollNav = () => {
@@ -65,6 +66,11 @@ export default function Navigation() {
   }, [cart.items.length]);
 
   // Create + use event handles
+  const showMenuUserDbHandle = (e) => {
+    e.preventDefault();
+    setIsShowMenuDb(!isShowMenuDb);
+  };
+
   const showSidebarMenuHandle = () => {
     dispatch(actionSidebarMenu.show());
   };
@@ -161,12 +167,13 @@ export default function Navigation() {
                 {isLoggedIn ? (
                   <>
                     <NavLink
-                      to="/setting-user"
+                      to="/user"
                       className={({ isActive }) =>
                         isActive
                           ? `${classes["link-item"]} ${classes["link-item-active"]}`
                           : classes["link-item"]
                       }
+                      onClick={showMenuUserDbHandle}
                     >
                       User
                     </NavLink>
@@ -177,6 +184,7 @@ export default function Navigation() {
                     >
                       Logout
                     </button>
+                    <MenuUserDd isShowMenuDb={isShowMenuDb} />
                   </>
                 ) : (
                   <NavLink
