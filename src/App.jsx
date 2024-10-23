@@ -27,66 +27,66 @@ import ScrollTop from "./UI/ScrollTop";
 
 function App() {
   // Create + use Hooks
-  const navigate = useNavigate();
-  const location = useLocation();
-  const dispatch = useDispatch();
+  // const navigate = useNavigate();
+  // const location = useLocation();
+  // const dispatch = useDispatch();
 
   // Create + use variables
-  const pathsAuth = ["/login", "/signup"];
+  // const pathsAuth = ["/login", "/signup"];
 
   // Sides Effect
-  useEffect(() => {
-    const fetchUser = async () => {
-      try {
-        const res = await APIServer.user.getUser();
-        const { isLoggedIn, accessToken, cart } = res.data;
+  // useEffect(() => {
+  //   const fetchUser = async () => {
+  //     try {
+  //       const res = await APIServer.user.getUser();
+  //       const { isLoggedIn, accessToken, cart } = res.data;
 
-        // If client not logged in => keep going
-        if (res.status === 200 && !isLoggedIn) return;
+  //       // If client not logged in => keep going
+  //       if (res.status === 200 && !isLoggedIn) return;
 
-        // If client was logged in and lost accessToken => update new accessToken
-        if (res.status === 201 && isLoggedIn) {
-          return dispatch(
-            actionUser.save({
-              accessToken: accessToken,
-              isLoggedIn: isLoggedIn,
-              cart: cart,
-            })
-          );
-        }
-      } catch (error) {
-        const { data, status } = error.response;
+  //       // If client was logged in and lost accessToken => update new accessToken
+  //       if (res.status === 201 && isLoggedIn) {
+  //         return dispatch(
+  //           actionUser.save({
+  //             accessToken: accessToken,
+  //             isLoggedIn: isLoggedIn,
+  //             cart: cart,
+  //           })
+  //         );
+  //       }
+  //     } catch (error) {
+  //       const { data, status } = error.response;
 
-        if (status === 500) {
-          alert(data.message);
-          navigate("..");
-          return false;
-        }
+  //       if (status === 500) {
+  //         alert(data.message);
+  //         navigate("..");
+  //         return false;
+  //       }
 
-        if (status === 401) {
-          alert(data.message);
-          return dispatch(
-            actionUser.save({ accessToken: "", isLoggedIn: data.isLoggedIn })
-          );
-        }
-      }
-    };
+  //       if (status === 401) {
+  //         alert(data.message);
+  //         return dispatch(
+  //           actionUser.save({ accessToken: "", isLoggedIn: data.isLoggedIn })
+  //         );
+  //       }
+  //     }
+  //   };
 
-    // Check path not in Page Login & Register
-    if (!pathsAuth.includes(location.pathname)) {
-      fetchUser();
-    }
-  }, []);
+  //   // Check path not in Page Login & Register
+  //   if (!pathsAuth.includes(location.pathname)) {
+  //     fetchUser();
+  //   }
+  // }, []);
 
   return (
     <div className="App">
       <h1>Helooooooooooooooooooooooooooooo</h1>
-      <ScrollTop />
+      {/* <ScrollTop />
       <SidebarMenu />
-      <PopupProduct />
+      <PopupProduct /> */}
 
       {/* Route: All Pages */}
-      <Routes>
+      {/* <Routes>
         <Route path="/" element={<RootLayout />}>
           <Route index element={<Home />} />
           <Route path="/shop" element={<Shop />} />
@@ -97,10 +97,10 @@ function App() {
           <Route path="/history/:historyId" element={<HistoryDetail />} />
         </Route>
 
-        {/* Route: User */}
+     
         <Route path="/login" element={<Login />} />
         <Route path="/signup" element={<Register />} />
-      </Routes>
+      </Routes> */}
     </div>
   );
 }
