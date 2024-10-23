@@ -78,6 +78,24 @@ function App() {
   //   }
   // }, []);
 
+  useEffect(() => {
+    const fetchProduct = async () => {
+      try {
+        const res = await APIServer.shop.getProducts();
+
+        if (res.statusText === "OK") {
+          const products = res.data;
+
+          console.log(products);
+        }
+      } catch (error) {
+        console.log("API Context Error:", error);
+        setIsLoading(false);
+      }
+    };
+    fetchProduct();
+  }, []);
+
   return (
     <div className="App">
       <h1>Helooooooooooooooooooooooooooooo</h1>
