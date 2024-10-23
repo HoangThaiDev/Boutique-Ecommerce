@@ -1,6 +1,6 @@
 // Import Modules
 import { Routes, Route, useNavigate, useLocation } from "react-router-dom";
-import { useEffect, useState } from "react";
+import { useEffect } from "react";
 import { useDispatch } from "react-redux";
 import { actionUser } from "./redux/actionRedux";
 import APIServer from "./API/customAPI";
@@ -78,43 +78,14 @@ function App() {
   //   }
   // }, []);
 
-  // Get API
-  const [isLoading, setIsLoading] = useState(false);
-  const [products, setProducts] = useState([]);
-  useEffect(() => {
-    const fetchProduct = async () => {
-      try {
-        const res = await APIServer.shop.getProducts();
-
-        if (res.statusText === "OK") {
-          const products = res.data;
-
-          setProducts(products);
-          setIsLoading(true);
-        }
-      } catch (error) {
-        console.log("API Context Error:", error);
-        setIsLoading(false);
-      }
-    };
-    fetchProduct();
-  }, []);
-  console.log(products, isLoading);
-
   return (
     <div className="App">
-      <h1 style={{ fontSize: 24 }}>
-        Lorem ipsum dolor sit amet consectetur adipisicing elit. Distinctio vel
-        reprehenderit dolor! Fuga labore nam omnis ratione laborum illum ea
-        fugiat, repellat reprehenderit! Eaque placeat nemo ipsam nisi
-        repellendus. Totam!
-      </h1>
-      {/* <ScrollTop />
+      <ScrollTop />
       <SidebarMenu />
-      <PopupProduct /> */}
+      <PopupProduct />
 
       {/* Route: All Pages */}
-      {/* <Routes>
+      <Routes>
         <Route path="/" element={<RootLayout />}>
           <Route index element={<Home />} />
           <Route path="/shop" element={<Shop />} />
@@ -125,10 +96,9 @@ function App() {
           <Route path="/history/:historyId" element={<HistoryDetail />} />
         </Route>
 
-     
         <Route path="/login" element={<Login />} />
         <Route path="/signup" element={<Register />} />
-      </Routes> */}
+      </Routes>
     </div>
   );
 }

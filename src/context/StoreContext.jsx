@@ -18,6 +18,7 @@ export default function ContextProvider({ children }) {
 
         if (res.statusText === "OK") {
           const products = res.data;
+          console.log(res.data);
 
           setProducts(products);
           setIsLoading(true);
