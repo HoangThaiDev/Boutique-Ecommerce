@@ -15,7 +15,6 @@ export default function ContextProvider({ children }) {
     const fetchProduct = async () => {
       try {
         const res = await APIServer.shop.getProducts();
-        console.log(res);
 
         if (res.statusText === "OK") {
           const products = res.data;

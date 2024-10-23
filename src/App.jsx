@@ -33,7 +33,6 @@ function App() {
 
   // Create + use variables
   const pathsAuth = ["/login", "/signup"];
-  console.log("start project");
 
   // Sides Effect
   useEffect(() => {
@@ -81,6 +80,7 @@ function App() {
 
   return (
     <div className="App">
+      <h1>Helooooooooooooooooooooooooooooo</h1>
       <ScrollTop />
       <SidebarMenu />
       <PopupProduct />

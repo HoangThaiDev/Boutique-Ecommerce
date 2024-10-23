@@ -5,9 +5,9 @@ import { actionUser } from "../redux/actionRedux";
 import { API_ROOT } from "../utils/constants";
 
 const axiosIntance = axios.create({
+  baseURL: API_ROOT,
   proxy: 1,
   withCredentials: true,
-  baseURL: API_ROOT,
   headers: {
     "Content-Type": "application/json",
   },
