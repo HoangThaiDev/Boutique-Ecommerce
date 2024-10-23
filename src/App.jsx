@@ -80,10 +80,11 @@ function App() {
   const [isLoading, setIsLoading] = useState(false);
   const [products, setProducts] = useState([]);
   useEffect(() => {
+    console.log("Test:");
     const fetchProduct = async () => {
       try {
         const res = await APIServer.shop.getProducts();
-
+        console.log("Response received:", res);
         if (res.statusText === "OK") {
           const products = res.data;
           console.log(res.data);
@@ -101,6 +102,12 @@ function App() {
 
   return (
     <div className="App">
+      <h1>
+        Lorem ipsum dolor sit, amet consectetur adipisicing elit. Rem, est.
+        Cupiditate a atque laboriosam ab praesentium nostrum molestias,
+        similique sed architecto repellat minima consectetur quo accusantium
+        perspiciatis unde quae deleniti.
+      </h1>
       {isLoading && (
         <div>
           {products.map((p) => (
