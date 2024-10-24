@@ -8,9 +8,6 @@ const axiosIntance = axios.create({
   baseURL: API_ROOT,
   proxy: 1,
   withCredentials: true,
-  headers: {
-    "Content-Type": "application/json",
-  },
 });
 
 // Add a request interceptor
