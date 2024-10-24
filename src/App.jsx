@@ -27,65 +27,107 @@ import ScrollTop from "./UI/ScrollTop";
 
 function App() {
   // Create + use Hooks
-  const navigate = useNavigate();
-  const location = useLocation();
-  const dispatch = useDispatch();
+  // const navigate = useNavigate();
+  // const location = useLocation();
+  // const dispatch = useDispatch();
 
-  // Create + use variables
-  const pathsAuth = ["/login", "/signup"];
+  // // Create + use variables
+  // const pathsAuth = ["/login", "/signup"];
 
   // Sides Effect
+  // useEffect(() => {
+  //   const fetchUser = async () => {
+  //     try {
+  //       const res = await APIServer.user.getUser();
+  //       const { isLoggedIn, accessToken, cart } = res.data;
+
+  //       // If client not logged in => keep going
+  //       if (res.status === 200 && !isLoggedIn) return;
+
+  //       // If client was logged in and lost accessToken => update new accessToken
+  //       if (res.status === 201 && isLoggedIn) {
+  //         return dispatch(
+  //           actionUser.save({
+  //             accessToken: accessToken,
+  //             isLoggedIn: isLoggedIn,
+  //             cart: cart,
+  //           })
+  //         );
+  //       }
+  //     } catch (error) {
+  //       const { data, status } = error.response;
+
+  //       if (status === 500) {
+  //         alert(data.message);
+  //         navigate("..");
+  //         return false;
+  //       }
+
+  //       if (status === 401) {
+  //         alert(data.message);
+  //         return dispatch(
+  //           actionUser.save({ accessToken: "", isLoggedIn: data.isLoggedIn })
+  //         );
+  //       }
+  //     }
+  //   };
+
+  //   // Check path not in Page Login & Register
+  //   if (!pathsAuth.includes(location.pathname)) {
+  //     fetchUser();
+  //   }
+  // }, []);
+
+  // Create + use States
+  const [isLoading, setIsLoading] = useState(false);
+  const [products, setProducts] = useState([]);
   useEffect(() => {
-    const fetchUser = async () => {
+    const fetchProduct = async () => {
       try {
-        const res = await APIServer.user.getUser();
-        const { isLoggedIn, accessToken, cart } = res.data;
+        const res = await APIServer.shop.getProducts();
 
-        // If client not logged in => keep going
-        if (res.status === 200 && !isLoggedIn) return;
+        if (res.statusText === "OK") {
+          const products = res.data;
+          console.log(res.data);
 
-        // If client was logged in and lost accessToken => update new accessToken
-        if (res.status === 201 && isLoggedIn) {
-          return dispatch(
-            actionUser.save({
-              accessToken: accessToken,
-              isLoggedIn: isLoggedIn,
-              cart: cart,
-            })
-          );
+          setProducts(products);
+          setIsLoading(true);
         }
       } catch (error) {
-        const { data, status } = error.response;
-
-        if (status === 500) {
-          alert(data.message);
-          navigate("..");
-          return false;
-        }
-
-        if (status === 401) {
-          alert(data.message);
-          return dispatch(
-            actionUser.save({ accessToken: "", isLoggedIn: data.isLoggedIn })
-          );
-        }
+        console.log("API Context Error:", error);
+        setIsLoading(false);
       }
     };
-
-    // Check path not in Page Login & Register
-    if (!pathsAuth.includes(location.pathname)) {
-      fetchUser();
-    }
+    fetchProduct();
   }, []);
 
   return (
     <div className="App">
-      <ScrollTop />
+      <h1>
+        Lorem ipsum, dolor sit amet consectetur adipisicing elit. Facere aliquam
+        tempore laborum nemo deleniti accusamus quas sequi? Voluptas, labore
+        amet eos, impedit aliquam molestiae maxime rem at corporis, expedita
+        eaque!
+      </h1>
+      <h1>
+        Lorem, ipsum dolor sit amet consectetur adipisicing elit. Nulla
+        doloremque dolore aspernatur tempora nostrum molestiae officia quidem
+        aliquam quos incidunt, omnis eos ab odio fugit beatae totam dolorum
+        accusamus quisquam!
+      </h1>
+      {isLoading && (
+        <div>
+          {products.map((p) => (
+            <img src={p.images[0]} alt="" />
+          ))}
+        </div>
+      )}
+      {/* <ScrollTop />
       <SidebarMenu />
-      <PopupProduct />
+      <PopupProduct /> */}
 
       {/* Route: All Pages */}
-      <Routes>
+      {/* <Routes>
         <Route path="/" element={<RootLayout />}>
           <Route index element={<Home />} />
           <Route path="/shop" element={<Shop />} />
@@ -98,7 +140,7 @@ function App() {
 
         <Route path="/login" element={<Login />} />
         <Route path="/signup" element={<Register />} />
-      </Routes>
+      </Routes> */}
     </div>
   );
 }
