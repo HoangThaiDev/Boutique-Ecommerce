@@ -32,6 +32,7 @@ function App() {
   const dispatch = useDispatch();
 
   // // Create + use variables
+  const pathsAuth = ["/login", "/signup"];
 
   // Sides Effect
   useEffect(() => {
