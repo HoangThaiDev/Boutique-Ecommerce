@@ -52,20 +52,8 @@ export default function FormRegister() {
 
         if (res.status === 201) {
           const { message } = res.data;
-          toast.success(message, {
-            position: "top-right",
-            autoClose: true,
-            hideProgressBar: true,
-            closeOnClick: true,
-            pauseOnHover: false,
-            draggable: true,
-            progress: undefined,
-            theme: "light",
-            className: "toast-register-success",
-          });
-          setTimeout(() => {
-            navigate("..");
-          }, 1000);
+          alert(message);
+          navigate("../login");
         }
       } catch (error) {
         const { data } = error.response;

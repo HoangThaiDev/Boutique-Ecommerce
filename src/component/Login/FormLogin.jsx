@@ -46,20 +46,9 @@ export default function FormLogin() {
 
         if (res.status === 200) {
           const { message, accessToken, isLoggedIn, cart } = res.data;
-          toast.success(message, {
-            position: "top-right",
-            autoClose: true,
-            hideProgressBar: true,
-            closeOnClick: true,
-            pauseOnHover: false,
-            draggable: true,
-            progress: undefined,
-            theme: "light",
-            className: "toast-login-success",
-          });
-          setTimeout(() => {
-            navigate("..");
-          }, 1000);
+
+          alert(message);
+          navigate("..");
 
           //  Update state: User
           dispatch(actionUser.save({ accessToken, isLoggedIn, cart }));

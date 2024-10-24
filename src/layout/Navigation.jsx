@@ -63,7 +63,7 @@ export default function Navigation() {
         clearTimeout(timer);
       };
     }
-  }, [cart.items.length]);
+  }, [cart.items]);
 
   // Create + use event handles
   const showMenuUserDbHandle = (e) => {
