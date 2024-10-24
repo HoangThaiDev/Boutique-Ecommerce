@@ -16,7 +16,7 @@ export default function ContextProvider({ children }) {
       try {
         const res = await APIServer.shop.getProducts();
 
-        if (res.statusText === "OK") {
+        if (res.status === 200) {
           const products = res.data;
 
           setProducts(products);

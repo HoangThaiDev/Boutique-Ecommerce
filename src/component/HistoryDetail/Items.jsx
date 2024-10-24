@@ -5,8 +5,6 @@ import React from "react";
 import classes from "./css/items.module.css";
 
 export default function Items({ items }) {
-  console.log(items);
-
   // Create + use array DUMMY
   const DUMMY_HEADER_CART = [
     { id: "hd1", label: "ID PRODUCT", className: "product-id" },

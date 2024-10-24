@@ -12,7 +12,6 @@ import Items from "./Items";
 export default function Layout() {
   // Create + use Hooks
   const { state: data } = useLocation();
-  console.log(data);
 
   return (
     <div className={classes["checkout-detail"]}>
