@@ -6,7 +6,7 @@ import { API_ROOT } from "../utils/constants";
 
 const axiosIntance = axios.create({
   baseURL: API_ROOT,
-  // proxy: 1,
+  proxy: 1,
   withCredentials: true,
   headers: {
     "Content-Type": "application/json",
