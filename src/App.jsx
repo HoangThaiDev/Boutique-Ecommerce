@@ -1,31 +1,31 @@
-// // Import Modules
-// import { Routes, Route, useNavigate, useLocation } from "react-router-dom";
+// Import Modules
+import { Routes, Route, useNavigate, useLocation } from "react-router-dom";
 import { useEffect, useState } from "react";
-// import { useDispatch } from "react-redux";
-// import { actionUser } from "./redux/actionRedux";
-// import APIServer from "./API/customAPI";
+import { useDispatch } from "react-redux";
+import { actionUser } from "./redux/actionRedux";
+import APIServer from "./API/customAPI";
 
-// // Import Component
-// // ------------ Layout --------------
-// import RootLayout from "./layout/RootLayout";
+// Import Component
+// ------------ Layout --------------
+import RootLayout from "./layout/RootLayout";
 
-// // ------------ Pages --------------
-// import Home from "./page/Home";
-// import Login from "./page/Login";
-// import Register from "./page/Register";
-// import ProductDetail from "./page/ProductDetail";
-// import Shop from "./page/Shop";
-// import Cart from "./page/Cart";
-// import Checkout from "./page/Checkout";
-// import History from "./page/History";
-// import HistoryDetail from "./page/HistoryDetail";
+// ------------ Pages --------------
+import Home from "./page/Home";
+import Login from "./page/Login";
+import Register from "./page/Register";
+import ProductDetail from "./page/ProductDetail";
+import Shop from "./page/Shop";
+import Cart from "./page/Cart";
+import Checkout from "./page/Checkout";
+import History from "./page/History";
+import HistoryDetail from "./page/HistoryDetail";
 
-// // ------------ Component --------------
-// import PopupProduct from "./UI/PopupProduct";
-// import SidebarMenu from "./UI/SidebarMenu";
-// import ScrollTop from "./UI/ScrollTop";
+// ------------ Component --------------
+import PopupProduct from "./UI/PopupProduct";
+import SidebarMenu from "./UI/SidebarMenu";
+import ScrollTop from "./UI/ScrollTop";
 import { API_ROOT } from "./utils/constants";
-import axios from "axios";
+
 function App() {
   // Create + use Hooks
   // const navigate = useNavigate();
@@ -86,13 +86,7 @@ function App() {
   useEffect(() => {
     const fetchProduct = async () => {
       try {
-        const res = await axios.get(`${API_ROOT}/shop/products`, {
-          withCredentials: true,
-          headers: {
-            "Content-Type": "application/json",
-          },
-          proxy: 1,
-        });
+        const res = await APIServer.shop.getProducts();
 
         if (res.status === 200) {
           const products = res.data;
