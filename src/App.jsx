@@ -1,29 +1,29 @@
 // Import Modules
 import { Routes, Route, useNavigate, useLocation } from "react-router-dom";
-import { useEffect } from "react";
+import { lazy, useEffect } from "react";
 import { useDispatch } from "react-redux";
 import { actionUser } from "./redux/actionRedux";
 import APIServer from "./API/customAPI";
 
 // Import Component
 // ------------ Layout --------------
-import RootLayout from "./layout/RootLayout";
+const RootLayout = lazy(() => import("./layout/RootLayout"));
 
 // ------------ Pages --------------
-import Home from "./page/Home";
-import Login from "./page/Login";
-import Register from "./page/Register";
-import ProductDetail from "./page/ProductDetail";
-import Shop from "./page/Shop";
-import Cart from "./page/Cart";
-import Checkout from "./page/Checkout";
-import History from "./page/History";
-import HistoryDetail from "./page/HistoryDetail";
+const Home = lazy(() => import("./page/Home"));
+const Login = lazy(() => import("./page/Login"));
+const Register = lazy(() => import("./page/Register"));
+const ProductDetail = lazy(() => import("./page/ProductDetail"));
+const Shop = lazy(() => import("./page/Shop"));
+const Cart = lazy(() => import("./page/Cart"));
+const Checkout = lazy(() => import("./page/Checkout"));
+const History = lazy(() => import("./page/History"));
+const HistoryDetail = lazy(() => import("./page/HistoryDetail"));
 
 // ------------ Component --------------
-import PopupProduct from "./UI/PopupProduct";
-import SidebarMenu from "./UI/SidebarMenu";
-import ScrollTop from "./UI/ScrollTop";
+const PopupProduct = lazy(() => import("./UI/PopupProduct"));
+const SidebarMenu = lazy(() => import("./UI/SidebarMenu"));
+const ScrollTop = lazy(() => import("./UI/ScrollTop"));
 
 function App() {
   // Create + use Hooks
