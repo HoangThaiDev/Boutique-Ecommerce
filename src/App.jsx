@@ -94,7 +94,7 @@ function App() {
           proxy: 1,
         });
 
-        if (res.statusText === "OK") {
+        if (res.status === 200) {
           const products = res.data;
           console.log(res.data);
 
