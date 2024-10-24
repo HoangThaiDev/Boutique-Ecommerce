@@ -24,7 +24,8 @@ import HistoryDetail from "./page/HistoryDetail";
 import PopupProduct from "./UI/PopupProduct";
 import SidebarMenu from "./UI/SidebarMenu";
 import ScrollTop from "./UI/ScrollTop";
-
+import { API_ROOT } from "./utils/constants";
+import axios from "axios";
 function App() {
   // Create + use Hooks
   // const navigate = useNavigate();
@@ -81,10 +82,17 @@ function App() {
   // Create + use States
   const [isLoading, setIsLoading] = useState(false);
   const [products, setProducts] = useState([]);
+
   useEffect(() => {
     const fetchProduct = async () => {
       try {
-        const res = await APIServer.shop.getProducts();
+        const res = await axios.get(`${API_ROOT}/shop/products`, {
+          withCredentials: true,
+          headers: {
+            "Content-Type": "application/json",
+          },
+          proxy: 1,
+        });
 
         if (res.statusText === "OK") {
           const products = res.data;
