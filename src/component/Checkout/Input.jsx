@@ -1,6 +1,9 @@
 // Import Modules
 import React from "react";
 
+// Import Icons
+import { BsInfoCircleFill } from "react-icons/bs";
+
 // Import Components
 
 const FullName = ({ classes, formik }) => {
@@ -33,6 +36,10 @@ const Email = ({ classes, formik }) => {
         onChange={formik.handleChange}
         placeholder="Enter Your Email Here!"
       />
+      <BsInfoCircleFill className={classes["icon-info-message"]} />
+      <span className={classes["tooltip"]}>
+        Please enter a valid email address!
+      </span>
       {formik.touched.email && formik.errors.email && (
         <p className={classes["message-error"]}>(⁕) {formik.errors.email}</p>
       )}

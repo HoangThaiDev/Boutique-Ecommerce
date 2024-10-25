@@ -1,6 +1,6 @@
 // Import Modules
 import { Routes, Route, useNavigate, useLocation } from "react-router-dom";
-import { lazy, useEffect } from "react";
+import { lazy, useEffect, Suspense } from "react";
 import { useDispatch } from "react-redux";
 import { actionUser } from "./redux/actionRedux";
 import APIServer from "./API/customAPI";
@@ -24,6 +24,7 @@ const HistoryDetail = lazy(() => import("./page/HistoryDetail"));
 const PopupProduct = lazy(() => import("./UI/PopupProduct"));
 const SidebarMenu = lazy(() => import("./UI/SidebarMenu"));
 const ScrollTop = lazy(() => import("./UI/ScrollTop"));
+const Loading = lazy(() => import("./UI/Loading"));
 
 function App() {
   // Create + use Hooks
@@ -64,7 +65,6 @@ function App() {
         }
 
         if (status === 401) {
-          alert(data.message);
           return dispatch(
             actionUser.save({ accessToken: "", isLoggedIn: data.isLoggedIn })
           );
@@ -85,20 +85,22 @@ function App() {
       <PopupProduct />
 
       {/* Route: All Pages */}
-      <Routes>
-        <Route path="/" element={<RootLayout />}>
-          <Route index element={<Home />} />
-          <Route path="/shop" element={<Shop />} />
-          <Route path="/product/:name" element={<ProductDetail />} />
-          <Route path="/cart" element={<Cart />} />
-          <Route path="/checkout" element={<Checkout />} />
-          <Route path="/history" element={<History />} />
-          <Route path="/history/:historyId" element={<HistoryDetail />} />
-        </Route>
+      <Suspense fallback={<Loading />}>
+        <Routes>
+          <Route path="/" element={<RootLayout />}>
+            <Route index element={<Home />} />
+            <Route path="/shop" element={<Shop />} />
+            <Route path="/product/:name" element={<ProductDetail />} />
+            <Route path="/cart" element={<Cart />} />
+            <Route path="/checkout" element={<Checkout />} />
+            <Route path="/history" element={<History />} />
+            <Route path="/history/:historyId" element={<HistoryDetail />} />
+          </Route>
 
-        <Route path="/login" element={<Login />} />
-        <Route path="/signup" element={<Register />} />
-      </Routes>
+          <Route path="/login" element={<Login />} />
+          <Route path="/signup" element={<Register />} />
+        </Routes>
+      </Suspense>
     </div>
   );
 }

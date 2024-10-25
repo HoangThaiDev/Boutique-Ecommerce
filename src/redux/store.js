@@ -5,6 +5,7 @@ import {
   popupProductSlice,
   userSlice,
   sidebarShopSlice,
+  menuUserDropdownSlice,
 } from "./sliceRedux";
 
 const store = configureStore({
@@ -13,6 +14,7 @@ const store = configureStore({
     popupProduct: popupProductSlice.reducer,
     user: userSlice.reducer,
     sidebarShop: sidebarShopSlice.reducer,
+    menuUserDd: menuUserDropdownSlice.reducer,
   },
 });
 

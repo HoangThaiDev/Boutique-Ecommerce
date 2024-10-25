@@ -1,14 +1,18 @@
 // Import Module
 import React, { useEffect, useRef, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { actionSidebarMenu, actionUser } from "../redux/actionRedux";
+import {
+  actionMenuUserDropdown,
+  actionSidebarMenu,
+  actionUser,
+} from "../redux/actionRedux";
 import APIServer from "../API/customAPI";
 
 // Import File CSS
 import classes from "./css/navigation.module.css";
 
 // Import Components
-import { NavLink, Link } from "react-router-dom";
+import { NavLink, Link, useLocation } from "react-router-dom";
 
 // Import Icons
 import { FaOpencart } from "react-icons/fa";
@@ -22,26 +26,34 @@ export default function Navigation() {
   const dispatch = useDispatch();
   const firstRenderFlag = useRef(true);
   const numberQuantityRef = useRef();
+  const location = useLocation();
 
   // Create + use states
   const { isLoggedIn, cart } = useSelector((state) => state.user);
-  const [isShowMenuDb, setIsShowMenuDb] = useState(false);
+  const { isShow: isShowMenuDb } = useSelector((state) => state.menuUserDd);
 
   // Side Effect
+  // ---- Side Effect: Hide menu user dropdown when change page
+  useEffect(() => {
+    dispatch(actionMenuUserDropdown.hide());
+  }, [location]);
+
   // ---- Side Effect: Scroll Nav
   useEffect(() => {
-    const scrollNav = () => {
-      window.scrollY > 100
-        ? navRef.current.classList.add(classes["scroll"])
-        : navRef.current.classList.remove(classes["scroll"]);
-    };
+    if (navRef.current !== undefined) {
+      const scrollNav = () => {
+        window.scrollY > 100
+          ? navRef.current.classList.add(classes["scroll"])
+          : navRef.current.classList.remove(classes["scroll"]);
+      };
 
-    window.addEventListener("scroll", scrollNav);
+      window.addEventListener("scroll", scrollNav);
 
-    return () => {
-      window.removeEventListener("scroll", scrollNav);
-    };
-  }, []);
+      return () => {
+        window.removeEventListener("scroll", scrollNav);
+      };
+    }
+  }, [cart]);
 
   // ---- Side Effect: Animation when cart change by buy or add to cart
   useEffect(() => {
@@ -63,12 +75,12 @@ export default function Navigation() {
         clearTimeout(timer);
       };
     }
-  }, [cart.items]);
+  }, [cart]);
 
   // Create + use event handles
   const showMenuUserDbHandle = (e) => {
     e.preventDefault();
-    setIsShowMenuDb(!isShowMenuDb);
+    dispatch(actionMenuUserDropdown.toggle());
   };
 
   const showSidebarMenuHandle = () => {
@@ -78,10 +90,8 @@ export default function Navigation() {
   const logoutHandle = async () => {
     try {
       const res = await APIServer.user.getLogout();
-      const { message } = res.data;
 
       if (res.status === 200) {
-        alert(message);
         return dispatch(actionUser.logout());
       }
     } catch (error) {

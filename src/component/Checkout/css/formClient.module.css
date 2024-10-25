@@ -12,6 +12,7 @@
 
 /* CSS: Form Input */
 .form-input {
+    position: relative;
     display: flex;
     flex-direction: column;
 }
@@ -23,8 +24,8 @@
 }
 
 .form-input>input {
-    font: 500 1.6rem/2.0rem "Roboto", sans-serif;
-    padding: 10px 15px;
+    font: 500 1.4rem/2.0rem "Roboto", sans-serif;
+    padding: 10px 40px 10px 15px;
     border-radius: 0;
     border: 2px solid rgba(89, 88, 88, .2);
     box-sizing: border-box;
@@ -59,6 +60,37 @@
     transition: .5s all ease;
 }
 
+/* CSS: Icons */
+.icon-info-message {
+    cursor: pointer;
+    position: absolute;
+    bottom: 17px;
+    right: 15px;
+    font-size: 1.8rem;
+    color: #2e666f;
+}
+
+.tooltip {
+    font: 500 1.4rem/2.0rem "Roboto", sans-serif;
+    visibility: hidden;
+    background-color: #555;
+    color: white;
+    text-align: center;
+    border-radius: 6px;
+    padding: 10px;
+    position: absolute;
+    right: 0;
+    top: -20px;
+    white-space: nowrap;
+    z-index: 1;
+    opacity: 0;
+    transition: opacity 0.3s;
+}
+
+.icon-info-message:hover~.tooltip {
+    visibility: visible;
+    opacity: 1;
+}
 
 /* CSS: Active */
 .form-input>input[type="number"]::-webkit-inner-spin-button,
@@ -79,6 +111,10 @@
 
 /* CSS: Responsives */
 @media screen and (max-width:575px) {
+    .icon-info-message {
+        display: none;
+    }
+
     .form-input>label {
         font: italic 500 1.4rem/2.0rem "Roboto", sans-serif;
     }
@@ -97,6 +133,10 @@
 }
 
 @media screen and (min-width:576px) and (max-width:765px) {
+    .icon-info-message {
+        display: none;
+    }
+
     .form-client {
         width: 70%;
         margin: 0 auto;
@@ -120,6 +160,10 @@
 }
 
 @media screen and (min-width:766px) and (max-width:991px) {
+    .icon-info-message {
+        display: none;
+    }
+
     .form-client {
         width: 70%;
         margin: 0 auto;
@@ -143,6 +187,10 @@
 }
 
 @media screen and (min-width:992px) and (max-width:1199px) {
+    .icon-info-message {
+        display: none;
+    }
+
     .form-input>label {
         font: italic 500 1.4rem/2.0rem "Roboto", sans-serif;
     }

@@ -4,6 +4,7 @@ import convertMoney from "../helper/convertMoney";
 
 // Create initialState
 const initialSideBarMenu = { isShow: false };
+const initialMenuUserDropdown = { isShow: false };
 const initialPopupProduct = { isShow: false, product: null };
 const initialUser = {
   isLoggedIn: false,
@@ -13,6 +14,19 @@ const initialUser = {
 const initialSidebarShop = { isShow: false };
 
 // Create Slice
+const menuUserDropdownSlice = createSlice({
+  name: "sidebar-shop",
+  initialState: initialMenuUserDropdown,
+  reducers: {
+    toggle(state) {
+      return { ...state, isShow: !state.isShow };
+    },
+    hide(state) {
+      return { ...state, isShow: false };
+    },
+  },
+});
+
 const sidebarShopSlice = createSlice({
   name: "sidebar-shop",
   initialState: initialSidebarShop,
@@ -198,4 +212,10 @@ const popupProductSlice = createSlice({
   },
 });
 
-export { sidebarMenuSlice, popupProductSlice, userSlice, sidebarShopSlice };
+export {
+  sidebarMenuSlice,
+  popupProductSlice,
+  userSlice,
+  sidebarShopSlice,
+  menuUserDropdownSlice,
+};

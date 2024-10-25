@@ -165,6 +165,7 @@ export default function SidebarMenu() {
   const { isLoggedIn } = useSelector((state) => state.user);
 
   // Side Effect
+  // Hide sidebar menu when change page
   useEffect(() => {
     dispatch(actionSidebarMenu.hide());
   }, [location]);
