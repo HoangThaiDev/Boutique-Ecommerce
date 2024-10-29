@@ -1,6 +1,6 @@
 // Import Modules
 import React from "react";
-import { toast, ToastContainer } from "react-toastify";
+import { ToastContainer } from "react-toastify";
 
 // Import File CSS
 import "react-toastify/dist/ReactToastify.css";

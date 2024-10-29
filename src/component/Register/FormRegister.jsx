@@ -25,7 +25,7 @@ export default function FormRegister() {
       .required("Email is required !")
       .matches(
         /^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.(com|net|org)$/i,
-        "Email is invalid !"
+        "Invalid Email !"
       ),
     password: Yup.string()
       .required("Password is required !")

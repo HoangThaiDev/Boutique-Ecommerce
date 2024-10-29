@@ -1,5 +1,8 @@
+.App {
+  position: relative;
+}
+
 /* Các loại font
-  1. Tiêu đề Logo Web: font-family: "Lora", serif;
   2. Nội dung cơ bản: font-family: "Roboto", sans-serif;
   3. Nội dung sang trọng: font-family: "EB Garamond", serif;
   4. Tiêu đề mục lục: font-family: "Playfair Display", serif;

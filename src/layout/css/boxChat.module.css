@@ -1,0 +1,166 @@
+.box-chat {
+    position: fixed;
+    bottom: 40px;
+    right: 40px;
+    z-index: 3;
+}
+
+.icon-box-chat {
+    cursor: pointer;
+    display: grid;
+    place-self: center;
+    align-items: center;
+    color: #fff;
+    background-color: #2e4953;
+    border-radius: 100%;
+    width: 30px;
+    height: 30px;
+    padding: 8px;
+    display: none;
+}
+
+/* CSS: Box Chat Header */
+.box-chat-container {
+    position: relative;
+    width: 400px;
+    height: 400px;
+    background-color: #fff;
+    padding: 15px 0;
+    border-radius: 15px;
+    box-shadow: 0 0 10px 1px rgb(159, 158, 158);
+    display: none;
+    transition: .5s all ease;
+}
+
+.box-chat-header {
+    padding: 0 20px;
+    border-bottom: 1px solid rgba(159, 158, 158, .4);
+    padding-bottom: 15px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.box-chat-header>p {
+    font: 600 1.6rem/ 1.6rem "Roboto", sans-serif;
+    letter-spacing: .6px;
+    color: rgb(40, 40, 40);
+}
+
+.box-chat-header>span {
+    font: italic 500 1.3rem/ 1.6rem "Roboto", sans-serif;
+    letter-spacing: .4px;
+    color: rgb(85, 85, 85);
+    background-color: rgba(159, 158, 158, .4);
+    padding: 6px 10px;
+}
+
+/* CSS: Box Chat Section */
+.box-chat-section {
+    position: relative;
+    flex: 1;
+    padding: 10px 20px;
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: column;
+}
+
+.media-chat-admin {
+    display: block;
+}
+
+.message-admin {
+    background-color: rgba(245, 246, 247, .7);
+    display: inline-flex;
+    gap: 0 5px;
+    padding: 6px 10px;
+    border-radius: 3px;
+}
+
+.message-admin>span {
+    font: 500 1.3rem/ 1.6rem "Roboto", sans-serif;
+    color: rgb(109, 109, 109);
+}
+
+.media-chat-client {
+    display: block;
+    align-self: flex-end;
+}
+
+.message-client {
+    background-color: rgba(72, 177, 247, .7);
+    display: inline-flex;
+    gap: 0 5px;
+    padding: 6px 10px;
+    border-radius: 3px;
+}
+
+.message-client>span {
+    font: 500 1.3rem/ 1.6rem "Roboto", sans-serif;
+    color: #fff;
+    letter-spacing: .4px;
+}
+
+/* CSS: Box Chat Footer */
+.box-chat-footer {
+    padding: 0 20px;
+    border-top: 1px solid rgba(159, 158, 158, .4);
+    padding-top: 15px;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 0 10px;
+}
+
+.box-chat-footer>input {
+    font: 500 1.3rem/ 1.6rem "Roboto", sans-serif;
+    flex: 1;
+    background-color: #fff;
+    padding: 5px 10px;
+    border: 1px solid rgba(159, 158, 158, .4);
+    border-radius: 3px;
+}
+
+.box-chat-footer .icon-admin {
+    font-size: 2.4rem;
+    color: rgb(159, 158, 158);
+}
+
+.box-chat-footer .icon-send-text {
+    font-size: 2.0rem;
+    color: #35aad4;
+}
+
+/* CSS: Icons */
+.icon-close-box-chat {
+    cursor: pointer;
+    font-size: 2.4rem;
+    border-radius: 100%;
+    padding: 4px;
+    background-color: #2e4953;
+    color: #fff;
+    position: absolute;
+    top: -15px;
+    right: -15px;
+}
+
+/* CSS: Actives */
+.icon-box-chat.active {
+    display: block;
+}
+
+.box-chat-container.active {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+/* CSS: Effects */
+.icon-box-chat:hover {
+    background-color: rgb(208, 125, 53);
+}
+
+.box-chat-footer>input:focus {
+    outline: none;
+}

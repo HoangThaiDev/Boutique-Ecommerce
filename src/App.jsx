@@ -25,7 +25,7 @@ const PopupProduct = lazy(() => import("./UI/PopupProduct"));
 const SidebarMenu = lazy(() => import("./UI/SidebarMenu"));
 const ScrollTop = lazy(() => import("./UI/ScrollTop"));
 const Loading = lazy(() => import("./UI/Loading"));
-
+const BoxChat = lazy(() => import("./layout/BoxChat"));
 function App() {
   // Create + use Hooks
   const navigate = useNavigate();
@@ -56,6 +56,8 @@ function App() {
           );
         }
       } catch (error) {
+        console.log(error);
+
         const { data, status } = error.response;
 
         if (status === 500) {
@@ -83,6 +85,7 @@ function App() {
       <ScrollTop />
       <SidebarMenu />
       <PopupProduct />
+      {!pathsAuth.includes(location.pathname) && <BoxChat />}
 
       {/* Route: All Pages */}
       <Suspense fallback={<Loading />}>
