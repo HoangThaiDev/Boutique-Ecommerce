@@ -20,6 +20,13 @@
     color: rgb(43, 43, 43);
 }
 
+.description .label {
+    font: italic 500 1.8rem/1.6rem "Roboto", sans-serif;
+    color: #a4a3a3;
+    letter-spacing: .4px;
+    margin-bottom: 15px;
+}
+
 /* CSS: Desc Content */
 .content-flex {
     display: flex;
@@ -32,18 +39,12 @@
     color: #a4a3a3;
 }
 
-.content:first-child {
-    font-size: 1.8rem;
-    font-style: italic;
-    margin-bottom: 5px;
-}
-
-.content:nth-child(n+2) {
+.content:nth-child(n+1) {
     position: relative;
-    margin-left: 15px;
+    margin-left: 20px;
 }
 
-.content:nth-child(n+2)::after {
+.content:nth-child(n+1)::after {
     font: 500 2.0rem/1.6rem "Roboto", sans-serif;
     content: '-';
     position: absolute;

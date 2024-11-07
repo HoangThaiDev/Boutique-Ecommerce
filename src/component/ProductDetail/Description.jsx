@@ -6,22 +6,15 @@ import classes from "./css/description.module.css";
 
 export default function Description({ longDesc }) {
   // Create + use Hooks
-  const [listDesc, setListDesc] = useState([]);
-
-  useEffect(() => {
-    if (longDesc.includes("•")) {
-      setListDesc(longDesc.split("•"));
-    } else {
-      setListDesc(longDesc.split("-"));
-    }
-  }, [longDesc]);
+  const DUMMY_DESC_PRODUCT = longDesc.split(";");
 
   return (
     <div className={classes["description"]}>
       <p className={classes["title"]}>DESCRIPTION</p>
       <h3>PRODUCT DESCRIPTION</h3>
+      <p className={classes["label"]}>ĐẶC ĐIỂM NỔI BẬT</p>
       <div className={classes["content-flex"]}>
-        {listDesc.map((item, index) => (
+        {DUMMY_DESC_PRODUCT.map((item, index) => (
           <p key={index} className={classes["content"]}>
             {item}
           </p>

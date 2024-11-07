@@ -168,6 +168,10 @@
         height: 200px;
     }
 
+    .message-sold-out {
+        height: 200px;
+    }
+
     .item-product-info {
         gap: 5px 0;
     }
@@ -204,6 +208,10 @@
     }
 
     .item-product-image {
+        height: 250px;
+    }
+
+    .message-sold-out {
         height: 250px;
     }
 
@@ -251,6 +259,10 @@
         height: 250px;
     }
 
+    .message-sold-out {
+        height: 250px;
+    }
+
     .item-product-info {
         gap: 5px 0;
     }
@@ -274,9 +286,7 @@
         align-items: center;
     }
 
-
     .products-flex {
-        /* justify-content: flex-start; */
         gap: 0 10px;
     }
 
@@ -285,6 +295,10 @@
     }
 
     .item-product-image {
+        height: 250px;
+    }
+
+    .message-sold-out {
         height: 250px;
     }
 

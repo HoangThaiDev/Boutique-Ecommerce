@@ -7,7 +7,7 @@ import { actionSidebarShop } from "../redux/actionRedux";
 
 // Import File CSS
 import classes from "./css/sidebarShop.module.css";
-import "./css/menu.css";
+import "./css/sidebarShop.css";
 
 // Import Icons
 import { IoClose } from "react-icons/io5";

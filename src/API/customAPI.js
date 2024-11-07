@@ -56,6 +56,30 @@ const APIServer = {
       return axiosIntance.get("user/logout");
     },
   },
+  chatRoom: {
+    create: (accessToken) => {
+      return axiosIntance.post("chatRoom/create", { accessToken });
+    },
+    get: (roomID) => {
+      return axiosIntance.get(`chatRoom/room/${roomID}`);
+    },
+  },
+  message: {
+    get: (roomID) => {
+      return axiosIntance.get(`message/get/${roomID}`);
+    },
+    send: (roomID, valueMessage) => {
+      return axiosIntance.post(`message/send/${roomID}`, {
+        sender: "client",
+        valueMessage,
+      });
+    },
+  },
+  session: {
+    // get: (roomID) => {
+    //   return axiosIntance.get(`session/room/${roomID}`);
+    // },
+  },
 };
 
 export default APIServer;

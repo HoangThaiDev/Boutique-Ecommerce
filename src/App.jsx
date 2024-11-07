@@ -66,6 +66,12 @@ function App() {
           return false;
         }
 
+        if (status === 400) {
+          alert(data.message);
+          navigate("/login");
+          return false;
+        }
+
         if (status === 401) {
           return dispatch(
             actionUser.save({ accessToken: "", isLoggedIn: data.isLoggedIn })

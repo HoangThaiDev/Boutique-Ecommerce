@@ -1,6 +1,6 @@
 .box-chat {
     position: fixed;
-    bottom: 40px;
+    bottom: 20px;
     right: 40px;
     z-index: 3;
 }
@@ -16,19 +16,24 @@
     width: 30px;
     height: 30px;
     padding: 8px;
-    display: none;
+    visibility: initial;
 }
 
 /* CSS: Box Chat Header */
 .box-chat-container {
     position: relative;
-    width: 400px;
-    height: 400px;
+    bottom: 20px;
+    width: 0;
+    height: 0;
     background-color: #fff;
     padding: 15px 0;
     border-radius: 15px;
-    box-shadow: 0 0 10px 1px rgb(159, 158, 158);
-    display: none;
+    box-shadow: 0 0 10px 1px rgb(159, 158, 158), 0 0 20px 2px rgba(245, 246, 247, .7);
+    visibility: hidden;
+    opacity: 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
     transition: .5s all ease;
 }
 
@@ -62,8 +67,9 @@
     flex: 1;
     padding: 10px 20px;
     display: flex;
-    flex-wrap: wrap;
     flex-direction: column;
+    gap: 10px 0;
+    overflow-y: auto;
 }
 
 .media-chat-admin {
@@ -71,25 +77,31 @@
 }
 
 .message-admin {
-    background-color: rgba(245, 246, 247, .7);
     display: inline-flex;
     gap: 0 5px;
-    padding: 6px 10px;
     border-radius: 3px;
 }
 
 .message-admin>span {
+    padding: 5px 0;
+    display: inline-block;
     font: 500 1.3rem/ 1.6rem "Roboto", sans-serif;
+}
+
+.message-admin>span:nth-child(2) {
+    background-color: rgba(245, 246, 247, .7);
+    padding: 5px 10px;
     color: rgb(109, 109, 109);
 }
 
 .media-chat-client {
     display: block;
-    align-self: flex-end;
+    width: 100%;
+    text-align: right;
 }
 
 .message-client {
-    background-color: rgba(72, 177, 247, .7);
+    background-color: #48B0F7;
     display: inline-flex;
     gap: 0 5px;
     padding: 6px 10px;
@@ -100,6 +112,7 @@
     font: 500 1.3rem/ 1.6rem "Roboto", sans-serif;
     color: #fff;
     letter-spacing: .4px;
+    word-break: break-word;
 }
 
 /* CSS: Box Chat Footer */
@@ -128,6 +141,7 @@
 }
 
 .box-chat-footer .icon-send-text {
+    cursor: pointer;
     font-size: 2.0rem;
     color: #35aad4;
 }
@@ -147,13 +161,15 @@
 
 /* CSS: Actives */
 .icon-box-chat.active {
-    display: block;
+    visibility: hidden;
 }
 
 .box-chat-container.active {
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
+    width: 400px;
+    height: 400px;
+    visibility: initial;
+    opacity: 1;
+
 }
 
 /* CSS: Effects */
@@ -164,3 +180,34 @@
 .box-chat-footer>input:focus {
     outline: none;
 }
+
+/* CSS: Responsives */
+@media screen and (max-width:575px) {
+    .box-chat {
+        right: 20px;
+        bottom: 20px;
+    }
+
+    .box-chat-container {
+        width: 100%;
+    }
+
+    .box-chat-header>span {
+        display: none;
+    }
+
+    .box-chat-section {
+        gap: 15px 0;
+    }
+}
+
+@media screen and (min-width:576px) and (max-width:765px) {
+    .box-chat {
+        right: 20px;
+        bottom: 20px;
+    }
+}
+
+@media screen and (min-width:766px) and (max-width:991px) {}
+
+@media screen and (min-width:992px) and (max-width:1199px) {}

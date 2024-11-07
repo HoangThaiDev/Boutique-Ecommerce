@@ -36,6 +36,7 @@ export default function Layout() {
       try {
         const res = await APIServer.shop.getProductsByQuery(location.search);
         const { products, totalProducts } = res.data;
+        console.log(products);
 
         setProducts({ data: products, totalProducts: totalProducts });
         setIsLoading(true);
